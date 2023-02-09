@@ -24,13 +24,13 @@ export class AuthService {
   };
 
   public nuevo(nuevoUsuario: NuevoUsuario): Observable<any> {
-    console.log("El servicio Registro esta corriendo en la URL:");
-    console.log(this.URL+'/register');
+    console.log("El Servicio de Registro esta corriendo en la URL:");
+    console.log(this.URL+'/registro');
     return this.httpClient.post<any>(this.URL + '/registro', nuevoUsuario);
   }
 
   public login(loginUsuario: LoginUsuario,_httpHeaders:HttpHeaders): Observable<any>{
-    console.log("El servicio login esta corriendo en la URL");
+    console.log("El Servicio de Login esta corriendo en la URL");
     console.log(this.URL+'/login');
     return this.httpClient.post<any>(this.URL + '/login',loginUsuario,this.httpOptions.headers)    
   }

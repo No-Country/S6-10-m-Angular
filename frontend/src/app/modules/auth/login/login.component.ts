@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     this.loginForm = this.formBuilder.group(
       {      
         email: ['', [Validators.required, Validators.email]],
-        password: ['',[Validators.required, Validators.minLength(6),Validators.maxLength(22)]]
+        password: ['',[Validators.required, Validators.minLength(7),Validators.maxLength(25)]]
       }
   )}
 
@@ -35,15 +35,15 @@ export class LoginComponent implements OnInit {
 
   onLogin(event:any) {
     this.loginUsuario = this.loginForm.value;
-    if (this.loginUsuario.email=="usuario@email.com" && this.loginUsuario.password=="123456"){      
+    if (this.loginUsuario.email=="usuario@email.com" && this.loginUsuario.password=="1234567"){      
       this.isLogged = true;     
       this.tokenService.setToken("Usuario Harcodeado");
       this.tokenService.setUserName("Usuario Harcodeado");
       this.router.navigate(['/dashboard'])
     } else {
-      console.log("El usuario tiene estos datos:");
+      console.log("Datos del usuario:");
       console.log(this.loginUsuario);
-      console.log("Se llama al servicio");
+      console.log("Se llama al Servicio AuthService");
       const headers = new HttpHeaders({
         'Content-Type': 'application/json'
       });
