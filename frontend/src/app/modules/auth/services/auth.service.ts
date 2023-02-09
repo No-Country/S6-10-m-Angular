@@ -10,7 +10,7 @@ import { NuevoUsuario } from '../models/nuevo-usuario';
 })
 export class AuthService {
 
-  URL = environment.baseUrl+"";
+  URL = /*environment.baseUrl+*/"";
 
   constructor(private httpClient: HttpClient) { }
 
