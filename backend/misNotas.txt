@@ -1,0 +1,21 @@
+Es la más completa, tiene:
+
+.cors: middleware usar para habilitar CORS con varias opciones.
+.express-rate-limit: to limit repeated requests to public APIs
+.helmet: secure your Express apps by setting various HTTP headers
+.compression:  compression middleware
+???.morgan: HTTP request logger middleware for node.js
+.bcryptjs: encriptar password
+.jsonwebtoken: manejar token
+.dotenv: Loads environment variables from .env file-variables de entorno
+.express-validator: ayuda con las validaciones del middleware email, isNumber, etc.
+.además: express, pg, pg-hstore,sequelize
+
+.globalErrorHandler: pequeña función para manejar los errores globales de forma más PRO. Se usa en app.js
+.AppError?????: manejar mejor el mensaja de error (formato)
+.catchAsync: reempla try / catch, envuelve a cada controller and middleware
+
+
+
+
+
