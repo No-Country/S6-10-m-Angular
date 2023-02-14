@@ -33,40 +33,35 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onLogin(event:any) {
-    this.loginUsuario = this.loginForm.value;
-    if (this.loginUsuario.email=="usuario@email.com" && this.loginUsuario.password=="1234567"){      
-      this.isLogged = true;     
-      this.tokenService.setToken("Usuario Harcodeado");
-      this.tokenService.setUserName("Usuario Harcodeado");
-      this.router.navigate(['/dashboard'])
-    } else {
-      console.log("Datos del usuario:");
-      console.log(this.loginUsuario);
-      console.log("Se llama al Servicio AuthService");
-      const headers = new HttpHeaders({
-        'Content-Type': 'application/json'
-      });
-      this.authService.login(this.loginUsuario,headers).subscribe({      
-        next:(data) => {
-          console.log(data);
-          this.isLogged = true;     
-          this.tokenService.setToken(data.response.jwt);
-          this.tokenService.setUserName(data.response.firstName);
-          this.tokenService.setLastName(data.response.lastName);
-          this.router.navigate(['/dashboard']);
-        },
-        error:(error) => {
-          this.isLogged = false;
-          console.error("ERROR");
-          this.usuarioIncorrecto();
-        },
-        complete:()=>{}
-      });
-    }
-  }   
+  // OnLogin
+  onLogin() {
+    //Usuario Harcodeado
+    this.loginUsuario = {email:"usuario@email.com",password:"12E45678"};
+    console.log("Datos del usuario:");      
+    console.log(this.loginUsuario);
+    console.log("Se llama al Servicio AuthService");
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    this.authService.login(this.loginUsuario/*,headers*/).subscribe({      
+      next:(res) => {
+        console.log(res);
+        this.isLogged = true;     
+        this.tokenService.setToken(res.data.token);
+        this.tokenService.setUserName(res.data.user.firstName);
+        this.router.navigate(['/dashboard']);
+      },
+      error:(error) => {
+        this.isLogged = false;
+        console.error(error);
+        this.usuarioIncorrecto();
+      },
+      complete:()=>{}
+    });
+  }
+     
   
-  
+  // Properties Validators
   get Email() { 
     return this.loginForm.get('email'); 
   }
@@ -74,10 +69,11 @@ export class LoginComponent implements OnInit {
     return this.loginForm.get('password')
   }
 
+  // Alert Incorrect User
   usuarioIncorrecto() {
     Swal.fire({
       title: 'Usuario NO registrado',
-      text: "Datos incorrectos, o bien, no está registrado",
+      text: "Datos incorrectos, o bien el usuario no está registrado",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -89,5 +85,4 @@ export class LoginComponent implements OnInit {
       }
     })
   }
-
 }
