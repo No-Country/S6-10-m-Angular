@@ -46,9 +46,15 @@ const updateUser = async (userData, email) => {
     return updatedUser;
 };
 
+const findMatch = async (query) => {
+    const matched = await User.findOne(query);
+    return !!matched;
+};
+
 module.exports = {
     newUser,
     findOneUser,
     updateUser,
     findById,
+    findMatch,
 };
