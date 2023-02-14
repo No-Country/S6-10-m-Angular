@@ -11,19 +11,9 @@ import { LandingComponent } from './components/landing/landing.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LandingComponent,
-    AdminDashboardComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NgbModule,
-    HttpClientModule,
-    AuthModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
+	declarations: [AppComponent, LandingComponent, AdminDashboardComponent],
+	imports: [BrowserModule, AppRoutingModule, NgbModule, HttpClientModule, AuthModule],
+	providers: [],
+	bootstrap: [AppComponent]
 })
 export class AppModule {}

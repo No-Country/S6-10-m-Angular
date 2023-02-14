@@ -9,10 +9,12 @@
         "*.ts"
       ],
       "parserOptions": {
-        "project": [
-          "tsconfig.json"
-        ],
-        "createDefaultProgram": true
+        "project": ["./tsconfig.json"],
+        "sourceType": "module",
+        "createDefaultProgram": true,
+        "plugins": [
+          "@typescript-eslint"
+        ]
       },
       "extends": [
         "plugin:@angular-eslint/recommended",

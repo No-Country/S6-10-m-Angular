@@ -6,34 +6,31 @@ import { LoginUsuario } from '../models/login-usuario';
 import { NuevoUsuario } from '../models/nuevo-usuario';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class AuthService {
+	URL = /*environment.baseUrl+*/ '';
 
-  URL = /*environment.baseUrl+*/"";
+	constructor(private httpClient: HttpClient) {}
 
-  constructor(private httpClient: HttpClient) { }
+	httpOptions: any = {
+		headers: new HttpHeaders({
+			'Content-Type': 'application/json',
+			'Access-Control-Allow-Headers': 'Content-Type',
+			'Access-Control-Allow-Methods': 'GET',
+			'Access-Control-Allow-Origin': '*'
+		})
+	};
 
-  httpOptions : any    = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-      'Access-Control-Allow-Headers': 'Content-Type',
-      'Access-Control-Allow-Methods': 'GET',
-      'Access-Control-Allow-Origin': '*'
-    })
-  };
+	public nuevo(nuevoUsuario: NuevoUsuario): Observable<any> {
+		console.log('El Servicio de Registro esta corriendo en la URL:');
+		console.log(this.URL + '/registro');
+		return this.httpClient.post<any>(this.URL + '/registro', nuevoUsuario);
+	}
 
-  public nuevo(nuevoUsuario: NuevoUsuario): Observable<any> {
-    console.log("El Servicio de Registro esta corriendo en la URL:");
-    console.log(this.URL+'/registro');
-    return this.httpClient.post<any>(this.URL + '/registro', nuevoUsuario);
-  }
-
-  public login(loginUsuario: LoginUsuario,_httpHeaders:HttpHeaders): Observable<any>{
-    console.log("El Servicio de Login esta corriendo en la URL");
-    console.log(this.URL+'/login');
-    return this.httpClient.post<any>(this.URL + '/login',loginUsuario,this.httpOptions.headers)    
-  }
-    
-  
+	public login(loginUsuario: LoginUsuario, _httpHeaders: HttpHeaders): Observable<any> {
+		console.log('El Servicio de Login esta corriendo en la URL');
+		console.log(this.URL + '/login');
+		return this.httpClient.post<any>(this.URL + '/login', loginUsuario, this.httpOptions.headers);
+	}
 }

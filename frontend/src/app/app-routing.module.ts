@@ -3,9 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { LandingComponent } from './components/landing/landing.component';
 
 const routes: Routes = [
-	{path:'home', component:LandingComponent},
-  	{path: 'auth', loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule)},
-	{ path: '**', redirectTo: 'home'}
+	{ path: 'home', component: LandingComponent },
+	{ path: 'auth', loadChildren: () => import('./modules/auth/auth.module').then((m) => m.AuthModule) },
+	{ path: '**', redirectTo: 'home' }
 ];
 
 @NgModule({
