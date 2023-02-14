@@ -49,7 +49,13 @@ export class LoginComponent implements OnInit {
         this.isLogged = true;     
         this.tokenService.setToken(res.data.token);
         this.tokenService.setUserName(res.data.user.firstName);
-        this.router.navigate(['/dashboard']);
+        const rol = res.data.user.role;
+        if (rol=="patient"){
+          /*this.router.navigate(['/patient-dashboard'])*/
+          this.router.navigateByUrl('/patient-dashboard')
+        } else {
+          this.router.navigate(['/admin-dashboard'])
+        }
       },
       error:(error) => {
         this.isLogged = false;
