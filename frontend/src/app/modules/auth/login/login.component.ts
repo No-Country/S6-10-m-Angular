@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
   }
 
   // OnLogin
-  onLogin() {
+  onLogin(event:any) {
     //Usuario Harcodeado
     this.loginUsuario = {email:"usuario@email.com",password:"12E45678"};
     console.log("Datos del usuario:");      
