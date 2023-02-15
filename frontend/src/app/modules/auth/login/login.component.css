@@ -4,14 +4,14 @@
   background-color: #FAFAFA;
   color:#3E3E3E
 }*/
-.gradient-custom-2 {    
+.gradient-custom-2 {
   background-color: #60abd9;
-  color:white
+  color: white;
 }
 /*---Boton Violeta---*/
 .btn-violet {
   background-color: #60abd9;
-  color:white
+  color: white;
 }
 /*---Estilos formularios Login y registro---*/
 .campo {
@@ -31,4 +31,4 @@
   text-transform: uppercase;
   cursor: pointer;
   padding: 2px 10px;
-}   
+}
