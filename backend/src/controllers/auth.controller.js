@@ -46,14 +46,14 @@ const loginUser = async (req, res) => {
     } catch (err) {
         return serverError({
             res,
-            message: err.message,
+            message: 'Email or password incorrect',
         });
     }
 
     if (!user) {
         return error({
             res,
-            message: 'Email or password incorrect',
+            message: 'User does not exist',
         });
     }
 

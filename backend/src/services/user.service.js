@@ -20,6 +20,10 @@ const newUser = async ({
     phone,
     role,
 }) => {
+    const existingUser = await findOneUser(email);
+    if (existingUser) {
+        throw new Error('Email already exists');
+    }
     const encrypted = await encryptPassword(password);
 
     return User.create({
@@ -46,9 +50,15 @@ const updateUser = async (userData, email) => {
     return updatedUser;
 };
 
+const findMatch = async (query) => {
+    const matched = await User.findOne(query);
+    return !!matched;
+};
+
 module.exports = {
     newUser,
     findOneUser,
     updateUser,
     findById,
+    findMatch,
 };

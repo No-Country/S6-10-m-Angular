@@ -8,8 +8,13 @@ const {
     authenticateUser,
 } = require('../controllers/auth.controller');
 
-router.post('/register', registerUser);
-router.post('/login', loginUser);
+const {
+    validateRegisterFields,
+    validateLoginFields,
+} = require('../validators/user.validator');
+
+router.post('/register', validateRegisterFields, registerUser);
+router.post('/login', validateLoginFields, loginUser);
 router.use(authenticateUser);
 
 module.exports = router;
