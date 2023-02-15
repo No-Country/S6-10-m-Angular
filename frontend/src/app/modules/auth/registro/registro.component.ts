@@ -22,7 +22,7 @@ export class RegistroComponent implements OnInit {
 
   createUser() {
     this.authService.nuevo(this.user)
-    .subscribe(data => console.log(data))
+    .subscribe(data => console.log('data:',data))
   }
 
 }
