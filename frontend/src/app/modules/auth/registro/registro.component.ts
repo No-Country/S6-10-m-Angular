@@ -10,7 +10,7 @@ import { NuevoUsuario } from '../models/nuevo-usuario';
 export class RegistroComponent implements OnInit {
 	constructor(private authService: AuthService ) {}
 
-	ngOnInit(): void {}
+	ngOnInit(): void { }
 
 	user: NuevoUsuario = {
     firstName: '',
