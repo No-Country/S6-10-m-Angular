@@ -39,10 +39,13 @@
                                 Ingrese su contraseña
                               </p>
                               <p *ngIf="Password?.hasError('minlength')" class="text-danger">
-                                La contraseña tiene como mínimo 6 caracteres
+                                La contraseña tiene como mínimo 8 caracteres
                               </p>
                               <p *ngIf="Password?.hasError('maxlength')" class="text-danger">
                                 La contraseña tiene como máximo 22 caracteres
+                              </p>
+                              <p *ngIf="Password?.hasError('pattern')" class="text-danger">
+                                La contraseña contiene al menos un número y una letra mayúscula
                               </p>
                             </div>                  
                         </div>
