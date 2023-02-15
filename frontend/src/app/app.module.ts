@@ -24,8 +24,7 @@ import { PatientDashboardComponent } from './components/patient-dashboard/patien
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    AuthModule,
-    UserModule
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
         const rol = res.data.user.role;
         if (rol=="patient"){
           /*this.router.navigate(['/patient-dashboard'])*/
-          this.router.navigateByUrl('/patient-dashboard')
+          this.router.navigateByUrl('/user/dashboard')
         } else {
           this.router.navigate(['/admin-dashboard'])
         }
