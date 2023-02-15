@@ -43,7 +43,7 @@ export class RegistroComponent implements OnInit {
   }
 
   onRegister() {
-    this.nuevoUsuario=this.registroForm.value;
+    this.nuevoUsuario= this.registroForm.value;
     console.log(this.nuevoUsuario);
     this.authService.nuevo(this.nuevoUsuario).subscribe({
       next:(data) => {
