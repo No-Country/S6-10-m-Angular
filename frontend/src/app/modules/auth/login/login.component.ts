@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
   // OnLogin
   onLogin(event:any) {
     //Usuario Harcodeado
-    this.loginUsuario = {email:"usuario@email.com",password:"12E45678"};
+    this.loginUsuario = this.loginForm.value;/*{email:"usuario@email.com",password:"12E45678"};*/
     console.log("Datos del usuario:");      
     console.log(this.loginUsuario);
     console.log("Se llama al Servicio AuthService");
