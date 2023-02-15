@@ -20,6 +20,10 @@ const newUser = async ({
     phone,
     role,
 }) => {
+    const existingUser = await findOneUser(email);
+    if (existingUser) {
+        throw new Error('Email already exists');
+    }
     const encrypted = await encryptPassword(password);
 
     return User.create({

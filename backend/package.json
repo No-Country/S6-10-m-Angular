@@ -4,7 +4,8 @@
     "description": "full stack javascript project: Node, Express, Postgresql and Sequelize",
     "main": "index.js",
     "scripts": {
-        "dev": "nodemon src/index.js"
+        "dev": "nodemon src/index.js",
+        "test": "jest"
     },
     "keywords": [],
     "author": "",
