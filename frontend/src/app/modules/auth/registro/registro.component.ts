@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component} from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router'
 import Swal from 'sweetalert2'
@@ -10,14 +10,14 @@ import { AuthService } from '../services/auth.service'
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css']
 })
-export class RegistroComponent implements OnInit {
-  constructor(private authService: AuthService) {}
+
+export class RegistroComponent {
 
   registroForm: FormGroup
   ocultar: boolean = true
   constructor(
-    private formBuilder: FormBuilder,
     private authService: AuthService,
+    private formBuilder: FormBuilder,
     private router: Router
   ) {
     this.registroForm = this.formBuilder.group({
@@ -35,7 +35,8 @@ export class RegistroComponent implements OnInit {
   user: NuevoUsuario = {
     firstName: '',
     lastName: '',
-    password: ''
+    password: '',
+    email: ''
   }
 
   createUser() {
@@ -43,6 +44,8 @@ export class RegistroComponent implements OnInit {
       .nuevo(this.user)
       .subscribe((data) => console.log('data:', data))
   }
+
+  nuevoUsuario: any
 
   onRegister() {
     this.nuevoUsuario = this.registroForm.value
