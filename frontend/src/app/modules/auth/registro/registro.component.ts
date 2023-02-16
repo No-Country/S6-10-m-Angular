@@ -83,7 +83,6 @@ export class RegistroComponent {
       })
     }
 
-<<<<<<< HEAD
     registroIncorrecto() {
       Swal.fire({
         title: 'Error en el registro',
@@ -102,25 +101,6 @@ export class RegistroComponent {
       })
     }
   
-=======
-  registroIncorrecto() {
-    Swal.fire({
-      title: 'Error en el registro',
-      text: 'Por algún motivo relacionado con unos y ceros, no podemos registrarte',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Intentar nuevamente'
-    }).then((result: any) => {
-      if (result.isConfirmed) {
-        this.router.navigateByUrl('/auth/registro')
-      } else {
-        this.router.navigateByUrl('/landing')
-      }
-    })
-  }
->>>>>>> 73e45ced8c4f1d37b88bbcf70b3117f0829ac342
 
   /*=================================================*/
 
