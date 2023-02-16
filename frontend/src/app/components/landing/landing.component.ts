@@ -8,5 +8,12 @@ import { Component, OnInit } from '@angular/core'
 export class LandingComponent implements OnInit {
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
+
+  scrollTo(seccion: string) {
+    window.location.hash = '';
+    window.location.hash = seccion;
+  }
+
 }

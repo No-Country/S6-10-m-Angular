@@ -13,38 +13,34 @@ import Swal from 'sweetalert2'
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginForm: FormGroup
-  ocultar: boolean = true
-  isLogged: boolean = false
-  loginUsuario: LoginUsuario = { email: '', password: '' }
-  emailUsuario: string = ''
-  password: string = ''
-  errMsj: string = ''
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private router: Router,
-    private authService: AuthService,
-    private tokenService: TokenService
-  ) {
-    this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: [
-        '',
-        [Validators.required, Validators.minLength(7), Validators.maxLength(25)]
-      ]
-    })
-  }
+
+  loginForm:FormGroup;
+  ocultar: boolean = true;
+  isLogged:boolean=false;
+  loginUsuario: LoginUsuario={email:"",password:""};
+  emailUsuario: string="";
+  password: string="";
+  errMsj:string="";
+
+  constructor(private formBuilder:FormBuilder, private router: Router,private authService:AuthService,private tokenService:TokenService) {
+    this.loginForm = this.formBuilder.group(
+      {
+        email: ['', [Validators.required, Validators.email]],
+        password: ['',[Validators.required, Validators.minLength(8),Validators.maxLength(25),Validators.pattern(/^(?=.*[A-Z])(?=.*[0-9])/)]]
+      }
+  )}
+
 
   ngOnInit(): void {}
 
   // OnLogin
   onLogin(event: any) {
     //Usuario Harcodeado
-    this.loginUsuario = { email: 'usuario@email.com', password: '12E45678' }
-    console.log('Datos del usuario:')
-    console.log(this.loginUsuario)
-    console.log('Se llama al Servicio AuthService')
+    this.loginUsuario = this.loginForm.value;/*{email:"usuario@email.com",password:"12E45678"};*/
+    console.log("Datos del usuario:");
+    console.log(this.loginUsuario);
+    console.log("Se llama al Servicio AuthService");
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     })

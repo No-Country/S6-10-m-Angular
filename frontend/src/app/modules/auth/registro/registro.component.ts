@@ -18,18 +18,20 @@ export class RegistroComponent {
   constructor(
     private authService: AuthService,
     private formBuilder: FormBuilder,
-    private router: Router
-  ) {
-    this.registroForm = this.formBuilder.group({
-      firstName: ['', [Validators.required]],
-      lastName: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
-      password: [
-        '',
-        [Validators.required, Validators.minLength(6), Validators.maxLength(22)]
-      ],
-      currencyId: 1
-    })
+    private router:Router) {
+
+    this.registroForm = this.formBuilder.group(
+      {
+        firstName: ['', [Validators.required]],
+        lastName: ['', [Validators.required]],
+        email: ['', [Validators.required, Validators.email]],
+        password: ['',[Validators.required, Validators.minLength(8),Validators.maxLength(22),Validators.pattern(/^(?=.*[A-Z])(?=.*[0-9])/)]],
+        code:54,
+        phone:5555555
+      }
+  )}
+
+  ngOnInit(): void {
   }
 
   user: NuevoUsuario = {
@@ -59,27 +61,27 @@ export class RegistroComponent {
         this.registroIncorrecto()
         console.log(error)
       },
-      complete: () => {}
+      complete:()=>{}
     })
   }
 
-  usuarioRegistrado() {
-    Swal.fire({
-      title: 'Usuario Registrado',
-      text: 'Hemos enviado un correo a tu email, para que verifiques tu cuenta y comiences a usar Charta',
-      icon: 'success',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Iniciar Sesión'
-    }).then((result: any) => {
-      if (result.isConfirmed) {
-        this.router.navigateByUrl('/auth/login')
-      } else {
-        this.router.navigateByUrl('/landing')
-      }
-    })
-  }
+    usuarioRegistrado() {
+      Swal.fire({
+        title: 'Usuario Registrado',
+        text: "Hemos enviado un correo a tu email, para que verifiques tu cuenta y comiences a usar CitaMed",
+        icon: 'success',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Iniciar Sesión'
+      }).then((result:any) => {
+        if (result.isConfirmed) {
+          this.router.navigateByUrl('/auth/login')
+        } else {
+          this.router.navigateByUrl('/home')
+        }
+      })
+    }
 
   registroIncorrecto() {
     Swal.fire({

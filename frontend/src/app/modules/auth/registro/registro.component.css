@@ -1,34 +1,49 @@
 /*========ESTILOS COMUNES LOGIN Y REGISTRO============*/
 /*
-.gradient-custom-2 {    
+.gradient-custom-2 {
   background-color: #FAFAFA;
   color:#3E3E3E
 }*/
 .gradient-custom-2 {
-  background-color: #60abd9;
-  color: white;
+    background-color: #60abd9;
+    color:white
+  }
+  /*---Boton Violeta---*/
+  .btn-violet {
+    background-color: #60abd9;
+    color:white
+  }
+  /*---Estilos formularios Login y registro---*/
+  .campo {
+    position: relative;
+  }
+  .label {
+    width: 100%;
+  }
+  .input-password {
+    width: 100%;
+    padding: 7px;
+  }
+  .eye-icon {
+    position: absolute;
+    right: 35px;
+    top: 39px;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 2px 10px;
+  }
+  #flecha {
+    position:absolute;
+    top:25px;
+    right:25px;
+    margin-bottom: 25px;
+    font-size: 30px;
 }
-/*---Boton Violeta---*/
-.btn-violet {
-  background-color: #60abd9;
-  color: white;
+#flecha a {
+    color:white
 }
-/*---Estilos formularios Login y registro---*/
-.campo {
-  position: relative;
-}
-.label {
-  width: 100%;
-}
-.input-password {
-  width: 100%;
-  padding: 7px;
-}
-.eye-icon {
-  position: absolute;
-  right: 35px;
-  top: 39px;
-  text-transform: uppercase;
-  cursor: pointer;
-  padding: 2px 10px;
+@media screen and (max-width: 991px) {
+  #flecha a {
+      color:#60abd9
+  }
 }
