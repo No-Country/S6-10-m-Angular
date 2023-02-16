@@ -39,4 +39,8 @@ export class AuthService {
       this.httpOptions.headers
     )
   }
+
+  public logOut(): void{
+    window.sessionStorage.clear();
+  }
 }
