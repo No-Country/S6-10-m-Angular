@@ -8,6 +8,8 @@ const routes: Routes = [
 	{path:'home', component:LandingComponent},
   	{path: 'auth', loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule)},
 	{path: 'user', loadChildren: () => import('./modules/user/user.module').then(m => m.UserModule)},
+	{path: 'doctor', loadChildren: () => import('./modules/doctor/doctor.module').then(m => m.DoctorModule)},
+	{path: 'admin', loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule)},
 	{path:'admin-dashboard',component:AdminDashboardComponent},
 	{path:'patient-dashboard',component:PatientDashboardComponent},
 	{ path: '**', redirectTo: 'home'}

@@ -11,6 +11,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LandingComponent } from './components/landing/landing.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { PatientDashboardComponent } from './components/patient-dashboard/patient-dashboard.component';
+import { AdminModule } from './modules/admin/admin.module';
+import { DoctorModule } from './modules/doctor/doctor.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,10 @@ import { PatientDashboardComponent } from './components/patient-dashboard/patien
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    AuthModule
+    AuthModule,
+    UserModule,
+    AdminModule,
+    DoctorModule
   ],
   providers: [],
   bootstrap: [AppComponent],

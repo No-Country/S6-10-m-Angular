@@ -83,7 +83,7 @@ export class RegistroComponent implements OnInit {
         if (result.isConfirmed) {
           this.router.navigateByUrl('/auth/registro')
         } else {
-          this.router.navigateByUrl('/landing')
+          this.router.navigateByUrl('/home')
         }
       })
     }
