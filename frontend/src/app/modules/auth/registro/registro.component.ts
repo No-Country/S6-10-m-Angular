@@ -1,29 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import Swal from 'sweetalert2';
-import { NuevoUsuario } from '../models/nuevo-usuario';
-import { AuthService } from '../services/auth.service';
+import { Component} from '@angular/core'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { Router } from '@angular/router'
+import Swal from 'sweetalert2'
+import { NuevoUsuario } from '../models/nuevo-usuario'
+import { AuthService } from '../services/auth.service'
 
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css']
 })
-export class RegistroComponent implements OnInit {
 
-  registroForm:FormGroup; 
-  ocultar:boolean=true;
-  
-  nuevoUsuario: NuevoUsuario={firstName:"",lastName:"",email:"",password:""};
+export class RegistroComponent {
 
+  registroForm: FormGroup
+  ocultar: boolean = true
   constructor(
-    private formBuilder:FormBuilder,
     private authService: AuthService,
+    private formBuilder: FormBuilder,
     private router:Router) {
 
     this.registroForm = this.formBuilder.group(
-      {      
+      {
         firstName: ['', [Validators.required]],
         lastName: ['', [Validators.required]],
         email: ['', [Validators.required, Validators.email]],
@@ -36,17 +34,32 @@ export class RegistroComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  user: NuevoUsuario = {
+    firstName: '',
+    lastName: '',
+    password: '',
+    email: ''
+  }
+
+  createUser() {
+    this.authService
+      .nuevo(this.user)
+      .subscribe((data) => console.log('data:', data))
+  }
+
+  nuevoUsuario: any
+
   onRegister() {
-    this.nuevoUsuario=this.registroForm.value;
-    console.log(this.nuevoUsuario);
-    this.authService.nuevo(this.nuevoUsuario).subscribe({      
-      next:(data) => {
-        console.log(data);
-        this.usuarioRegistrado();
+    this.nuevoUsuario = this.registroForm.value
+    console.log(this.nuevoUsuario)
+    this.authService.nuevo(this.nuevoUsuario).subscribe({
+      next: (data) => {
+        console.log(data)
+        this.usuarioRegistrado()
       },
-      error:(error) => {
-        this.registroIncorrecto();
-        console.log(error)        
+      error: (error) => {
+        this.registroIncorrecto()
+        console.log(error)
       },
       complete:()=>{}
     })
@@ -70,6 +83,7 @@ export class RegistroComponent implements OnInit {
       })
     }
 
+<<<<<<< HEAD
     registroIncorrecto() {
       Swal.fire({
         title: 'Error en el registro',
@@ -88,21 +102,39 @@ export class RegistroComponent implements OnInit {
       })
     }
   
+=======
+  registroIncorrecto() {
+    Swal.fire({
+      title: 'Error en el registro',
+      text: 'Por algún motivo relacionado con unos y ceros, no podemos registrarte',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Intentar nuevamente'
+    }).then((result: any) => {
+      if (result.isConfirmed) {
+        this.router.navigateByUrl('/auth/registro')
+      } else {
+        this.router.navigateByUrl('/landing')
+      }
+    })
+  }
+>>>>>>> 73e45ced8c4f1d37b88bbcf70b3117f0829ac342
 
   /*=================================================*/
 
-  // VALIDATORS  
-  get Nombre() { 
-    return this.registroForm.get('firstName'); 
+  // VALIDATORS
+  get Nombre() {
+    return this.registroForm.get('firstName')
   }
-  get Apellido() { 
-    return this.registroForm.get('lastName'); 
+  get Apellido() {
+    return this.registroForm.get('lastName')
   }
-  get Email() { 
-    return this.registroForm.get('email'); 
+  get Email() {
+    return this.registroForm.get('email')
   }
   get Password() {
     return this.registroForm.get('password')
   }
-
 }

@@ -1,12 +1,2 @@
-node_modules/*
-package-lock.json
-package.json
-angular.json
-karma.conf.js
-yarn.lock
-src/*.ts
-src/index.html
-src/environments
-tsconfig.app.json
-tsconfig.json
-tsconfig.spec.json
+**/node_modules
+*.html

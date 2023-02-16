@@ -5,8 +5,6 @@ import { UserRoutingModule } from './user-routing.module';
 import { MedicosComponent } from './components/medicos/medicos.component';
 import { TurnosComponent } from './components/turnos/turnos.component';
 
-
-
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -17,5 +15,6 @@ import { TurnosComponent } from './components/turnos/turnos.component';
     CommonModule,
     UserRoutingModule,
   ]
+
 })
-export class UserModule { }
+export class UserModule {}

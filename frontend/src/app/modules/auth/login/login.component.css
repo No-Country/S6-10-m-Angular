@@ -1,17 +1,17 @@
 /*========ESTILOS COMUNES LOGIN Y REGISTRO============*/
 /*
-.gradient-custom-2 {    
+.gradient-custom-2 {
   background-color: #FAFAFA;
   color:#3E3E3E
 }*/
-.gradient-custom-2 {    
+.gradient-custom-2 {
   background-color: #60abd9;
-  color:white
+  color: white;
 }
 /*---Boton Violeta---*/
 .btn-violet {
   background-color: #60abd9;
-  color:white
+  color: white;
 }
 /*---Estilos formularios Login y registro---*/
 .campo {
@@ -37,7 +37,7 @@
   top:25px;
   right:25px;
   margin-bottom: 25px;
-  font-size: 30px;   
+  font-size: 30px;
 }
 #flecha a {
   color:white
