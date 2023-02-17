@@ -26,8 +26,8 @@ export class RegistroComponent {
         lastName: ['', [Validators.required]],
         email: ['', [Validators.required, Validators.email]],
         password: ['',[Validators.required, Validators.minLength(8),Validators.maxLength(22),Validators.pattern(/^(?=.*[A-Z])(?=.*[0-9])/)]],
-        code:54,
-        phone:5555555
+        dni:['',[Validators.required]],
+        phone:['',[Validators.required]],
       }
   )}
 
@@ -38,7 +38,10 @@ export class RegistroComponent {
     firstName: '',
     lastName: '',
     password: '',
-    email: ''
+    email: '',
+    dni:0,
+    phone:0
+
   }
 
   createUser() {
@@ -116,5 +119,11 @@ export class RegistroComponent {
   }
   get Password() {
     return this.registroForm.get('password')
+  }
+  get Dni() {
+    return this.registroForm.get('dni')
+  }
+  get Phone() {
+    return this.registroForm.get('phone')
   }
 }

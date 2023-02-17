@@ -49,6 +49,26 @@
                         </p>
                       </div>
                     </div>
+                    <!----Ingrese su DNI---->
+                    <div class="form-outline mb-3">
+                      <label class="form-label" for="dni">DNI</label>
+                      <input type="number" id="dni"  formControlName="dni" class="form-control" aria-describedby="dniHelp" placeholder="" [ngClass]="{'is-valid':!Dni?.errors&& Dni?.touched}"/>
+                      <div *ngIf="Dni?.errors && Dni?.touched">
+                        <p *ngIf="Dni?.hasError('required')" class="text-danger">
+                          Ingrese su DNI
+                        </p>
+                      </div>
+                    </div>
+                    <!----Ingrese su TELEFONO---->
+                    <div class="form-outline mb-3">
+                      <label class="form-label" for="phone">Teléfono</label>
+                      <input type="number" id="phone"  formControlName="phone" class="form-control" aria-describedby="telefonoHelp" placeholder="522476343498" [ngClass]="{'is-valid':!Phone?.errors&& Phone?.touched}"/>
+                      <div *ngIf="Phone?.errors && Phone?.touched">
+                        <p *ngIf="Phone?.hasError('required')" class="text-danger">
+                          Ingrese su teléfono
+                        </p>
+                      </div>
+                    </div>
                     <!----Ingrese la contraseña--->
                     <div class="campo form-outline mb-3">
                       <label class="label form-label" for="password">Contraseña</label>
