@@ -1,8 +1,8 @@
 //Modificar rutas
 
 app.post ("/views/index.hbs", (req, res) =>{
-    const { usuario,email,especialidad,profesional,sanatorio,diaTurno,horaTurno } = req.body;
-      console.log(usuario);
+    const { user,email,especialidad,profesional,sanatorio,diaTurno,horaTurno } = req.body;
+      console.log(user);
       console.log(email);
       console.log(especialidad);
       console.log(profesional);
@@ -23,7 +23,7 @@ app.post ("/views/index.hbs", (req, res) =>{
           from: process.env.USEREMAIL,
           to: `${email}`,
           subject:"Reserva de turno",
-          html:`Hola ${usuario}. Te confirmamos la reserva de tu turno para la especialidad ${especialidad},
+          html:`Hola ${user}. Te confirmamos la reserva de tu turno para la especialidad ${especialidad},
           con el/la ${profesional} en el sanatorio ${sanatorio} el dia ${diaTurno} a las ${horaTurno}.
           Si queres modificar tu turno ingresa al siguiente link .......... `
         })
