@@ -28,7 +28,7 @@ const User = db.define('user', {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    code: {
+    dni: {
         type: DataTypes.STRING,
         allowNull: false,
     },

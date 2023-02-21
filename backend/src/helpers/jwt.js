@@ -13,7 +13,7 @@ const generateJWT = (id, email, role) => {
         jwt.sign(
             payload,
             config.development.jwtSec,
-            { expiresIn: '1h' },
+            { expiresIn: '24h' },
             (err, token) => {
                 if (err) {
                     reject(Error('token could not be generated'));

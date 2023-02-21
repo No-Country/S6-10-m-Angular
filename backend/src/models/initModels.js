@@ -7,6 +7,7 @@ const { Schedule } = require('./schedule.model');
 const { Sede } = require('./sede.model');
 const { Speciality } = require('./speciality.model');
 const { History } = require('./history.model');
+const { Code } = require('./code.model');
 
 /**
  *  only when <> userId (userId is what sequelize is looking for)
@@ -45,6 +46,16 @@ const initModels = () => {
     // one Sede <---> many Doctor
     Sede.hasMany(Doctor);
     Doctor.belongsTo(Sede);
+
+    // one code <---> many user
+    Code.hasMany(User);
+    User.belongsTo(Code);
+
+    // one code <---> many doctor
+    Code.hasMany(Doctor);
+    Doctor.belongsTo(Code);
+
+
 };
 
 module.exports = { initModels };

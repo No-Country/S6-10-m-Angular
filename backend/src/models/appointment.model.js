@@ -4,11 +4,12 @@ const { db } = require('../utils/database');
 
 const Appointment = db.define('appointment', {
     id: {
-        type: DataTypes.UUIDV4,
+        type: DataTypes.UUID,
         primaryKey: true,
-        defaultValue: DataTypes.UUIDV4,
+        defaultValue: () => {
+            return uuid();
+        },
         allowNull: false,
-        type: DataTypes.INTEGER,
     },
     type: {
         type: DataTypes.STRING,
