@@ -6,6 +6,7 @@ import { MedicosComponent } from './components/medicos/medicos.component';
 import { TurnosComponent } from './components/turnos/turnos.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { PruebaComponent } from './components/prueba/prueba.component';
+import { TurnosSearchComponent } from './components/turnos/turnos-search.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { PruebaComponent } from './components/prueba/prueba.component';
     MedicosComponent,
     TurnosComponent,
     PerfilComponent,
-    PruebaComponent
+    PruebaComponent,
+    TurnosSearchComponent
   ],
   imports: [
     CommonModule,
