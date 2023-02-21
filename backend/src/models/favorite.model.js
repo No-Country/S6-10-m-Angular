@@ -4,11 +4,12 @@ const { db } = require('../utils/database');
 
 const Favorite = db.define('favorite', {
     id: {
-        type: DataTypes.UUIDV4,
+        type: DataTypes.UUID,
         primaryKey: true,
-        defaultValue: DataTypes.UUIDV4,
+        defaultValue: () => {
+            return uuid();
+        },
         allowNull: false,
-        type: DataTypes.INTEGER,
     },
     active: {
         type: DataTypes.BOOLEAN,

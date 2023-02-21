@@ -21,6 +21,7 @@
         "arrow-body-style": ["error", "always"],
         "no-dupe-keys": "off",
         "consistent-return": "off",
-        "no-use-before-define": "off"
+        "no-use-before-define": "off",
+        "prefer-destructuring": "off"
     }
 }

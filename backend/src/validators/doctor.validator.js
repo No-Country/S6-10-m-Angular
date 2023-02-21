@@ -44,12 +44,6 @@ const validateRegisterFields = [
         .trim()
         .escape(),
 
-    check('dni', 'Enter dni')
-        .exists()
-        .withMessage('Enter a valid format')
-        .trim()
-        .escape(),
-
         check('codeId', 'Enter a valid code number')
         .exists()
         .withMessage('Enter a valid format')
@@ -62,11 +56,23 @@ const validateRegisterFields = [
         .trim()
         .escape(),
 
-    check('role', "Role must be 'patient' or 'admin'")
+        check('role', "Role must be 'patient' or 'admin'")
         .optional()
         .isIn(['patient', 'admin']),
 
-    check('active', 'Active must be a boolean').optional().isBoolean(),
+        check('active', 'Active must be a boolean').optional().isBoolean(),
+
+        check('specialityId', 'Enter a valid specialityId')
+        .exists()
+        .withMessage('Enter a valid specialityId')
+        .trim()
+        .escape(),
+
+        check('sedeId', 'Enter a valid sedeId')
+        .exists()
+        .withMessage('Enter a valid sedeId')
+        .trim()
+        .escape(),
 
     (req, res, next) => {
         validateResult(req, res, next);

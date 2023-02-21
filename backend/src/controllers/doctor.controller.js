@@ -4,30 +4,30 @@ const { generateJWT, validateJWT } = require('../helpers/jwt');
 
 const { comparePassword } = require('../helpers/bcrypt');
 
-const { newUser, findOneUser } = require('../services/user.service');
+const { newDoctor, findOneDoctor } = require('../services/doctor.service');
 
-const processMessage = require("../shared/processMessage");
+const processMessage = require('../shared/processMessage');
 
-const registerUser = async (req, res) => {
+const registerDoctor = async (req, res) => {
     let data = {};
 
     try {
-        const newUserResult = await newUser(req.body);
+        const newDoctorResult = await newDoctor(req.body);
         const token = await generateJWT(
-            newUserResult.id,
-            newUserResult.email,
-            newUserResult.role
+            newDoctorResult.id,
+            newDoctorResult.email,
+            newDoctorResult.role
         );
 
         // Add sede data to the req object
-        req.user = newUserResult;
+        req.doctor = newDoctorResult;
 
-        const number = newUserResult.code + newUserResult.phone;
+        const number = newDoctorResult.phone;
 
         processMessage.firstProcess(number);
 
         data = {
-            user: newUserResult,
+            user: newDoctorResult,
             token,
         };
     } catch (err) {
@@ -39,19 +39,19 @@ const registerUser = async (req, res) => {
 
     return success({
         res,
-        message: 'User registered successfully',
+        message: 'Doctor registered successfully',
         data,
         statusCode: 201,
     });
 };
 
 // eslint-disable-next-line consistent-return
-const loginUser = async (req, res) => {
+const loginDoctor = async (req, res) => {
     const { email, password } = req.body;
-    let user = {};
+    let doctor = {};
 
     try {
-        user = await findOneUser(email);
+        doctor = await findOneDoctor(email);
     } catch (err) {
         return serverError({
             res,
@@ -59,20 +59,20 @@ const loginUser = async (req, res) => {
         });
     }
 
-    if (!user) {
+    if (!doctor) {
         return error({
             res,
-            message: 'User does not exist',
+            message: 'Doctor does not exist',
         });
     }
 
-    const validPassword = await comparePassword(password, user.password);
+    const validPassword = await comparePassword(password, doctor.password);
 
     if (validPassword) {
         let token = '';
 
         try {
-            token = await generateJWT(user.id, user.email, user.role);
+            token = await generateJWT(doctor.id, doctor.email, doctor.role);
         } catch (err) {
             return serverError({
                 res,
@@ -82,8 +82,8 @@ const loginUser = async (req, res) => {
 
         return success({
             res,
-            message: 'User logged in successfully',
-            data: { user, token },
+            message: 'Doctor logged in successfully',
+            data: { doctor, token },
         });
     }
 
@@ -94,7 +94,7 @@ const loginUser = async (req, res) => {
 };
 
 // eslint-disable-next-line consistent-return
-const authenticateUser = async (req, res, next) => {
+const authenticateDoctor = async (req, res, next) => {
     try {
         const token = req.header('Authorization');
         const decoded = await validateJWT(token);
@@ -106,13 +106,13 @@ const authenticateUser = async (req, res, next) => {
     } catch (err) {
         serverError({
             res,
-            message: 'An error occurred while authenticating the user',
+            message: 'An error occurred while authenticating the doctor',
         });
     }
 };
 
 module.exports = {
-    registerUser,
-    loginUser,
-    authenticateUser,
+    registerDoctor,
+    loginDoctor,
+    authenticateDoctor,
 };

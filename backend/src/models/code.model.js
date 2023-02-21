@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize');
 const { v4: uuid } = require('uuid');
 const { db } = require('../utils/database');
 
-const History = db.define('history', {
+const Code = db.define('code', {
     id: {
         type: DataTypes.UUID,
         primaryKey: true,
@@ -11,10 +11,16 @@ const History = db.define('history', {
         },
         allowNull: false,
     },
+    code: {
+        type: DataTypes.STRING,
+    },
+    country: {
+        type: DataTypes.STRING,
+    },
     active: {
         type: DataTypes.BOOLEAN,
         defaultValue: true,
     },
 });
 
-module.exports = { History };
+module.exports = { Code };
