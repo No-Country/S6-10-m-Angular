@@ -1,18 +1,5 @@
 /*========ESTILOS COMUNES LOGIN Y REGISTRO============*/
-/*
-.gradient-custom-2 {
-  background-color: #FAFAFA;
-  color:#3E3E3E
-}*/
-.gradient-custom-2 {
-    background-color: #60abd9;
-    color:white
-  }
-  /*---Boton Violeta---*/
-  .btn-violet {
-    background-color: #60abd9;
-    color:white
-  }
+
   /*---Estilos formularios Login y registro---*/
   
   .campo {
@@ -38,11 +25,12 @@
 .sesion-background {
   background-color: rgb(218, 214, 214);
   background-image: url(../../../../assets/img/Auth-background.png);
-  height: 100vh;
-  background-size: contain;
+  min-height: 100vh;
+  background-size:auto 100%;
   background-repeat: no-repeat;
-  background-position: right;
-  padding-top:80px
+  background-position: right;  
+  background-attachment: fixed;
+  padding-top:80px;
 }
 .tar {
   width:300px;
@@ -147,4 +135,9 @@ label {
   right: 12.5%;
   top: 8.33%;
   bottom: 8.33%;
+}
+@media screen and (max-width: 600px) {
+  .tar{
+    margin:0 auto
+  }
 }
