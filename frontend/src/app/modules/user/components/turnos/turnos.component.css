@@ -1,0 +1,126 @@
+#appointments {
+    position: relative;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    font-family: 'Poppins';
+    font-style: normal;
+}
+
+#panel-title {
+    width: 84px;
+    height: 36px;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 34px;
+    color: #002069;
+}
+
+#appointments-panel{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+#new-appointment {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1em;
+    background: linear-gradient(90deg, rgba(0, 136, 214, 0.3) 0%, rgba(11, 227, 190, 0.3) 103.11%);
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+#scheduled-appointments {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1em;
+    background: linear-gradient(90deg, rgba(0, 136, 214, 0.3) 0%, rgba(11, 227, 190, 0.3) 103.11%);
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+span {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 28px;
+    color: #000000;
+}
+
+.span-bold {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    color: #000000;
+}
+
+p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    color: #1F1F1F;
+    margin-bottom: 0px;
+
+}
+
+img {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 52px;
+    height: 52px;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    background: #FFFFFF;
+    box-shadow: 0px 14px 12px rgba(0, 0, 0, 0.11),
+        0px 5.84887px 5.01331px rgba(0, 0, 0, 0.079074),
+        0px 3.12708px 2.68036px rgba(0, 0, 0, 0.0655718),
+        0px 1.75302px 1.50259px rgba(0, 0, 0, 0.055),
+        0px 0.931014px 0.798012px rgba(0, 0, 0, 0.0444282),
+        0px 0.387416px 0.332071px rgba(0, 0, 0, 0.030926);
+    border-radius: 10px;
+    text-align: left;
+}
+
+a {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 23px;
+    color: #0B48D6;
+    text-decoration: none;
+    padding: 10px 20px;
+    gap: 10px;
+    text-align: center;
+}
+
+#line {
+    position: absolute;
+    width: 90%;
+    height: 0px;
+    border: 1px solid #0B48D6;
+    transform: rotate(0deg);
+}
+
+#line-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#record {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    text-align: center;
+    margin: 1em;
+}

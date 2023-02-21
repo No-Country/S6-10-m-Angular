@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router'
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component'
 import { LandingComponent } from './components/landing/landing.component'
 import { PatientDashboardComponent } from './components/patient-dashboard/patient-dashboard.component'
+import { TurnosSearchComponent } from './modules/user/components/turnos/turnos-search.component'
+import { TurnosComponent } from './modules/user/components/turnos/turnos.component'
+import { DashboardComponent } from './modules/user/dashboard/dashboard.component'
 
 const routes: Routes = [
 	{path:'home', component:LandingComponent},
@@ -12,6 +15,15 @@ const routes: Routes = [
 	{path: 'admin', loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule)},
 	{path:'admin-dashboard',component:AdminDashboardComponent},
 	{path:'patient-dashboard',component:PatientDashboardComponent},
+	
+	{path:'dashboard', component:DashboardComponent,
+     children:[{path: 'turnos', component:TurnosComponent,
+     children:[
+      {path:'buscar', component:TurnosSearchComponent,
+      }]
+     }]
+   },
+
 	{ path: '**', redirectTo: 'home'}
 ];
 

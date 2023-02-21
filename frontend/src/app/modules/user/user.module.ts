@@ -7,6 +7,7 @@ import { TurnosComponent } from './components/turnos/turnos.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { PruebaComponent } from './components/prueba/prueba.component';
 import { HojaComponent } from './components/hoja/hoja.component';
+import { TurnosSearchComponent } from './components/turnos/turnos-search.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HojaComponent } from './components/hoja/hoja.component';
     TurnosComponent,
     PerfilComponent,
     PruebaComponent,
-    HojaComponent
+    HojaComponent,
+    TurnosSearchComponent
   ],
   imports: [
     CommonModule,

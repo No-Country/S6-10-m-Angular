@@ -15,6 +15,8 @@ import { AuthService } from '../services/auth.service'
 
 export class RegistroComponent {
 
+  patient_view:boolean=true;
+
   listCodes:any;  
 
   registroForm: FormGroup

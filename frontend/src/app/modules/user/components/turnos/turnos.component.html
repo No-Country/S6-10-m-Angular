@@ -1,1 +1,61 @@
-<p>turnos works!</p>
+<div class="container-fluid" id="appointments">
+    <div class="row">
+        <div class="col">
+            <span id="panel-title">Turnos</span>
+        </div>
+    </div>
+    <div class="row" id="appointments-panel" *ngIf="aux; else elseBlock">
+        <div class="col" id="new-appointment">
+            <span>Agendar un nuevo turno</span>
+            <p>Presiona aquí si deseas generar un nuevo turno en simples pasos</p>
+            <img [routerLink]="['/dashboard/turnos/buscar']" src="../../../../../assets/img/Add.png" alt="" (click)="hide()">
+        </div>
+        <div class="col" id="scheduled-appointments">
+            <span class="span-bold">Turnos agendados</span>
+            <div class="details">
+                <p>Turno para: Florencia Schwarzenegger <br>
+                    Profesional: Adelio Valdez <br>
+                    Especialidad: Cardiología <br>
+                    Fecha: 12/03/2023 <br>
+                    Hora: 12:30 <br>
+                    Sede: Brandsen 17225
+                    <a href="" style="float: right;">Cancelar</a>
+                </p>
+            </div>
+            <a href="">Ver todos</a>
+        </div>
+    </div>
+    
+    <ng-template #elseBlock><app-turnos-search></app-turnos-search></ng-template>
+
+    <div class="row" id="line-container">
+        <div class="col" id="line">
+        </div>
+    </div>
+    <div class="row" id="record">
+        <span class="span-bold">Historial</span>
+        <div class="col" id="canceled">
+            <span>Turnos cancelados</span>
+            <div class="details">
+                <p>Turno para: Florencia Schwarzenegger <br>
+                    Profesional: Adelio Valdez <br>
+                    Especialidad: Cardiología <br>
+                    Fecha: 12/03/2023 <br>
+                </p>
+            </div>
+        </div>
+        <div class="col" id="attended">
+            <span>Turnos asistidos</span>
+            <div class="details">
+                <p>Turno para: Florencia Schwarzenegger <br>
+                    Profesional: Adelio Valdez <br>
+                    Especialidad: Cardiología <br>
+                    Fecha: 12/03/2023 <br>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <a href="">Ver historial completo</a>
+    </div>
+</div>

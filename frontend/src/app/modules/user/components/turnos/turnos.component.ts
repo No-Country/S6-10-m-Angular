@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TurnosComponent implements OnInit {
 
-  constructor() { }
+  public aux: boolean;
+  
+  constructor() { this.aux = true}
 
   ngOnInit(): void {
+    this.aux = true;
+  }
+
+  hide(){
+    this.aux = false;
   }
 
 }
