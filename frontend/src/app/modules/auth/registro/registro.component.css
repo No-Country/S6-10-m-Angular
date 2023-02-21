@@ -46,6 +46,8 @@
 }
 .tar {
   width:300px;
+  position:relative;
+  top:-30px;
   height: max-content;
   background: white;
   margin-left:100px;
@@ -112,6 +114,37 @@ label {
   padding:0 10px
 }
 
-.cocodrilo {
-  margin-top:1000px
+
+.point {
+  cursor:pointer
+}
+#header {
+  
+  position:relative;
+  top:-70px;
+  align-items: center;
+  margin:0 auto;
+  width: 200px;
+  height: 10vh;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+}
+
+#logo {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22.5352px;
+  line-height: 34px;
+  display: flex;
+  align-items: flex-end;
+  padding: 10px;
+  gap: 10px;
+}
+
+#logo2 {
+  left: 12.5%;
+  right: 12.5%;
+  top: 8.33%;
+  bottom: 8.33%;
 }
