@@ -1,6 +1,8 @@
 import { Component} from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router'
+import { Code } from 'src/app/interfaces/code'
+import { CodeService } from 'src/app/services/code.service'
 import Swal from 'sweetalert2'
 import { NuevoUsuario } from '../models/nuevo-usuario'
 import { AuthService } from '../services/auth.service'
@@ -13,10 +15,13 @@ import { AuthService } from '../services/auth.service'
 
 export class RegistroComponent {
 
+  listCodes:any;  
+
   registroForm: FormGroup
   ocultar: boolean = true
   constructor(
     private authService: AuthService,
+    private codeService:CodeService,
     private formBuilder: FormBuilder,
     private router:Router) {
 
@@ -33,6 +38,7 @@ export class RegistroComponent {
   )}
 
   ngOnInit(): void {
+    this.showCodes()
   }
 
   user: NuevoUsuario = {
@@ -130,5 +136,23 @@ export class RegistroComponent {
   }
   get Phone() {
     return this.registroForm.get('phone')
+  }
+
+  // GetCodes
+  showCodes(){
+    this.codeService.getCode().subscribe({
+      next: (res)=>{       
+        console.log(res.code);
+        this.listCodes=res.code
+      },    
+      error: (error)=> {
+        console.error("Los datos del servidor no llegan");
+        console.log(error);  
+      },
+      complete: ()=>{
+        console.log("Complete")
+      }
+  })
+
   }
 }

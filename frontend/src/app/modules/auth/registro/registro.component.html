@@ -62,17 +62,14 @@
                     <!----Código País---->
                     <div class="form-outline mb-3">
                       <label class="form-label" for="codeId">Código País</label>
-                      <select type="number" id="codeId"  formControlName="codeId" class="form-control" [ngClass]="{'is-valid':!CodeId?.errors&& CodeId?.touched}"> 
-                        <option value="54">Argentina (54)</option>
-                        <option value="55">Brasil (55)</option>
-                        <option value="52">Chile (52)</option>
-                        <option value="51">Peru (51)</option>                  
+                      <select type="number" id="codeId"  formControlName="codeId" class="form-control" [ngClass]="{'is-valid':!CodeId?.errors&& CodeId?.touched}">                   
+                          <option *ngFor="let item of listCodes" [value]="item.id">{{item.country}} ({{item.code}})<option>                        
                       </select>
                       <div *ngIf="CodeId?.errors && CodeId?.touched">
                         <p *ngIf="CodeId?.hasError('required')" class="text-danger">
                           Ingrese el código de su país
                         </p>
-                      </div>
+                      </div>                      
                     </div>
                     <!----Ingrese su TELEFONO---->
                     <div class="form-outline mb-3">
