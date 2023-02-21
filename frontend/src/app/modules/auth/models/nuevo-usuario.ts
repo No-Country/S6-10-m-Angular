@@ -4,6 +4,7 @@ export class NuevoUsuario {
   email: string;
   password: string;
   dni:number;
+  codeId:number;
   phone:number
   constructor(
     firstName: string,
@@ -11,6 +12,7 @@ export class NuevoUsuario {
     email: string,
     password: string,
     dni:number,
+    codeId:number,
     phone:number
   ) {
     this.firstName = firstName;
@@ -18,6 +20,7 @@ export class NuevoUsuario {
     this.email = email;
     this.password = password;
     this.dni = dni;
+    this.codeId = codeId;
     this.phone = phone
   }
 }

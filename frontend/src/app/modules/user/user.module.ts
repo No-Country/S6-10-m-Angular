@@ -4,12 +4,16 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserRoutingModule } from './user-routing.module';
 import { MedicosComponent } from './components/medicos/medicos.component';
 import { TurnosComponent } from './components/turnos/turnos.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
+import { PruebaComponent } from './components/prueba/prueba.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     MedicosComponent,
-    TurnosComponent
+    TurnosComponent,
+    PerfilComponent,
+    PruebaComponent
   ],
   imports: [
     CommonModule,

@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core'
 
 const TOKEN_KEY = 'AuthToken'
-const USER_EMAIL_KEY = 'UserEmail'
+const EMAIL_KEY = 'UserEmail'
 const AUTHORITIES_KEY = 'AuthAuthorities'
 const USERNAME_KEY = 'FirstName'
 const LASTNAME_KEY = 'LastName'
+const DNI_KEY = 'Dni'
+const PHONE_KEY = 'Phone'
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +37,27 @@ export class TokenService {
   }
   public getLastName(): string {
     return sessionStorage.getItem(LASTNAME_KEY)!
+  }
+  // DNI
+  public setDni(dni: string): void {
+    return sessionStorage.setItem(DNI_KEY, dni)
+  }
+  public getDni(): string {
+    return sessionStorage.getItem(DNI_KEY)!
+  }
+  // EMAIL
+  public setEmail(email: string): void {
+    return sessionStorage.setItem(EMAIL_KEY, email)
+  }
+  public getEmail(): string {
+    return sessionStorage.getItem(EMAIL_KEY)!
+  }
+  // TELEFONO
+  public setPhone(phone: string): void {
+    return sessionStorage.setItem(PHONE_KEY, phone)
+  }
+  public getPhone(): string {
+    return sessionStorage.getItem(PHONE_KEY)!
   }
 
   // Authorithies

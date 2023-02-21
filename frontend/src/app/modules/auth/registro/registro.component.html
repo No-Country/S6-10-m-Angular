@@ -1,4 +1,4 @@
-<!-- eslint-disable prettier/prettier -->
+
 <section class="" style="background-color: #eee;">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
@@ -59,10 +59,25 @@
                         </p>
                       </div>
                     </div>
+                    <!----Código País---->
+                    <div class="form-outline mb-3">
+                      <label class="form-label" for="codeId">Código País</label>
+                      <select type="number" id="codeId"  formControlName="codeId" class="form-control" [ngClass]="{'is-valid':!CodeId?.errors&& CodeId?.touched}"> 
+                        <option value="54">Argentina (54)</option>
+                        <option value="55">Brasil (55)</option>
+                        <option value="52">Chile (52)</option>
+                        <option value="51">Peru (51)</option>                  
+                      </select>
+                      <div *ngIf="CodeId?.errors && CodeId?.touched">
+                        <p *ngIf="CodeId?.hasError('required')" class="text-danger">
+                          Ingrese el código de su país
+                        </p>
+                      </div>
+                    </div>
                     <!----Ingrese su TELEFONO---->
                     <div class="form-outline mb-3">
                       <label class="form-label" for="phone">Teléfono</label>
-                      <input type="number" id="phone"  formControlName="phone" class="form-control" aria-describedby="telefonoHelp" placeholder="522476343498" [ngClass]="{'is-valid':!Phone?.errors&& Phone?.touched}"/>
+                      <input type="number" id="phone"  formControlName="phone" class="form-control" aria-describedby="telefonoHelp" placeholder="2476343498" [ngClass]="{'is-valid':!Phone?.errors&& Phone?.touched}"/>
                       <div *ngIf="Phone?.errors && Phone?.touched">
                         <p *ngIf="Phone?.hasError('required')" class="text-danger">
                           Ingrese su teléfono

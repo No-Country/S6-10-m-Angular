@@ -1,0 +1,55 @@
+<section >
+    <div id="perfil-notes">
+        <div class="tar" id="perfil">
+            <div class="avatar-name">
+                <img class="img-perfil" src="" alt="">
+                <p class="name">Maria Gutierrez</p>
+                <p class="mail">mariagutierrez@email.com</p>
+            </div>
+            <div class="data">
+                <div class="nombre">
+                    <label for="nombre">Nombre</label><br>
+                    <input class="input-name" type="text" placeholder={{firstName}} [disabled]="editar">
+                </div>
+                <div class="nombre">
+                   <label for="apellido">Apellido</label><br>
+                   <input class="input-name" type="text" placeholder={{lastName}} [disabled]="editar">
+                </div>
+                <div class="dni">
+                    <label for="dni">DNI</label><br>
+                    <input class="input-dni" type="text" placeholder={{dni}} [disabled]="editar">
+                  </div>               
+                <div class="email">
+                  <label for="email">Email</label><br>
+                  <input class="input-email" type="email" placeholder={{email}} [disabled]="editar">
+                </div>
+                <div class="phone">
+                    <label for="phone">Teléfono</label><br>
+                    <input class="input-phone" type="text" placeholder={{telefono}} [disabled]="editar">
+                  </div>
+                <div class="item">
+                  <label for="code">Código de área</label><br>
+                  <select type="text" id="code" [disabled]="editar"> 
+                    <option value="54">Argentina (54)</option>
+                    <option value="55">Brasil (55)</option>
+                    <option value="52">Chile (52)</option>
+                    <option value="51">Peru (51)</option>                  
+                  </select>
+                </div>
+                <button class="btn-editar" (click)="editar=!editar"><i class="bi bi-pencil"></i></button>   
+            </div>
+        </div>
+        <div class="tar" id="notification">
+            <div class="img-perfil">
+                <img  src="" alt="">
+                <p class="name">Maria Gutierrez</p>
+                <p class="mail">mariagutierrez@email.com</p>
+            </div>
+            
+            
+              
+        </div>
+    </div>
+    
+
+</section>
