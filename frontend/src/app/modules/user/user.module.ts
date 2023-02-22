@@ -11,6 +11,7 @@ import { PruebaComponent } from './components/prueba/prueba.component';
 import { HojaComponent } from './components/hoja/hoja.component';
 import { TurnosSearchComponent } from './components/turnos/turnos-search.component';
 import { InicioPacienteComponent } from './components/inicio-paciente/inicio-paciente.component';
+import { MedicoTurnoComponent } from './components/medicos/medico-turno/medico-turno.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { InicioPacienteComponent } from './components/inicio-paciente/inicio-pac
     PruebaComponent,
     HojaComponent,
     TurnosSearchComponent,
-    InicioPacienteComponent
+    InicioPacienteComponent,
+    MedicoTurnoComponent
   ],
   imports: [
     CommonModule,
