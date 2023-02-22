@@ -45,5 +45,8 @@ export class DashboardComponent implements OnInit {
   navigateDashboard(){
     this.router.navigateByUrl('/user/dashboard/inicio')
   }
+  navigateNotes(){
+    this.router.navigateByUrl('/user/dashboard/hoja')
+  }
 
 }
