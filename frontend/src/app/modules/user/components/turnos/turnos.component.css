@@ -6,6 +6,7 @@
     backdrop-filter: blur(5px);
     border-radius: 10px;
     font-family: 'Poppins';
+    z-index:-100;
     font-style: normal;
 }
 

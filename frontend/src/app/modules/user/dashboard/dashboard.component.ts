@@ -39,5 +39,11 @@ export class DashboardComponent implements OnInit {
       }
     })
   }
+  navigatePerfil(){
+    this.router.navigateByUrl('/user/dashboard/perfil')
+  }
+  navigateDashboard(){
+    this.router.navigateByUrl('/user/dashboard/inicio')
+  }
 
 }
