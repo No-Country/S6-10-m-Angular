@@ -47,16 +47,6 @@
 #user-dashboard {
     min-height: 100vh;
 }
-.paneles {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center
-}
-.panel {
-    width:48%;
-    height: 35vw;
-    margin:65px 5px;
-}
 
 
 /*------Footer Dashboard------*/
