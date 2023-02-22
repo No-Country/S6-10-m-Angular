@@ -1,1 +1,29 @@
-<p>medicos works!</p>
+
+<h2 class="medicos-title">Médicos</h2>
+<div class="content">
+  <div class="content-medical" [class.medical-active]="show === true">
+    <h2 class="content-medical-title">Cartilla de medicos</h2>
+    <p class="content-medical-paragraph">Estos son los profecionles deacuerdo a tu búsqueda:</p>
+    <div class="content-medical-slider" [ngStyle]="styles()">
+      <div *ngFor="let prod of arr" class="caja">
+        <span>{{prod}}</span>
+      </div>
+    </div>
+    <button (click)="nextButton()" class=" button-next-medical" [disabled]="show ? sliderWidth >= sliderEndOneRow : sliderWidth >= sliderEndOneTwoColunms">{{'>'}}</button>
+    <button (click)="prevButton()" class=" button-prev-medical" [disabled]="sliderWidth === 0">{{'<'}}</button>
+  </div>
+
+  <div class="content-favorite" [class.favorite-active]="show === true">
+    <div class="conent-favorite-slider" [ngStyle]="stylesFavorite()">
+      <div *ngFor="let prod of arr" class="caja-favorite" [class.caja-favorite-desactive]="show === false">
+        <span>hELLO WORLD FROM FAOVRITE</span>
+      </div>
+    </div>
+    <div>
+      <button class="text-white button-favoriteNext" (click)="nextButtonFavorite()" [disabled]="sliderFavoriteWidth >= sliderEndFavorite" [class.button-next-favorite]="show === false">Next</button>
+      <button class="text-white button-favoritePrev" (click)="prevButtonFavorite()" [disabled]="sliderFavoriteWidth === 0" [class.button-prev-favorite]="show === false">Prev</button>
+      <button [class.button-desapear]="show === true" (click)="showFavorite()">Active clase</button>
+    </div>
+  </div>
+
+</div>

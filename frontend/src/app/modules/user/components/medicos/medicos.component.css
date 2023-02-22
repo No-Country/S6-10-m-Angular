@@ -1,0 +1,130 @@
+.content {
+  width: 100%;
+  height: 100%;
+  gap: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.medicos-title {
+  color: #002069;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.content-medical {
+  width: 95%;
+  height: 80%;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+  transition: all .5s;
+  background: linear-gradient(90deg, rgba(0, 136, 214, 0.3) 0%, rgba(11, 227, 190, 0.3) 103.11%);
+  border-radius: 10px;
+}
+
+.content-medical-title {
+  font-weight: 500;
+  font-size: 20px;
+  text-align: center;
+}
+.content-medical-paragraph {
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+}
+
+.content-medical-slider {
+  position: absolute;
+  height: 60%;
+  margin-top: 20px;
+  transition: all.5s;
+}
+.content-favorite {
+  width: 95%;
+  height: 10%;
+  margin: auto;
+  display: flex;
+  transition: all .5s;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.conent-favorite-slider {
+  display: flex;
+  gap: 30px;
+  transition: all.5s;
+  position: absolute;
+}
+
+.button-next-medical {
+  position: absolute;
+  right: 5px;
+  top: 40%;
+  color: black;
+  font-size: 50px;
+  background-color: transparent;
+  border: none;
+}
+
+.button-prev-medical {
+  position: absolute;
+  left: 5px;
+  top: 40%;
+  color: black;
+  font-size: 50px;
+  background-color: transparent;
+  border: none;
+}
+
+/*  */
+.caja {
+  width: 150px;
+  height: 100px;
+  background-color: blue;
+}
+
+.caja-favorite {
+  width: 150px;
+  height: 100px;
+  background-color: blue;
+}
+
+.caja-favorite-desactive {
+  display: none;
+}
+
+/* CLASES PARA ACTIVAR SLIDER */
+
+.medical-active {
+  height: 50%;
+  transition: all .5s;
+}
+
+.favorite-active {
+  height: 40%;
+  transition: all .5s;
+}
+
+/* CLASES DE BOTONES */
+
+.button-desapear {
+  display: none;
+}
+
+
+.button-next-favorite {
+  display: none;
+}
+
+.button-prev-favorite {
+  display: none;
+}
+
+.button-favoriteNext {
+  position: absolute;
+  right: 0;
+}
+.button-favoritePrev {
+  position: absolute
+}

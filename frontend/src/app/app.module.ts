@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
-
 import { HttpClientModule } from '@angular/common/http'
 import { AuthModule } from './modules/auth/auth.module'
 import { UserModule } from './modules/user/user.module'
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -14,6 +11,7 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
 import { PatientDashboardComponent } from './components/patient-dashboard/patient-dashboard.component';
 import { AdminModule } from './modules/admin/admin.module';
 import { DoctorModule } from './modules/doctor/doctor.module';
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -31,9 +29,10 @@ import { DoctorModule } from './modules/doctor/doctor.module';
     AuthModule,
     UserModule,
     AdminModule,
-    DoctorModule
+    DoctorModule,
+    NgbCarouselModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
