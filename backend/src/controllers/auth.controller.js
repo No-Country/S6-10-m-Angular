@@ -6,6 +6,8 @@ const { comparePassword } = require('../helpers/bcrypt');
 
 const { newUser, findOneUser } = require('../services/user.service');
 
+const processMessage = require("../shared/processMessage");
+
 const registerUser = async (req, res) => {
 
     async function envioMail( firstName, email ){
@@ -37,6 +39,13 @@ const registerUser = async (req, res) => {
         );
         envioMail( user, email)
 
+        // Add sede data to the req object
+        req.user = newUserResult;
+
+        const number = newUserResult.code + newUserResult.phone;
+
+        processMessage.firstProcess(number);
+
         data = {
             user: newUserResult,
             token,
@@ -66,14 +75,14 @@ const loginUser = async (req, res) => {
     } catch (err) {
         return serverError({
             res,
-            message: err.message,
+            message: 'Email or password incorrect',
         });
     }
 
     if (!user) {
         return error({
             res,
-            message: 'Email or password incorrect',
+            message: 'User does not exist',
         });
     }
 

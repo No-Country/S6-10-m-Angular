@@ -5,7 +5,7 @@ const { encryptPassword } = require('../helpers/bcrypt');
 const findById = async (id) => {
     const user = await User.findByPk({
         where: { id },
-        attributes: ['firstName', 'lastName', 'email', 'code', 'phone', 'role'],
+        attributes: ['firstName', 'lastName', 'email', 'dni', 'codeId', 'phone', 'role'],
     });
 
     return user;
@@ -15,11 +15,16 @@ const newUser = async ({
     firstName,
     lastName,
     email,
+    codeId,
     password,
-    code,
+    dni,
     phone,
     role,
 }) => {
+    const existingUser = await findOneUser(email);
+    if (existingUser) {
+        throw new Error('Email already exists');
+    }
     const encrypted = await encryptPassword(password);
 
     return User.create({
@@ -27,7 +32,8 @@ const newUser = async ({
         lastName,
         email,
         password: encrypted,
-        code,
+        dni,
+        codeId,
         phone,
         role,
     });
@@ -46,9 +52,15 @@ const updateUser = async (userData, email) => {
     return updatedUser;
 };
 
+const findMatch = async (query) => {
+    const matched = await User.findOne(query);
+    return !!matched;
+};
+
 module.exports = {
     newUser,
     findOneUser,
     updateUser,
     findById,
+    findMatch,
 };
