@@ -20,19 +20,20 @@ import { UserModule } from './modules/user/user.module';
     AppComponent,
     LandingComponent,
     AdminDashboardComponent,
-    PatientDashboardComponent
+    PatientDashboardComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NgbModule,
-    HttpClientModule,
-    AuthModule,
-    UserModule,
-    AdminModule,
-    DoctorModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    imports: [
+      BrowserModule,
+      AppRoutingModule,
+      NgbModule,
+      HttpClientModule,
+      AuthModule,
+      UserModule,
+      AdminModule,
+      DoctorModule,
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
 })
+
 export class AppModule {}
