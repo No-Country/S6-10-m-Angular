@@ -9,9 +9,10 @@ import { TurnosComponent } from './components/turnos/turnos.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { PruebaComponent } from './components/prueba/prueba.component';
 import { HojaComponent } from './components/hoja/hoja.component';
-import { TurnosSearchComponent } from './components/turnos/turnos-search.component';
+import { TurnosSearchComponent } from './components/turnos/turnos-search/turnos-search.component';
 import { InicioPacienteComponent } from './components/inicio-paciente/inicio-paciente.component';
 import { MedicoTurnoComponent } from './components/medicos/medico-turno/medico-turno.component';
+import { MedicoPerfilComponent } from './components/medicos/medico-perfil/medico-perfil.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MedicoTurnoComponent } from './components/medicos/medico-turno/medico-t
     HojaComponent,
     TurnosSearchComponent,
     InicioPacienteComponent,
-    MedicoTurnoComponent
+    MedicoTurnoComponent,
+    MedicoPerfilComponent
   ],
   imports: [
     CommonModule,
