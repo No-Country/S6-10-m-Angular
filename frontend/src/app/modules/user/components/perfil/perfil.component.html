@@ -1,34 +1,38 @@
-<section >
+<section>
     <div id="perfil-notes">
         <div class="tar" id="perfil">
             <div class="avatar-name">
-                <img class="img-perfil" src="" alt="">
-                <p class="name">Maria Gutierrez</p>
-                <p class="mail">mariagutierrez@email.com</p>
+              <div class="foto">
+                <img class="img-perfil" src="https://www.kebuena.com.mx/wp-content/uploads/2020/06/Sin-ti%CC%81tulo-1-2.jpg" alt="">
+              </div>
+              <div class="datos">
+                <p class="name">{{firstName}} {{lastName}}</p>
+                <p class="mail">{{email}}</p>
+              </div>               
             </div>
             <div class="data">
-                <div class="nombre">
-                    <label for="nombre">Nombre</label><br>
+                <div class="campo">
+                    <label for="nombre">Nombre</label>
                     <input class="input-name" type="text" placeholder={{firstName}} [disabled]="editar">
                 </div>
-                <div class="nombre">
-                   <label for="apellido">Apellido</label><br>
+                <div class="campo">
+                   <label for="apellido">Apellido</label>
                    <input class="input-name" type="text" placeholder={{lastName}} [disabled]="editar">
                 </div>
-                <div class="dni">
-                    <label for="dni">DNI</label><br>
+                <div class="campo">
+                    <label for="dni">DNI</label>
                     <input class="input-dni" type="text" placeholder={{dni}} [disabled]="editar">
                   </div>               
-                <div class="email">
-                  <label for="email">Email</label><br>
+                <div class="campo">
+                  <label for="email">Email</label>
                   <input class="input-email" type="email" placeholder={{email}} [disabled]="editar">
                 </div>
-                <div class="phone">
-                    <label for="phone">Teléfono</label><br>
+                <div class="campo">
+                    <label for="phone">Teléfono</label>
                     <input class="input-phone" type="text" placeholder={{telefono}} [disabled]="editar">
                   </div>
-                <div class="item">
-                  <label for="code">Código de área</label><br>
+                <div class="campo">
+                  <label for="code">Código de área</label>
                   <select type="text" id="code" [disabled]="editar"> 
                     <option value="54">Argentina (54)</option>
                     <option value="55">Brasil (55)</option>
@@ -36,18 +40,28 @@
                     <option value="51">Peru (51)</option>                  
                   </select>
                 </div>
-                <button class="btn-editar" (click)="editar=!editar"><i class="bi bi-pencil"></i></button>   
+                <div class="modificar">
+                  <p>Modificar datos</p>
+                  <button class="btn-editar" (click)="editar=!editar"><i class="bi bi-pencil-fill"></i></button>
+                </div>  
+                <hr>
+                <div class="guardar">
+                  <button class="btn btn-save">
+                    Guardar
+                  </button>
+                </div> 
             </div>
         </div>
+        <!-----
         <div class="tar" id="notification">
             <div class="img-perfil">
                 <img  src="" alt="">
                 <p class="name">Maria Gutierrez</p>
                 <p class="mail">mariagutierrez@email.com</p>
-            </div>            
-              
-        </div>
+                <img  src="" alt="">
+                <p class="name">Maria Gutierrez</p>
+                <p class="mail">mariagutierrez@email.com</p>
+            </div>             
+        </div>--->
     </div>
-    
-
 </section>

@@ -1,0 +1,121 @@
+<section id="medico-turno">
+    <div class="paneles">
+        <!----PANEL IZQUIERDO---->
+        <div class="panel panel-left">
+            <div class="title">
+                <p>Turno</p>
+                <a routerLink="/user/dashboard/perfil"><i class="bi bi-arrow-left"></i> Volver</a>
+            </div>
+            <div class="agendar">
+                <div class="titulo">
+                    <p>Solicitar turno</p>
+                </div>
+                <div class="fecha">
+                    <ngb-datepicker class="calendario" #d></ngb-datepicker>
+                    <!-----
+                    <input type="text" ngbDatepicker #d="ngbDatepicker"/>
+                    <button (click)="d.toggle()">Seleccionar fecha</button>---->
+                </div>
+                <div class="horario">
+                    <div class="from-group horarios"> 
+                        <div class="item-horario">                                
+                            <input type="ratio" class="btn-check m-2" formControlName="select10" name="options" id="options-0800" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="options-0800">08:00</label>
+                        </div>
+                        <div class="item-horario">                                
+                            <input type="ratio" class="btn-check m-2" formControlName="select0930" name="options" id="options-0830" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="options-0830">08:30</label>
+                        </div>                           
+                        <div class="item-horario">                                
+                            <input type="ratio" class="btn-check m-2" formControlName="select10" name="options" id="options-0900" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="options-0900">09:00</label>
+                        </div>
+                        <div class="item-horario">                                
+                            <input type="ratio" class="btn-check m-2" formControlName="select0930" name="options" id="options-0930" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="options-0930">09:30</label>
+                        </div>
+                        <div class="item-horario">                                
+                            <input type="ratio" class="btn-check m-2" formControlName="selectAlimentos" name="options" id="options-1000" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="options-1000">10:00</label>
+                        </div>
+                        <div class="item-horario">                                
+                            <input type="ratio" class="btn-check m-2" formControlName="selectAlimentos" name="options" id="options-1030" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="options-1030">10:30</label>
+                        </div>
+                        <div class="item-horario">                                
+                            <input type="ratio" class="btn-check m-2" formControlName="selectMovilidad" name="options" id="options-1100" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="options-1100">11:00</label>
+                        </div>
+                        <div class="item-horario">                                
+                            <input type="ratio" class="btn-check m-2" formControlName="selectMovilidad" name="options" id="options-1130" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="options-1130">11:30</label>
+                        </div>
+                        <div class="item-horario">
+                            <input type="ratio" class="btn-check m-2" formControlName="select" name="options" id="options-1200" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="options-1200">12:00</label>
+                        </div>
+                        <div class="item-horario">
+                            <input type="ratio" class="btn-check m-2" formControlName="select" name="options" id="options-1230" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="options-1230">12:30</label>
+                        </div>                           
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="obra">
+                        <select>
+                            <option value="">¿Obra social?</option>
+                            <option value="">IOMA</option>
+                            <option value="">Saluf-Forte</option>
+                            <option value="">Natural Vibration</option>
+                        </select>
+                    </div>
+                    <div class="boton">
+                        <button class="btn btn-blue">Solicitar</button>
+                    </div>
+
+                </div>
+                
+            </div>
+            
+            
+
+
+        </div>
+        <!----PANEL DERECHO---->
+        <div class="panel panel-right">
+            <div class="title">
+                <p>Médico</p>
+            </div>    
+            <div class="titulo">
+                <p>Iris Wegmar <i class="bi bi-heart-fill"></i></p>
+            </div>
+            <div class="cuadro">
+                <div class="data">
+                    <div class="data-sector">
+                        <p class="title-data">Perfil profesional</p>
+                        <p>Especialidad: Endocrinología</p>
+                        <p>Calificación: <i class="bi bi-star-fill estrella"></i>(5)</p>
+                        <p>Matrícula: MP Nº35287</p>
+                    </div>
+                    <div class="data-sector">
+                        <p class="title-data">Clínica/Hospital</p>
+                        <p>Hospital de los Santos Remedios</p>
+                        <p>Dirección: Heisemberg 647</p>
+                    </div>
+                    <div class="data-sector">
+                        <p class="title-data">Obra social/Prepaga</p>
+                        <p>IOMA</p>
+                        <p>SALUD-FORTE</p>
+                        <p>Natural Vibration</p>
+                    </div>
+                </div>
+                <div class="img-doctor">
+                    <img src="../../../../../../assets/img/Female-doctor.png" alt="">
+                </div>
+            </div>
+            <div class="opinion">
+                <a routerLink="/user/dashboard/perfil">Ver opiniones</a>
+            </div>
+        </div>
+    </div>    
+</section>

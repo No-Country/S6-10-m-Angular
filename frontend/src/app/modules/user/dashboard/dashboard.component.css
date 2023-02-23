@@ -4,7 +4,8 @@
     justify-content: space-between;
     background: rgba(8, 8, 8, 0.542);
     backdrop-filter: blur(5px);
-    width:100%
+    width:100%;
+    z-index:100!important
 }
 #logo {
     font-family: 'Poppins';
@@ -39,19 +40,12 @@
     margin-right:20px;
     border:none
 }
+#drop {
+    z-index:999!important;
+}
 /*------Section Dashboard------*/
 #user-dashboard {
     min-height: 100vh;
-}
-.paneles {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center
-}
-.panel {
-    width:48%;
-    height: 35vw;
-    margin:65px 5px;
 }
 
 
@@ -67,6 +61,9 @@
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(5px);
 }  
+.item-footer {
+    text-align: center;
+}
 #copyright {
     padding-top: 24px;
     gap: 5px;
@@ -124,4 +121,24 @@
     background-position: center;
     padding: 0px;
     margin: 0px;
+}
+#seccion-inter {
+    z-index:-100!important;
+    min-height: 100vh;
+}
+#drop-box {
+    z-index:999
+
+}
+
+@media screen and (max-width: 600px) {
+    .saludo-usuario {
+        display:none
+    }
+    
+}
+@media screen and (max-width: 825px) {
+    #footer {
+        justify-content:center
+    }    
 }

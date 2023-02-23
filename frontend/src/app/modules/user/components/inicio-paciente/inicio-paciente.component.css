@@ -1,0 +1,14 @@
+#user-dashboard {
+    z-index:-100;
+    height: max-content;
+}
+.paneles {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center
+}
+.panel {
+    width:40%;
+    height: 35vw;
+    margin:65px 5px;
+}
