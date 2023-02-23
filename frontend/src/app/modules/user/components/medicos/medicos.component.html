@@ -1,29 +1,75 @@
+<!-- CONTENEDOR PRINCIPAL -->
+<div class="medicos">
+  <h2 class="medicos-title">Médicos</h2>
 
-<h2 class="medicos-title">Médicos</h2>
-<div class="content">
-  <div class="content-medical" [class.medical-active]="show === true">
-    <h2 class="content-medical-title">Cartilla de medicos</h2>
-    <p class="content-medical-paragraph">Estos son los profecionles deacuerdo a tu búsqueda:</p>
-    <div class="content-medical-slider" [ngStyle]="styles()">
-      <div *ngFor="let prod of arr" class="caja">
-        <span>{{prod}}</span>
+  <!-- CONTENEDOR SECUNDARIO -->
+  <div class="content">
+    <!-- CONTENEDOR MEDICO SLIDER 1 -->
+    <div class="row" id="new-appointment">
+
+      <div class="col" id="info">
+          <span class="filter-span">Agendar un nuevo turno</span>
+          <p class="filter-paragraph">Filtra la búsqueda de profesionales según tu preferencia</p>
+      </div>
+
+      <div class="row" id="filters">
+
+          <div class="filter">Fecha <img src="../../../../assets/img/Arrow.png" alt=""></div>
+
+          <div class="filter">Especialidad <img src="../../../../assets/img/Arrow.png" alt=""></div>
+
+          <div class="filter">Clínica/Hospital <img src="../../../../assets/img/Arrow.png" alt=""></div>
+
+          <div class="filter">Prepaga/Obra Social <img src="../../../../assets/img/Arrow.png" alt=""></div>
+
+      </div>
+
+      <button class="button-filter">Buscar turno</button>
+
+    </div>
+    <div class="content-medical" [class.medical-active]="show === true">
+      <h2 class="content-medical-title">Cartilla de medicos</h2>
+      <p class="content-medical-paragraph">Estos son los profesionles deacuerdo a tu búsqueda:</p>
+        <div class="content-medical-slider" [ngStyle]="styles()">
+          <div *ngFor="let prod of arr" class="caja">
+            <img class="content-medical-slider-image" src="https://random.imagecdn.app/500/150" />
+            <div class="content-medical-slider-date">
+              <h3 class="slider-name">Alizon</h3>
+              <div>
+                <img class="slider-image" src="../../../../../assets/img/Vector.png" /><span>(4)</span>
+              </div>
+            </div>
+            <h3 class="content-medical-slider-profesion">Dentista</h3>
+          </div>
+        </div>
+      <button (click)="nextButton()" class=" button-next-medical" [disabled]="show ? sliderWidth >= sliderEndOneRow : sliderWidth >= sliderEndOneTwoColunms">{{'>'}}</button>
+      <button (click)="prevButton()" class=" button-prev-medical" [disabled]="sliderWidth === 0">{{'<'}}</button>
+    </div>
+    <div class="medical-separacion" [class.medical-separacion-active]="show === false"></div>
+
+    <!-- CONTENEDOR MEDICO SLIDER DE FAVORITOS -->
+
+    <div class="content-favorite" [class.favorite-active]="show === true">
+      <h2 class="favorite-title">Medicos favoritos</h2>
+      <div class="conent-favorite-slider" [ngStyle]="show === true ? stylesFavorite() : stylesN() ">
+        <div *ngFor="let prod of arr" class="caja-favorite">
+          <img class="content-medical-slider-image" src="https://random.imagecdn.app/500/150" />
+          <div class="content-medical-slider-date">
+            <h3 class="slider-name">Alizon</h3>
+            <div>
+              <img class="slider-image" src="../../../../../assets/img/start-vector.png" /><span>(4)</span>
+            </div>
+          </div>
+          <h3 class="content-medical-slider-profesion">Dentista</h3>
+        </div>
+      </div>
+      <div>
+        <button class=" button-favoriteNext" (click)="nextButtonFavorite()" [disabled]="sliderFavoriteWidth >= sliderEndFavorite" [class.button-next-favorite]="show === false">></button>
+        <button class=" button-favoritePrev" (click)="prevButtonFavorite()" [disabled]="sliderFavoriteWidth === 0" [class.button-prev-favorite]="show === false">{{'<'}}</button>
+        <button class="button-active-favorite" [class.button-active-rotate]="show === true" (click)="showFavorite()">></button>
       </div>
     </div>
-    <button (click)="nextButton()" class=" button-next-medical" [disabled]="show ? sliderWidth >= sliderEndOneRow : sliderWidth >= sliderEndOneTwoColunms">{{'>'}}</button>
-    <button (click)="prevButton()" class=" button-prev-medical" [disabled]="sliderWidth === 0">{{'<'}}</button>
-  </div>
 
-  <div class="content-favorite" [class.favorite-active]="show === true">
-    <div class="conent-favorite-slider" [ngStyle]="stylesFavorite()">
-      <div *ngFor="let prod of arr" class="caja-favorite" [class.caja-favorite-desactive]="show === false">
-        <span>hELLO WORLD FROM FAOVRITE</span>
-      </div>
-    </div>
-    <div>
-      <button class="text-white button-favoriteNext" (click)="nextButtonFavorite()" [disabled]="sliderFavoriteWidth >= sliderEndFavorite" [class.button-next-favorite]="show === false">Next</button>
-      <button class="text-white button-favoritePrev" (click)="prevButtonFavorite()" [disabled]="sliderFavoriteWidth === 0" [class.button-prev-favorite]="show === false">Prev</button>
-      <button [class.button-desapear]="show === true" (click)="showFavorite()">Active clase</button>
-    </div>
   </div>
-
 </div>
+

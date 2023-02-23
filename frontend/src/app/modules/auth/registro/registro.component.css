@@ -1,19 +1,7 @@
 /*========ESTILOS COMUNES LOGIN Y REGISTRO============*/
-/*
-.gradient-custom-2 {
-  background-color: #FAFAFA;
-  color:#3E3E3E
-}*/
-.gradient-custom-2 {
-    background-color: #60abd9;
-    color:white
-  }
-  /*---Boton Violeta---*/
-  .btn-violet {
-    background-color: #60abd9;
-    color:white
-  }
+
   /*---Estilos formularios Login y registro---*/
+  
   .campo {
     position: relative;
   }
@@ -26,24 +14,130 @@
   }
   .eye-icon {
     position: absolute;
-    right: 35px;
-    top: 39px;
+    right: 25px;
+    top: 25px;
     text-transform: uppercase;
     cursor: pointer;
     padding: 2px 10px;
   }
-  #flecha {
-    position:absolute;
-    top:25px;
-    right:25px;
-    margin-bottom: 25px;
-    font-size: 30px;
+
+
+.sesion-background {
+  background-color: rgb(218, 214, 214);
+  background-image: url(../../../../assets/img/Auth-background.png);
+  min-height: 100vh;
+  background-size:auto 100%;
+  background-repeat: no-repeat;
+  background-position: right;  
+  background-attachment: fixed;
+  padding-top:80px;
 }
-#flecha a {
-    color:white
+.tar {
+  width:300px;
+  position:relative;
+  top:-30px;
+  height: max-content;
+  background: white;
+  margin-left:100px;
+  padding:15px;
+  border:1px solid rgb(195, 191, 191);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius:10px
 }
-@media screen and (max-width: 991px) {
-  #flecha a {
-      color:#60abd9
+.title {
+  text-align: center;
+}
+.title p {
+  font-size:1.5rem;
+  font-weight:bolder
+}
+nav {
+  background: black;
+  padding:2px;
+  border-radius:5px;
+  text-align: center;
+}
+nav ul {
+  margin:0 0 0;
+  text-align: center;
+}
+nav ul li button{
+  width:100%;
+  color:white;
+  border-radius:5px;
+  margin:0 auto;
+  padding:3px 10px
+}
+
+
+input {
+  border:0.5px solid #7abfdc;
+  border-radius:5px;
+  width:100%;
+  padding:0 10px
+}
+label {
+  color:#06256f;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.formulario {
+  margin-top:10px
+}
+.footer {
+  display:flex;
+  justify-content: space-between;
+  margin-top:20px
+}
+.descript p{
+  font-size: 0.6rem;
+  margin:0;
+  padding:0
+}
+.btn-blue {
+  color:white;
+  background:#0b48d6
+}
+#codeId, #password {
+  padding:0 10px
+}
+
+
+.point {
+  cursor:pointer
+}
+#header {
+  
+  position:relative;
+  top:-70px;
+  align-items: center;
+  margin:0 auto;
+  width: 200px;
+  height: 10vh;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+}
+
+#logo {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22.5352px;
+  line-height: 34px;
+  display: flex;
+  align-items: flex-end;
+  padding: 10px;
+  gap: 10px;
+}
+
+#logo2 {
+  left: 12.5%;
+  right: 12.5%;
+  top: 8.33%;
+  bottom: 8.33%;
+}
+@media screen and (max-width: 600px) {
+  .tar{
+    margin:0 auto
   }
 }

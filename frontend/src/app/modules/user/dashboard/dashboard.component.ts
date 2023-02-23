@@ -11,7 +11,7 @@ import { AuthService } from '../../auth/services/auth.service';
 export class DashboardComponent implements OnInit {
 
   nombreUsuario:string = "Usuario";
-
+  
   constructor(private authService:AuthService,private router:Router) {}
 
   ngOnInit(): void {
@@ -39,4 +39,5 @@ export class DashboardComponent implements OnInit {
       }
     })
   }
+
 }

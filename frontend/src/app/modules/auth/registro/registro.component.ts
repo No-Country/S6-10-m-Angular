@@ -1,6 +1,8 @@
 import { Component} from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router'
+import { Code } from 'src/app/interfaces/code'
+import { CodeService } from 'src/app/services/code.service'
 import Swal from 'sweetalert2'
 import { NuevoUsuario } from '../models/nuevo-usuario'
 import { AuthService } from '../services/auth.service'
@@ -13,10 +15,15 @@ import { AuthService } from '../services/auth.service'
 
 export class RegistroComponent {
 
+  patient_view:boolean=true;
+
+  listCodes:any;  
+
   registroForm: FormGroup
   ocultar: boolean = true
   constructor(
     private authService: AuthService,
+    private codeService:CodeService,
     private formBuilder: FormBuilder,
     private router:Router) {
 
@@ -26,19 +33,25 @@ export class RegistroComponent {
         lastName: ['', [Validators.required]],
         email: ['', [Validators.required, Validators.email]],
         password: ['',[Validators.required, Validators.minLength(8),Validators.maxLength(22),Validators.pattern(/^(?=.*[A-Z])(?=.*[0-9])/)]],
-        code:54,
-        phone:5555555
+        dni:['',[Validators.required]],
+        phone:['',[Validators.required]],
+        codeId:['',[Validators.required]]
       }
   )}
 
   ngOnInit(): void {
+    this.showCodes()
   }
 
   user: NuevoUsuario = {
     firstName: '',
     lastName: '',
     password: '',
-    email: ''
+    email: '',
+    dni:0,
+    codeId:0,
+    phone:0
+
   }
 
   createUser() {
@@ -116,5 +129,32 @@ export class RegistroComponent {
   }
   get Password() {
     return this.registroForm.get('password')
+  }
+  get Dni() {
+    return this.registroForm.get('dni')
+  }  
+  get CodeId() {
+    return this.registroForm.get('codeId')
+  }
+  get Phone() {
+    return this.registroForm.get('phone')
+  }
+
+  // GetCodes
+  showCodes(){
+    this.codeService.getCode().subscribe({
+      next: (res)=>{       
+        console.log(res.code);
+        this.listCodes=res.code
+      },    
+      error: (error)=> {
+        console.error("Los datos del servidor no llegan");
+        console.log(error);  
+      },
+      complete: ()=>{
+        console.log("Complete")
+      }
+  })
+
   }
 }

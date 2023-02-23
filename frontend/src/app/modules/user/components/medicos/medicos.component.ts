@@ -38,11 +38,12 @@ export class MedicosComponent  {
   styles() {
     return {
       'display': `${this.show ? 'flex' : 'grid'}`,
-      'grid-template-columns': `repeat(${this.columns}, 1fr)`,
+      'grid-template-columns': `repeat(${this.columns + 1}, 1fr)`,
       'gap': '30px',
       'justify-items': 'center',
       'justify-content': 'center',
       'align-items': 'center',
+      'margin-top': '-20px',
       'transform': `translateX(-${this.sliderWidth}px)`,
       'transition': 'all .5s'
 
@@ -56,8 +57,20 @@ export class MedicosComponent  {
   sliderFavoriteWidth: number = 0
   // ESTILOS INSERTABLES AL SLIDER (DINAMICOS) SLIDER DE FAVORITOS
   stylesFavorite() {
+
+      return {
+        'transform': `translateX(-${this.sliderFavoriteWidth}px)`,
+        'display': 'flex',
+        'transition': 'all.5s',
+        'position': 'absolute',
+        'margin-left': '30px',
+        'gap' : '30px'
+      }
+  }
+
+  stylesN () {
     return {
-      'transform': `translateX(-${this.sliderFavoriteWidth}px)`,
+      'display' : 'none'
     }
   }
 
@@ -71,7 +84,7 @@ export class MedicosComponent  {
 
 
   showFavorite () {
-    this.show = !this.show
+      this.show = !this.show
   }
 
 

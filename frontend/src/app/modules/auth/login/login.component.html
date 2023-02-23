@@ -1,90 +1,66 @@
-<!-- eslint-disable prettier/prettier -->
-<section class="" style="background-color: #eee;">
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">        
-        <div class="col-xl-10">
-          <div class="card rounded-3">
-			<div class="row g-0">
-                <div class="col-lg-6">
-                    <div class="card-body p-md-5 mx-md-4">  
-                      <div class="text-center">
-                        <img  src="../../../../assets/img/logo.png"
-                          style="width: 100px;" alt="logo">
-                        <h4 class="mt-1 mb-3 pb-1">CITAMED</h4>
-                      </div>  
-                      <form  [formGroup]="loginForm" (ngSubmit)="onLogin($event)" autocomplete="off">
-                        <div class="text-center">
-                            <p class="mb-3">INICIO DE SESIÓN</p>
-                        </div> 
-                        <!-----Email----->
-                        <div class="form-outline mb-4">
-                            <label class="form-label" for="email">Email</label>
-                            <input type="email" id="email"  formControlName="email" class="form-control" aria-describedby="emailHelp" placeholder="usuario@email.com" [ngClass]="{'is-valid':!Email?.errors&& Email?.touched}"/> 
-                            <div *ngIf="Email?.errors && Email?.touched">
-                              <p *ngIf="Email?.hasError('required')" class="text-danger">
-                                Ingrese su email
-                              </p>
-                              <p *ngIf="Email?.hasError('email')" class="text-danger">
-                                El formato del email es inválido
-                              </p>    
-                            </div>                       
-                        </div>
-                        <!-----Password----->                    
-                        <div class="campo form-outline mb-4">
-                            <label class="label form-label" for="password">Contraseña</label>
-                            <input [type]="ocultar?'password':'text'" id="password" name="password" formControlName="password" class="input-password form-control" [ngClass]="{'is-valid':!Password?.errors && Password?.touched}"/>
-                            <label class="eye-icon" for="password"><i [class]="ocultar ? 'bi bi-eye' : 'bi bi-eye-slash'" (click)="ocultar = !ocultar"></i></label>
-                            <div *ngIf="Password?.errors && Password?.touched">                          
-                              <p *ngIf="Password?.hasError('required')" class="text-danger">
-                                Ingrese su contraseña
-                              </p>
-                              <p *ngIf="Password?.hasError('minlength')" class="text-danger">
-                                La contraseña tiene como mínimo 8 caracteres
-                              </p>
-                              <p *ngIf="Password?.hasError('maxlength')" class="text-danger">
-                                La contraseña tiene como máximo 22 caracteres
-                              </p>
-                              <p *ngIf="Password?.hasError('pattern')" class="text-danger">
-                                La contraseña contiene al menos un número y una letra mayúscula
-                              </p>
-                            </div>                  
-                        </div>
-                        <!-----Boton Iniciar Sesión------->
-                        <div class="text-center pt-1 mb-2 pb-1">
-                          <button class="btn btn-violet btn-block fa-lg  mb-3" type="submit" [disabled]="!loginForm.valid">Inicia sesión</button>
-                        </div>
-                        <div class="text-center mb-3">                        
-                          <a class="text-muted" href="#!">¿Olvidaste tu contraseña?</a>
-                        </div>
-                        <!-----Boton ir a Registro------->  
-                        <div class="d-flex align-items-center justify-content-center pb-4">
-                          <p class="mb-0 me-2">¿No tienes una cuenta?</p>
-                          <a routerLink="/auth/registro">Crea una</a>
-                        </div>  
-                      </form> 
-                      
-                      <!---- 
-                      <div class="text-center">
-                        <a routerLink="">Cancelar</a>
-                      </div> --->
-                    </div>
+<section class="sesion-background">
+  <div id="header">
+        <div class="point" routerLink="/landing">
+            <div id="logo">
+                <img src="../../../assets/img/Calendar.png" alt="" id="logo2">
+                <div>
+                    <span style="color: #0BE3BE;">C</span><span style="color: white;">ita</span>
+                    <span style="color: #0BE3BE;">M</span><span style="color: white;">ed</span>
                 </div>
-                <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
-                <!-----Volver a Landing Page------->  
-                <div id="flecha">
-                  <a routerLink=""><i class="bi bi-arrow-left"></i></a>                  
-                </div> 
-                <!-----Texto Bienvenida------------> 
-                <!-----                         
-                <div class="texto-oscuro px-3 py-4 p-md-5 mx-md-4">--->
-                <div class="px-3 py-4 p-md-5 mx-md-4">  
-                  <h4 id="textoBenvindo" class="mb-4">Bienvenido de nuevo</h4>
-                  <p class="small mb-0">Gracias por confiar en nosotros, ahora puedes reservar un turno con tu médico de confianza.</p>
-                </div>
-                </div>                            
+            </div>
+        </div>
+  </div>
+  <div class="tar">
+      <div class="title">
+          <p>Inicia sesión</p>
+      </div>
+      <!---REGISTRO CUENTA USUARIO---->
+      <div class="formulario">
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin($event)" autocomplete="off">          
+          <!----Ingrese su email---->
+          <div class="">
+            <label  for="email">Email</label>
+            <input type="email" id="email"  formControlName="email" class="form-control" aria-describedby="emailHelp" placeholder="mariagutierrez@email.com" [ngClass]="{'is-valid':!Email?.errors&& Email?.touched}"/>
+            <div *ngIf="Email?.errors && Email?.touched">
+              <p *ngIf="Email?.hasError('required')" class="text-danger">
+                Ingrese su email
+              </p>
+              <p *ngIf="Email?.hasError('email')" class="text-danger">
+                El formato del email es inválido
+              </p>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+          <!----Ingrese la contraseña--->
+          <div class="campo">
+            <label class="label" for="password">Contraseña</label>
+            <input [type]="ocultar?'password':'text'" id="password" name="password" formControlName="password" class="input-password form-control" [ngClass]="{'is-valid':!Password?.errors&&Password?.touched}"/>
+            <label class="eye-icon" for="password"><i [class]="ocultar ? 'bi bi-eye' : 'bi bi-eye-slash'" (click)="ocultar = !ocultar"></i></label>
+            <div *ngIf="Password?.errors && Password?.touched">
+              <p *ngIf="Password?.hasError('required')" class="text-danger">
+                Ingrese su contraseña
+              </p>
+              <p *ngIf="Password?.hasError('minlength')" class="text-danger">
+                La contraseña debe tener como mínimo 8 caracteres
+              </p>
+              <p *ngIf="Password?.hasError('maxlength')" class="text-danger">
+                La contraseña debe tener como máximo 22 caracteres
+              </p>
+              <p *ngIf="Password?.hasError('pattern')" class="text-danger">
+                La contraseña debe contener al menos un número y una letra mayúscula
+              </p>
+            </div>
+          </div>
+          <!----Footer de registro--->
+          <div class="footer">
+            <div class="descript">
+                <p>¿No tienes cuenta?</p>
+                <a routerLink="/auth/registro">Regístrate</a>
+            </div>
+            <div class="boton">
+                <button class="btn btn-blue" type="submit" [disabled]="!loginForm.valid">Registrarse</button>
+            </div>
+          </div>
+        </form>          
+      </div>      
+  </div>
 </section>
