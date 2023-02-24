@@ -14,6 +14,8 @@ import { InicioPacienteComponent } from './components/inicio-paciente/inicio-pac
 import { MedicoTurnoComponent } from './components/medicos/medico-turno/medico-turno.component';
 import { MedicoPerfilComponent } from './components/medicos/medico-perfil/medico-perfil.component';
 import { interceptorProvider } from 'src/app/interceptors/interceptor.service';
+import { CartillaComponent } from './components/medicos/cartilla/cartilla.component';
+import { ListaComponent } from './components/medicos/lista/lista.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { interceptorProvider } from 'src/app/interceptors/interceptor.service';
     TurnosSearchComponent,
     InicioPacienteComponent,
     MedicoTurnoComponent,
-    MedicoPerfilComponent
+    MedicoPerfilComponent,
+    CartillaComponent,
+    ListaComponent
   ],
   imports: [
     CommonModule,

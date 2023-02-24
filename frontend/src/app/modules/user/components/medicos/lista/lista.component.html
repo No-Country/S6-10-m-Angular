@@ -1,0 +1,145 @@
+<section id="cartilla">
+    <div>
+        <div class="panel">
+            <div class="title">
+                <p>Médicos</p>
+            </div>
+            <!------Buscar Profesional-----> 
+            <div class="cuadro">
+                <div class="texto">
+                    <p class="subtitle">Cartilla de médicos</p>
+                    <p class="descript">Estos son los profesionales disponibles de acuerdo a tu búsqueda.</p>                
+                </div>
+                <div class="busqueda">
+                    <div class="medicos-disponibles">
+                        <div *ngFor="let item of listaMedicos" class="medico-favorito">
+                            <a class="seleccion" [routerLink]= "[ '/user/dashboard/medico-turno']" (click)="medicoId(item.id)">
+                                <img class="imagen-medico" src="https://storage.googleapis.com/www-saludiario-com/wp-content/uploads/2022/05/77dddaf6-habilidades-me%CC%81dico-general.jpg">
+                                <div class="nombre-puntos">
+                                    <p class="nombre">{{item.firstName}} {{item.lastName}}</p>
+                                    <p><i class="bi bi-star-fill estrella"></i>(5)</p>
+                                </div>                            
+                                <p class="especialidad">{{item.speciality.name}}</p>
+                            </a>                            
+                        </div>
+                        <!-----
+                        <div class="medico-favorito">
+                            <a class="seleccion" [routerLink]= "[ '/user/dashboard/medico-turno']" (click)="medico('jorge')">
+                                <img class="imagen-medico" src="https://storage.googleapis.com/www-saludiario-com/wp-content/uploads/2022/05/77dddaf6-habilidades-me%CC%81dico-general.jpg">
+                                <div class="nombre-puntos">
+                                    <p class="nombre">Clara Chia</p>
+                                    <p><i class="bi bi-star-fill estrella"></i>(5)</p>
+                                </div>                            
+                                <p class="especialidad">Endocrinología</p>
+                            </a>                            
+                        </div>
+                        <div class="medico-favorito">
+                            <a class="seleccion" [routerLink]= "[ '/user/dashboard/medico-turno']">
+                                <img class="imagen-medico" src="https://storage.googleapis.com/www-saludiario-com/wp-content/uploads/2022/05/77dddaf6-habilidades-me%CC%81dico-general.jpg">
+                                <div class="nombre-puntos">
+                                    <p class="nombre">Clara Chia</p>
+                                    <p><i class="bi bi-star-fill estrella"></i>(5)</p>
+                                </div>                            
+                                <p class="especialidad">Endocrinología</p>
+                            </a>                            
+                        </div>
+                        <div class="medico-favorito">
+                            <a class="seleccion" [routerLink]= "[ '/user/dashboard/medico-turno']">
+                                <img class="imagen-medico" src="https://storage.googleapis.com/www-saludiario-com/wp-content/uploads/2022/05/77dddaf6-habilidades-me%CC%81dico-general.jpg">
+                                <div class="nombre-puntos">
+                                    <p class="nombre">Clara Chia</p>
+                                    <p><i class="bi bi-star-fill estrella"></i>(5)</p>
+                                </div>                            
+                                <p class="especialidad">Endocrinología</p>
+                            </a>                            
+                        </div>
+                        <div class="medico-favorito">
+                            <a class="seleccion" [routerLink]= "[ '/user/dashboard/medico-turno']">
+                                <img class="imagen-medico" src="https://storage.googleapis.com/www-saludiario-com/wp-content/uploads/2022/05/77dddaf6-habilidades-me%CC%81dico-general.jpg">
+                                <div class="nombre-puntos">
+                                    <p class="nombre">Clara Chia</p>
+                                    <p><i class="bi bi-star-fill estrella"></i>(5)</p>
+                                </div>                            
+                                <p class="especialidad">Endocrinología</p>
+                            </a>                            
+                        </div>
+                        <div class="medico-favorito">
+                            <a class="seleccion" [routerLink]= "[ '/user/dashboard/medico-turno']">
+                                <img class="imagen-medico" src="https://storage.googleapis.com/www-saludiario-com/wp-content/uploads/2022/05/77dddaf6-habilidades-me%CC%81dico-general.jpg">
+                                <div class="nombre-puntos">
+                                    <p class="nombre">Clara Chia</p>
+                                    <p><i class="bi bi-star-fill estrella"></i>(5)</p>
+                                </div>                            
+                                <p class="especialidad">Endocrinología</p>
+                            </a>                            
+                        </div>
+                        <div class="medico-favorito">
+                            <a class="seleccion" [routerLink]= "[ '/user/dashboard/medico-turno']">
+                                <img class="imagen-medico" src="https://storage.googleapis.com/www-saludiario-com/wp-content/uploads/2022/05/77dddaf6-habilidades-me%CC%81dico-general.jpg">
+                                <div class="nombre-puntos">
+                                    <p class="nombre">Clara Chia</p>
+                                    <p><i class="bi bi-star-fill estrella"></i>(5)</p>
+                                </div>                            
+                                <p class="especialidad">Endocrinología</p>
+                            </a>                            
+                        </div>
+                        <div class="medico-favorito">
+                            <a class="seleccion" [routerLink]= "[ '/user/dashboard/medico-turno']">
+                                <img class="imagen-medico" src="https://storage.googleapis.com/www-saludiario-com/wp-content/uploads/2022/05/77dddaf6-habilidades-me%CC%81dico-general.jpg">
+                                <div class="nombre-puntos">
+                                    <p class="nombre">Clara Chia</p>
+                                    <p><i class="bi bi-star-fill estrella"></i>(5)</p>
+                                </div>                            
+                                <p class="especialidad">Endocrinología</p>
+                            </a>                            
+                        </div>
+                        <div class="medico-favorito">
+                            <a class="seleccion" [routerLink]= "[ '/user/dashboard/medico-turno']">
+                                <img class="imagen-medico" src="https://storage.googleapis.com/www-saludiario-com/wp-content/uploads/2022/05/77dddaf6-habilidades-me%CC%81dico-general.jpg">
+                                <div class="nombre-puntos">
+                                    <p class="nombre">Clara Chia</p>
+                                    <p><i class="bi bi-star-fill estrella"></i>(5)</p>
+                                </div>                            
+                                <p class="especialidad">Endocrinología</p>
+                            </a>                            
+                        </div> --->                                     
+                    </div>     
+                </div>
+            </div>
+            <hr>
+            <!------Favoritos------>
+            
+            <div class="favoritos">
+                <div class="subtitle2">
+                    <p>Médicos favoritos</p>
+                </div>
+                <div class="galeria">
+                    <div class="medico-favorito">
+                        <img class="imagen-medico" src="https://storage.googleapis.com/www-saludiario-com/wp-content/uploads/2022/05/77dddaf6-habilidades-me%CC%81dico-general.jpg">
+                        <p class="nombre">Clara Chia</p>
+                        <p class="especialidad">Endocrinología</p>
+                    </div>
+                    <div class="medico-favorito">
+                        <img class="imagen-medico" src="https://storage.googleapis.com/www-saludiario-com/wp-content/uploads/2022/05/77dddaf6-habilidades-me%CC%81dico-general.jpg">
+                        <p class="nombre">Clara Chia</p>
+                        <p class="especialidad">Endocrinología</p>
+                    </div>
+                    <div class="medico-favorito">
+                        <img class="imagen-medico" src="https://storage.googleapis.com/www-saludiario-com/wp-content/uploads/2022/05/77dddaf6-habilidades-me%CC%81dico-general.jpg">
+                        <p class="nombre">Clara Chia</p>
+                        <p class="especialidad">Endocrinología</p>
+                    </div>
+                    <div class="medico-favorito">
+                        <img class="imagen-medico" src="https://storage.googleapis.com/www-saludiario-com/wp-content/uploads/2022/05/77dddaf6-habilidades-me%CC%81dico-general.jpg">
+                        <p class="nombre">Clara Chia</p>
+                        <p class="especialidad">Endocrinología</p>
+                    </div>
+                </div>
+            </div>
+            <div class="ver-todos">
+                <a routerLink="/user/dashboard/perfil">Ver todos</a>
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -142,3 +142,14 @@
         justify-content:center
     }    
 }
+#dash {
+    display:flex;
+    justify-content: center;
+    height: max-content;
+    min-height: 100vh;
+}
+.cuadrado {
+    width:45%;
+    height:45vw;
+    margin:25px
+}

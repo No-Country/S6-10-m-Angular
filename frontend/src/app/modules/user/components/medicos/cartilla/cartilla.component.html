@@ -1,0 +1,73 @@
+<section id="cartilla">
+    <div>
+        <div class="panel">
+            <div class="title">
+                <p>Médicos</p>
+            </div>
+            <!------Buscar Profesional-----> 
+            <div class="cuadro">
+                <div class="texto">
+                    <p class="subtitle">Cartilla de médicos</p>
+                    <p class="descript">Filtra la búsqueda de profesionales según tus preferencias</p>                
+                </div>
+                <div class="filtros">
+                    <div class="selectors">
+                        <div class="form-group">
+                            <label class="title-select" for="">Especialidad</label>                            
+                            <select type="text" id="especialidad"  formControlName="speciality" class="form-control">
+                                <option>Todas</option> 
+                                <option *ngFor="let item of especialidades" [value]="item.id">{{item.name}}</option>
+                            </select>                        
+                        </div>
+                        <div class="form-group">
+                            <label class="title-select" for="">Hospital</label>
+                            <select type="text" id="sede" class="form-control">
+                                <option>Todos</option>                                
+                                <option *ngFor="let item of sedes" [value]="item.id">{{item.name}}</option>
+                            </select>                         
+                        </div>                    
+                    </div>                       
+                </div>
+                <div class="boton">
+                    <button class="btn btn-blue" (click)="findDoctors()">Buscar</button>
+                </div>
+
+            </div>
+            <hr>
+            <!------Favoritos------>
+            <div class="favoritos">
+                <div class="subtitle2">
+                    <p>Médicos favoritos</p>
+                </div>
+                <div class="galeria">
+                    <div class="medico-favorito">
+                        <img class="imagen-medico" src="https://storage.googleapis.com/www-saludiario-com/wp-content/uploads/2022/05/77dddaf6-habilidades-me%CC%81dico-general.jpg">
+                        <p class="nombre">Clara Chia</p>
+                        <p class="especialidad">Endocrinología</p>
+                    </div>
+                    <div class="medico-favorito">
+                        <img class="imagen-medico" src="https://storage.googleapis.com/www-saludiario-com/wp-content/uploads/2022/05/77dddaf6-habilidades-me%CC%81dico-general.jpg">
+                        <p class="nombre">Clara Chia</p>
+                        <p class="especialidad">Endocrinología</p>
+                    </div>
+                    <div class="medico-favorito">
+                        <img class="imagen-medico" src="https://storage.googleapis.com/www-saludiario-com/wp-content/uploads/2022/05/77dddaf6-habilidades-me%CC%81dico-general.jpg">
+                        <p class="nombre">Clara Chia</p>
+                        <p class="especialidad">Endocrinología</p>
+                    </div>
+                    <div class="medico-favorito">
+                        <img class="imagen-medico" src="https://storage.googleapis.com/www-saludiario-com/wp-content/uploads/2022/05/77dddaf6-habilidades-me%CC%81dico-general.jpg">
+                        <p class="nombre">Clara Chia</p>
+                        <p class="especialidad">Endocrinología</p>
+                    </div>
+                </div>
+            </div>
+            <div class="ver-todos">
+                <a routerLink="/user/dashboard/perfil">Ver todos</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div *ngIf="sedes==[]" class="spinner-border text-primary" role="status">
+</div>

@@ -15,14 +15,6 @@ const routes: Routes = [
 	{path: 'admin', loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule)},
 	{path:'admin-dashboard',component:AdminDashboardComponent},
 	{path:'patient-dashboard',component:PatientDashboardComponent},
-	/*
-	{path:'dashboard', component:DashboardComponent,
-     children:[{path: 'turnos', component:TurnosComponent,
-     children:[
-      {path:'buscar', component:TurnosSearchComponent,
-      }]
-     }]
-   },*/
 
 	{ path: '**', redirectTo: 'home'}
 ];

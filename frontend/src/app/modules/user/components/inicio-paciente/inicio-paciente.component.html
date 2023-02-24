@@ -2,11 +2,10 @@
     <div class="paneles">
         <!----Panel Izquierdo--->
         <div class="panel">
-            <app-medicos></app-medicos>
+            <router-outlet name="izq"></router-outlet>
         </div>
-        <!----Panel Derecho--->
         <div class="panel">
-            <app-turnos></app-turnos>
+            <router-outlet name="der"></router-outlet>
         </div>
     </div>    
 </section>
