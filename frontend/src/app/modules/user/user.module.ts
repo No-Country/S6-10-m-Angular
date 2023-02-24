@@ -13,6 +13,7 @@ import { TurnosSearchComponent } from './components/turnos/turnos-search/turnos-
 import { InicioPacienteComponent } from './components/inicio-paciente/inicio-paciente.component';
 import { MedicoTurnoComponent } from './components/medicos/medico-turno/medico-turno.component';
 import { MedicoPerfilComponent } from './components/medicos/medico-perfil/medico-perfil.component';
+import { interceptorProvider } from 'src/app/interceptors/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,9 @@ import { MedicoPerfilComponent } from './components/medicos/medico-perfil/medico
     CommonModule,
     UserRoutingModule,
     NgbModule
+  ],
+  providers: [interceptorProvider],
+  exports: [
   ]
 
 })

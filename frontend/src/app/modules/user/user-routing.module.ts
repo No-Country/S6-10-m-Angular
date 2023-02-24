@@ -20,6 +20,7 @@ const routes: Routes = [
         { path: 'medico-turno', component: MedicoTurnoComponent },
         { path: 'hoja', component: HojaComponent },
         { path: 'medico-perfil', component: MedicoPerfilComponent },
+        { path: 'hoja', component: HojaComponent },
         { path: '**', redirectTo: 'inicio'}
       ] },
       { path: '**', redirectTo: 'home' }

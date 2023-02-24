@@ -14,6 +14,8 @@ export class UserService {
 
   //OBTENER SEDES
   public getSedes():Observable<any>{
+    console.log('El Servicio de Registro esta corriendo en la URL:')
+    console.log(this.URL + '/sede')
     return this.http.get<any>(this.URL + "/sede")
   }
 
