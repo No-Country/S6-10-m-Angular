@@ -126,7 +126,7 @@
     z-index:-100!important;
     min-height: 100vh;
 }
-#drop-box {
+#drop-box,#drop {
     z-index:999
 
 }

@@ -3,6 +3,7 @@
         <div class="panel">
             <div class="title">
                 <p>Médicos</p>
+                <a [routerLink]= "[ '/user/dashboard/inicio']"><i class="bi bi-arrow-left"></i> Volver</a>
             </div>
             <!------Buscar Profesional-----> 
             <div class="cuadro">
@@ -12,7 +13,7 @@
                 </div>
                 <div class="busqueda">
                     <div class="medicos-disponibles">
-                        <div *ngFor="let item of listaMedicos" class="medico-favorito">
+                        <div *ngFor="let item of listaMedicos" class="med-fav medico-favorito">
                             <a class="seleccion" [routerLink]= "[ '/user/dashboard/medico-turno']" (click)="medicoId(item.id)">
                                 <img class="imagen-medico" src="https://storage.googleapis.com/www-saludiario-com/wp-content/uploads/2022/05/77dddaf6-habilidades-me%CC%81dico-general.jpg">
                                 <div class="nombre-puntos">

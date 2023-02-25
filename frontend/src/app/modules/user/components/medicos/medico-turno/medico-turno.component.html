@@ -4,20 +4,21 @@
         <div class="panel panel-left">
             <div class="title">
                 <p>Turno</p>
-                <a routerLink="/user/dashboard/perfil"><i class="bi bi-arrow-left"></i> Volver</a>
+                <a [routerLink]= "[ '/user/dashboard/inicio', { outlets: { izq: 'lista' } }]"><i class="bi bi-arrow-left"></i> Volver</a>
             </div>
             <div class="agendar">
                 <div class="titulo">
                     <p>Solicitar turno</p>
                 </div>
                 <div class="fecha">
-                    <ngb-datepicker class="calendario" #d></ngb-datepicker>
-                    <!-----
-                    <input type="text" ngbDatepicker #d="ngbDatepicker"/>
-                    <button (click)="d.toggle()">Seleccionar fecha</button>---->
+                    <label>Seleccione una fecha para su turno</label><br>
+                    <input type="date" id="fecha"  formControlName="fecha" 
+                    min="2023-01-01" max="2023-12-31">                     
                 </div>
                 <div class="horario">
-                    <div class="from-group horarios"> 
+                    <label for="">Seleccione un horario</label>
+                    <div class="from-group horarios">
+                        <!---- 
                         <div class="item-horario">                                
                             <input type="ratio" class="btn-check m-2" formControlName="select10" name="options" id="options-0800" autocomplete="off">
                             <label class="btn btn-outline-primary" for="options-0800">08:00</label>
@@ -57,7 +58,39 @@
                         <div class="item-horario">
                             <input type="ratio" class="btn-check m-2" formControlName="select" name="options" id="options-1230" autocomplete="off">
                             <label class="btn btn-outline-primary" for="options-1230">12:30</label>
-                        </div>                           
+                        </div>--->
+                        <div class="item-horario">
+                            <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="option1">08:00</label>
+                        </div> 
+                        <div class="item-horario">
+                            <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="option2">08:30</label>
+                        </div>   
+                        <div class="item-horario">
+                            <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="option3">09:30</label>
+                        </div> 
+                        <div class="item-horario">
+                            <input type="radio" class="btn-check" name="options" id="option4" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="option4">10:00</label>
+                        </div>
+                        <div class="item-horario">
+                            <input type="radio" class="btn-check" name="options" id="option5" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="option5">10:30</label>
+                        </div> 
+                        <div class="item-horario">
+                            <input type="radio" class="btn-check" name="options" id="option6" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="option6">11:00</label>
+                        </div> 
+                        <div class="item-horario">
+                            <input type="radio" class="btn-check" name="options" id="option7" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="option7">11:30</label>
+                        </div> 
+                        <div class="item-horario">
+                            <input type="radio" class="btn-check" name="options" id="option8" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="option8">12:00</label>
+                        </div>                                
                     </div>
                 </div>
                 <div class="footer">
@@ -74,10 +107,6 @@
                     </div>
                 </div>                
             </div>
-            
-            
-
-
         </div>
         <!----PANEL DERECHO---->
         <div class="panel panel-right">
@@ -91,14 +120,14 @@
                 <div class="data">
                     <div class="data-sector">
                         <p class="title-data">Perfil profesional</p>
-                        <p>Especialidad: Endocrinología</p>
+                        <p>Especialidad: {{especialidad.name}}</p>
                         <p>Calificación: <i class="bi bi-star-fill estrella"></i>(5)</p>
                         <p>Matrícula: MP Nº35287</p>
                     </div>
                     <div class="data-sector">
                         <p class="title-data">Clínica/Hospital</p>
-                        <p>Hospital de los Santos Remedios</p>
-                        <p>Dirección: Heisemberg 647</p>
+                        <p>{{sede.name}}</p>
+                        <p>Dirección: {{sede.address}}</p>
                     </div>
                     <div class="data-sector">
                         <p class="title-data">Obra social/Prepaga</p>
@@ -112,7 +141,7 @@
                 </div>
             </div>
             <div class="opinion">
-                <a routerLink="/user/dashboard/perfil">Ver opiniones</a>
+                <a routerLink="/user/dashboard/opiniones">Ver opiniones</a>
             </div>
         </div>
     </div>    

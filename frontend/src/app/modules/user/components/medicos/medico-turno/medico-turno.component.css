@@ -19,8 +19,10 @@
     backdrop-filter: blur(5px);
     border-radius: 10px;
     font-family: 'Poppins';
-    font-style: normal;    
-    z-index:-1;
+    font-style: normal;  
+}
+.panel-right {
+    z-index:-1
 }
 .title p{
     margin:1px 5px;
