@@ -117,5 +117,23 @@
 .btn-blue {
     color:white;
     background:blue
+}
 
+
+@media screen and (max-width: 600px) {
+    .paneles {
+        display:flex;
+        flex-wrap:wrap;
+        flex-direction: row-reverse;
+        justify-content:center;
+        padding:0
+    }
+    .panel{
+        width:90%;
+        height: 80%;
+        margin:15px 5px;
+    }
+    #medico-turno {
+        padding:25px 5px
+    }
 }

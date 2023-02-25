@@ -68,7 +68,7 @@ export class MedicoTurnoComponent implements OnInit {
   }
  
 
-  //  SOLICITAR TURNO
+  // SOLICITAR TURNO
   solicitarTurno(){
     
   }
