@@ -6,17 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./turnos.component.css']
 })
 export class TurnosComponent implements OnInit {
-
-  public aux: boolean;
   
-  constructor() { this.aux = true}
+  constructor() {}
 
   ngOnInit(): void {
-    this.aux = true;
-  }
-
-  hide(){
-    this.aux = false;
+    
   }
 
 }

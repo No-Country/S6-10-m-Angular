@@ -7,7 +7,6 @@
     backdrop-filter: blur(5px);
     border-radius: 10px;
     font-family: 'Poppins';
-    z-index:-100;
     font-style: normal;
 }
 
@@ -30,7 +29,8 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    margin: 1em;
+    margin: 0.5em;
+    margin-left: 1em;
     background: linear-gradient(90deg, rgba(0, 136, 214, 0.3) 0%, rgba(11, 227, 190, 0.3) 103.11%);
     border-radius: 10px;
     padding: 10px 20px;
@@ -39,9 +39,10 @@
 #scheduled-appointments {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    margin: 1em;
+    margin: 0.5em;
+    margin-right: 1em;
     background: linear-gradient(90deg, rgba(0, 136, 214, 0.3) 0%, rgba(11, 227, 190, 0.3) 103.11%);
     border-radius: 10px;
     padding: 10px 20px;
@@ -49,15 +50,15 @@
 
 span {
     font-weight: 500;
-    font-size: 18px;
-    line-height: 28px;
+    font-size: 15px;
+    line-height: 26px;
     color: #000000;
 }
 
 .span-bold {
     font-weight: 600;
-    font-size: 18px;
-    line-height: 28px;
+    font-size: 16px;
+    line-height: 26px;
     color: #000000;
 }
 
@@ -74,15 +75,15 @@ img {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    width: 52px;
-    height: 52px;
+    width: 2.9em;
+    height: 2.9em;
 }
 
 .details {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 10px;
+    padding: 0.5em;
     background: #FFFFFF;
     box-shadow: 0px 14px 12px rgba(0, 0, 0, 0.11),
         0px 5.84887px 5.01331px rgba(0, 0, 0, 0.079074),
@@ -117,6 +118,7 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 0.5em;
 }
 
 #record {

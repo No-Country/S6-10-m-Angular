@@ -1,22 +1,84 @@
-<div class="row" id="new-appointment">
-    
-    <div class="col" id="info">
-        <span>Agendar un nuevo turno</span>
-        <p>Filtra la búsqueda de profesionales según tu preferencia</p>
+<div class="container-fluid" id="appointments">
+    <div class="row">
+        <div class="col">
+            <span id="panel-title">Turnos</span>
+        </div>
     </div>
 
-    <div class="row" id="filters">
+    <div class="row" id="new-appointment">
 
-        <div class="filter">Fecha <img src="../../../../assets/img/Arrow.png" alt=""></div>
+        <div class="col" id="info">
+            <span class="span-bold">Agendar un nuevo turno</span>
+            <p>Filtra la búsqueda de profesionales según tu preferencia</p>
+        </div>
 
-        <div class="filter">Especialidad <img src="../../../../assets/img/Arrow.png" alt=""></div>
+        <div class="col" id="filters">
+            <div ngbDropdown>
+                <button class="filter" type="button" ngbDropdownToggle>
+                    {{specialty}}
+                </button>
+                <ul id="drop-box" ngbDropdownMenu>
+                    <li *ngFor="let spec of specialties" let i=index>
+                        <div class="dropdown-item" (click)="this.specialty = spec.name" ngbDropdownItem>{{spec.name}}
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div ngbDropdown>
+                <button class="filter" type="button" ngbDropdownToggle>
+                    {{location}}
+                </button>
+                <ul id="drop-box2" ngbDropdownMenu>
+                    <li *ngFor="let sede of locations" let i=index>
+                        <div class="dropdown-item" (click)="this.location = sede.name" ngbDropdownItem>{{sede.name}}
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div ngbDropdown>
+                <button class="filter" type="button" ngbDropdownToggle>
+                    {{date}}
+                </button>
+                <div class="dropdown-item">
+                    <input type="date" formControlName="fecha" id="drop-box3" ngbDropdownMenu (change)="selectDate()">
+                </div>
+            </div>
 
-        <div class="filter">Clínica/Hospital <img src="../../../../assets/img/Arrow.png" alt=""></div>
+        </div>
 
-        <div class="filter">Prepaga/Obra Social <img src="../../../../assets/img/Arrow.png" alt=""></div>
+        <button>Buscar turno</button>
 
     </div>
 
-    <button>Buscar turno</button>
+    <div class="row" id="line-container">
+        <div class="col" id="line">
+        </div>
+    </div>
+    <div class="row" id="record">
+        <span class="span-bold">Historial</span>
+        <div class="col" id="canceled">
+            <span>Turnos cancelados</span>
+            <div class="details">
+                <p>Turno para: Florencia Schwarzenegger <br>
+                    Profesional: Adelio Valdez <br>
+                    Especialidad: Cardiología <br>
+                    Fecha: 12/03/2023 <br>
+                </p>
+            </div>
+        </div>
+        <div class="col" id="attended">
+            <span>Turnos asistidos</span>
+            <div class="details">
+                <p>Turno para: Florencia Schwarzenegger <br>
+                    Profesional: Adelio Valdez <br>
+                    Especialidad: Cardiología <br>
+                    Fecha: 12/03/2023 <br>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <a href="">Ver historial completo</a>
+    </div>
 
 </div>

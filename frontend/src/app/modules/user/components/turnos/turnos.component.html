@@ -1,17 +1,17 @@
-<div class="" id="appointments">
+<div class="container-fluid" id="appointments">
     <div class="row">
         <div class="col">
             <span id="panel-title">Turnos</span>
         </div>
     </div>
-    <div class="row" id="appointments-panel" *ngIf="aux; else elseBlock">
+    <div class="row" id="appointments-panel">
         <div class="col" id="new-appointment">
-            <span>Agendar un nuevo turno</span>
+            <span class="span-bold">Agendar un nuevo turno</span>
             <p>Presiona aquí si deseas generar un nuevo turno en simples pasos</p>
-            <img [routerLink]="['/dashboard/turnos/buscar']" src="../../../../../assets/img/Add.png" alt="" (click)="hide()">
+            <img src="../../../../../assets/img/Add.png" alt="" [routerLink]= "[ '/user/dashboard/inicio',{ outlets: { der: 'turnossearch' } }]">
         </div>
         <div class="col" id="scheduled-appointments">
-            <span class="span-bold">Turnos agendados</span>
+            <span class="span-bold" style="padding-bottom: 0.5em;">Turnos agendados</span>
             <div class="details">
                 <p>Turno para: Florencia Schwarzenegger <br>
                     Profesional: Adelio Valdez <br>
@@ -26,8 +26,6 @@
         </div>
     </div>
     
-    <ng-template #elseBlock><app-turnos-search></app-turnos-search></ng-template>
-
     <div class="row" id="line-container">
         <div class="col" id="line">
         </div>
