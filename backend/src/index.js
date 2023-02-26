@@ -22,6 +22,7 @@ const { SpecialityRouter } = require('./routes/speciality.routes');
 const { whatsappRouter } = require('./routes/routes.whatsapp');
 const { CodeRouter } = require('./routes/code.routes');
 const { DoctorRouter } = require('./routes/doctor.routes');
+const passwordResetRouter = require('./routes/passwordReset');
 
 // Enable CORS
 app.use(cors());
@@ -58,6 +59,7 @@ app.use('/api/v1/speciality', SpecialityRouter);
 app.use('/whatsapp', whatsappRouter);
 app.use('/api/v1/code', CodeRouter);
 app.use('/api/v1/doctor', DoctorRouter);
+app.use('/password', passwordResetRouter);
 
 // Global error handler
 app.use('*', globalErrorHandler);
