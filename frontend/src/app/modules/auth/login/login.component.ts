@@ -49,6 +49,7 @@ export class LoginComponent implements OnInit {
         console.log(res)
         this.isLogged = true
         this.tokenService.setToken(res.data.token)
+        this.tokenService.setUserId(res.data.user.id)
         this.tokenService.setUserName(res.data.user.firstName)
         this.tokenService.setLastName(res.data.user.lastName)
         this.tokenService.setDni(res.data.user.dni)

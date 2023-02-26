@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Appointment } from '../interfaces/appointment';
 
 @Injectable({
   providedIn: 'root'
@@ -36,7 +37,6 @@ export class UserService {
     return this.http.get<any>(this.URL + "/speciality/" + id)
   }
 
-
   //OBTENER MEDICOS POR ESPECIALIDAD Y SEDE
   public getDoctors(specialityId:string,sedeId:string):Observable<any>{
     console.log("El Servicio de Registro esta corriendo en la URL:")
@@ -50,6 +50,22 @@ export class UserService {
     console.log(this.URL + "/doctor/"+id)
     return this.http.get<any>(this.URL + "/doctor/" + id)    
   }
+
+  //OBTENER HORARIOS POR doctorId y fecha
+  public getSchedules(id:string,fecha:string):Observable<any>{
+    console.log("El Servicio de Registro esta corriendo en la URL:")
+    console.log(this.URL + "/schedule/" + id + "/" + fecha)
+    return this.http.get<any>(this.URL + "/schedule/" + id + "/" + fecha)    
+  }
+
+  //RESERVAR TURNO por scheduleId y userId
+  public createCita(newAppointment:Appointment){
+    console.log("El Servicio de Registro esta corriendo en la URL:")
+    console.log(this.URL + "/appointment")
+    return this.http.post<any>(this.URL + "/appointment",newAppointment)
+  }
+
+
 
   
 }

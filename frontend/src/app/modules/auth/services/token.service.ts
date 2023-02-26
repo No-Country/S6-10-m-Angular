@@ -8,6 +8,7 @@ const USERNAME_KEY = 'FirstName'
 const LASTNAME_KEY = 'LastName'
 const DNI_KEY = 'Dni'
 const PHONE_KEY = 'Phone'
+const USERID_KEY = 'UserId'
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,15 @@ export class TokenService {
   }
   public getToken(): string {
     return sessionStorage.getItem(TOKEN_KEY)!
+  }
+
+  // USER ID
+  public setUserId(userId: string): void {
+    window.sessionStorage.removeItem(USERID_KEY)
+    window.sessionStorage.setItem(USERID_KEY, userId)
+  }
+  public getUserId(): string {
+    return sessionStorage.getItem(USERID_KEY)!
   }
   // userName / FirstName
   public setUserName(userName: string): void {

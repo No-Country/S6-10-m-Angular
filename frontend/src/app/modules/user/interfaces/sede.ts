@@ -6,4 +6,4 @@ export class Sede {
       this.id = id
       this.name = name
     }
-  }
+}

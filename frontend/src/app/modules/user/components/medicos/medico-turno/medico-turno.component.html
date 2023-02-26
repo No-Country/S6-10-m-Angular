@@ -12,87 +12,29 @@
                 </div>
                 <div class="fecha">
                     <label>Seleccione una fecha para su turno</label><br>
-                    <input type="date" id="fecha"  formControlName="fecha" 
-                    min="2023-01-01" max="2023-12-31">                     
+                    <input type="date" id="fecha" value="2023-03-06" 
+                    min="2023-03-06" max="2023-03-17">                     
                 </div>
-                <div class="horario">
+                <div class="boton">
+                    <button class="btn btn-blue" (click)="getSchedules()">Elegir fecha</button>
+                </div>
+                <div *ngIf="notPosibility">
+                    El médico elegido solo atiende de lunes a viernes
+                </div>
+                <div *ngIf="!notPosibility" class="horario">
                     <label for="">Seleccione un horario</label>
-                    <div class="from-group horarios">
-                        <!---- 
-                        <div class="item-horario">                                
-                            <input type="ratio" class="btn-check m-2" formControlName="select10" name="options" id="options-0800" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="options-0800">08:00</label>
-                        </div>
-                        <div class="item-horario">                                
-                            <input type="ratio" class="btn-check m-2" formControlName="select0930" name="options" id="options-0830" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="options-0830">08:30</label>
-                        </div>                           
-                        <div class="item-horario">                                
-                            <input type="ratio" class="btn-check m-2" formControlName="select10" name="options" id="options-0900" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="options-0900">09:00</label>
-                        </div>
-                        <div class="item-horario">                                
-                            <input type="ratio" class="btn-check m-2" formControlName="select0930" name="options" id="options-0930" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="options-0930">09:30</label>
-                        </div>
-                        <div class="item-horario">                                
-                            <input type="ratio" class="btn-check m-2" formControlName="selectAlimentos" name="options" id="options-1000" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="options-1000">10:00</label>
-                        </div>
-                        <div class="item-horario">                                
-                            <input type="ratio" class="btn-check m-2" formControlName="selectAlimentos" name="options" id="options-1030" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="options-1030">10:30</label>
-                        </div>
-                        <div class="item-horario">                                
-                            <input type="ratio" class="btn-check m-2" formControlName="selectMovilidad" name="options" id="options-1100" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="options-1100">11:00</label>
-                        </div>
-                        <div class="item-horario">                                
-                            <input type="ratio" class="btn-check m-2" formControlName="selectMovilidad" name="options" id="options-1130" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="options-1130">11:30</label>
-                        </div>
-                        <div class="item-horario">
-                            <input type="ratio" class="btn-check m-2" formControlName="select" name="options" id="options-1200" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="options-1200">12:00</label>
-                        </div>
-                        <div class="item-horario">
-                            <input type="ratio" class="btn-check m-2" formControlName="select" name="options" id="options-1230" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="options-1230">12:30</label>
-                        </div>--->
-                        <div class="item-horario">
-                            <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="option1">08:00</label>
-                        </div> 
-                        <div class="item-horario">
-                            <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="option2">08:30</label>
-                        </div>   
-                        <div class="item-horario">
-                            <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="option3">09:30</label>
-                        </div> 
-                        <div class="item-horario">
-                            <input type="radio" class="btn-check" name="options" id="option4" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="option4">10:00</label>
-                        </div>
-                        <div class="item-horario">
-                            <input type="radio" class="btn-check" name="options" id="option5" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="option5">10:30</label>
-                        </div> 
-                        <div class="item-horario">
-                            <input type="radio" class="btn-check" name="options" id="option6" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="option6">11:00</label>
-                        </div> 
-                        <div class="item-horario">
-                            <input type="radio" class="btn-check" name="options" id="option7" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="option7">11:30</label>
-                        </div> 
-                        <div class="item-horario">
-                            <input type="radio" class="btn-check" name="options" id="option8" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="option8">12:00</label>
-                        </div>                                
+                    <div class="from-group horarios">                        
+                        <div *ngFor="let item of scheduleList" class="item-horario">
+                            <input type="radio" class="btn-check" name="options" id="{{item.id}}" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="{{item.id}}">{{item.hour}}</label>
+                        </div>                              
                     </div>
                 </div>
+                <div class="reservar-turno">
+                    <button class="btn btn-blue" (click)="solicitarTurno()" data-bs-toggle="modal" data-bs-target="#solicitarTurno" data-backdrop="static">Solicitar turno</button>
+                </div>
+                
+
                 <div class="footer">
                     <div class="obra">
                         <select>
@@ -102,9 +44,7 @@
                             <option value="">Natural Vibration</option>
                         </select>
                     </div>
-                    <div class="boton">
-                        <button class="btn btn-blue">Solicitar</button>
-                    </div>
+                    
                 </div>                
             </div>
         </div>
@@ -146,3 +86,30 @@
         </div>
     </div>    
 </section>
+
+
+<!---------------Modal de confirmación de turno--------------------->
+<!--MODAL CONFIRMAR TURNO--->
+<div class="modal fade" id="solicitarTurno" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-agregar">        
+            <div class="modal-body">
+                <div>
+                    <h5 class="titulo-modal-borrar">¿Desea confirmar este turno?</h5>
+                </div>
+                <div class="datos-confirm">
+                    <p>Paciente: {{nombrePaciente}}</p>
+                    <p class="nombre-medico">Médico: {{medicoElegido}}</p>
+                    <p class="nombre-especialidad">Especialidad : {{specialityId}}</p>
+                    <p class="nombre-sede">Sede: {{sedeId}}</p>
+                    <p class="fecha-confirm">Fecha: {{fechaElegida}}</p>
+                    <p class="horario-confirm">Horario: {{horarioElegido}}</p>
+                </div>
+            </div>
+            <div class="modal-footer botones">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button id="boton-confirm" class="btn btn-aceptar" data-bs-dismiss="modal" (click)="confirmarTurno()">Confirmar</button>
+            </div>        
+      </div>
+    </div>
+</div>

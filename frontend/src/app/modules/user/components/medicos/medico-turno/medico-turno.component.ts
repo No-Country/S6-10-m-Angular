@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+import { Appointment } from '../../../interfaces/appointment';
+import { FechaService } from '../../../services/fecha.service';
 import { UserService } from '../../../services/user.service';
 
 @Component({
@@ -14,13 +18,24 @@ export class MedicoTurnoComponent implements OnInit {
   specialityId:any;
   sede:any=[];
   sedeId:any; 
+  fechaElegida:any;
+  diaActual:any;
+  scheduleList:any=[];
+  notPosibility:boolean=false;
+  userId:any;
+  horarioElegido:any;
+  selectRatioHour:any;
+  nuevoTurno?:Appointment;
+  nombrePaciente:any;
 
-  constructor(private userService:UserService) { }
+  constructor(private userService:UserService,private fechaService:FechaService, private router:Router) { }
 
   ngOnInit(): void {
+    this.getDiaActual();
     this.getMedico();
     this.getDataSede();
     this.getDataEspecialidad();
+    this.dataPaciente()
   }
   //Data del médico
   getMedico(){
@@ -66,11 +81,85 @@ export class MedicoTurnoComponent implements OnInit {
     })
 
   }
- 
+  //Data de horarios
+  getSchedules(){
+    const dateControl = document.querySelector('input[type="date"]') as HTMLSelectElement;
+    if (dateControl!=null){
+      this.fechaElegida = dateControl.value + "T00:00:00.000Z";
+      console.log(this.fechaElegida);
+    }   
+    this.userService.getSchedules(this.medicoElegido,this.fechaElegida).subscribe({
+      next: (res) => {
+        console.log(res);
+        console.log(res.schedule)
+        if (Array.from(res.schedule).length==0){
+          console.log("El médico elegiso solo atiende de lunes a viernes");
+          this.notPosibility=true;
+        } else {
+          this.scheduleList = res.schedule;
+        }       
+      },
+      error: (error) => {
+        console.error(error)
+      },
+      complete: () => {}
+    })
+  }
 
-  // SOLICITAR TURNO
+  dataPaciente(){
+    const nombre = sessionStorage.getItem("FirstName");
+    const apellido = sessionStorage.getItem("LastName");
+    this.nombrePaciente = nombre + " " + apellido;
+  } 
+
+  // SOLICITAR TURNO - Abrir Modal de confirmación
   solicitarTurno(){
-    
+    this.userId=sessionStorage.getItem("UserId");
+    console.log(this.userId);
+    this.selectRatioHour = document.querySelector('input[name="options"]:checked')as HTMLInputElement;
+    console.log(this.selectRatioHour.id);
+    this.horarioElegido=this.selectRatioHour.id;    
+
+  }
+
+  confirmarTurno(){
+    console.log("Turno confirmado");
+    this.nuevoTurno={userId:this.userId,scheduleId:this.horarioElegido};
+    console.log(this.nuevoTurno)
+    this.userService.createCita(this.nuevoTurno).subscribe({
+      next: (res) => {
+        console.log(res);        
+      },
+      error: (error) => {
+        console.error(error)
+      },
+      complete: () => {
+        this.mensajeConfirm()
+      }
+    })    
+  }
+
+  // MENSAJE CONFIRMACION
+  mensajeConfirm(){
+    Swal.fire({
+      title: 'Turno Confirmado',
+      text: "Hemos enviado un correo a tu email, con los datos del turno agendado",
+      icon: 'success',
+      showCancelButton: false,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'OK'
+    }).then((result:any) => {
+      if (result.isConfirmed) {
+        this.router.navigateByUrl('user/dashboard/inicio')
+      }
+    })
+  }
+
+  // MOSTRAR FECHA ACTUAL
+  getDiaActual(){
+    this.diaActual=this.fechaService.actual();
+    console.log(this.diaActual)
   }
 
 }
