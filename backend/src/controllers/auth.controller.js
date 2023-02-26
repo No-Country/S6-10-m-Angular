@@ -9,6 +9,25 @@ const { newUser, findOneUser } = require('../services/user.service');
 const processMessage = require("../shared/processMessage");
 
 const registerUser = async (req, res) => {
+
+    async function envioMail( firstName, email ){
+        let transporter = nodemailer.createTransport({
+          host: "smtp.gmail.com",
+          port: 465,
+          secure: true,
+          auth: {
+            user: process.env.USEREMAIL,
+            pass: process.env.PASSMAIL
+          }
+        });
+        let envio = await transporter.sendMail({
+          from: process.env.USEREMAIL,
+          to: `${email}`,
+          subject:"Alta de usuario",
+          html:`Bienvenido a la app de Citamed ${firstName}! Con nosotros vas a poder pedir, modificar y cancelar turnos medicos de manera facil y rapida. `
+        })
+      }
+
     let data = {};
 
     try {
@@ -18,6 +37,7 @@ const registerUser = async (req, res) => {
             newUserResult.email,
             newUserResult.role
         );
+        envioMail( user, email)
 
         // Add sede data to the req object
         req.user = newUserResult;

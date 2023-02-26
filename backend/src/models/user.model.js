@@ -46,6 +46,9 @@ const User = db.define('user', {
         type: DataTypes.BOOLEAN,
         defaultValue: true,
     },
+resetToken: {
+        type: DataTypes.STRING
+    },
 });
 
 module.exports = { User };
