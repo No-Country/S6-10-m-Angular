@@ -7,7 +7,6 @@
 **Roles de cada integrante**---->  
 
                                    Front End:    Daniel Ramos
-                                                 Fabian Cruz
                                                  Rocío Flores
                                                  Santiago Castellani
                                           
