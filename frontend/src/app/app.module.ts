@@ -13,6 +13,8 @@ import { AdminModule } from './modules/admin/admin.module';
 import { DoctorModule } from './modules/doctor/doctor.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { UserModule } from './modules/user/user.module';
+import { AboutusComponent } from './components/aboutus/aboutus.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 
 @NgModule({
@@ -21,6 +23,8 @@ import { UserModule } from './modules/user/user.module';
     LandingComponent,
     AdminDashboardComponent,
     PatientDashboardComponent,
+    AboutusComponent,
+    AboutUsComponent,
   ],
     imports: [
       BrowserModule,
