@@ -25,12 +25,12 @@
                     <label for="">2 - Seleccione un horario</label>
                     <div class="from-group horarios">                        
                         <div *ngFor="let item of scheduleList" class="item-horario">
-                            <input type="radio" class="btn-check" name="options" id="{{item.id}}" autocomplete="off" value="{{item.hour}}">
+                            <input type="radio" class="btn-check" name="options" id="{{item.id}}" autocomplete="off" value="{{item.hour}}" (click)="habilitarBoton()">
                             <label class="btn btn-outline-primary" for="{{item.id}}">{{item.hour}}</label>
                         </div>                              
                     </div>
                     <div class="reservar-turno">
-                        <button id="boton-solicitar" class="btn btn-blue" (click)="solicitarTurno()" data-bs-toggle="modal" data-bs-target="#solicitarTurno" data-backdrop="static">Solicitar turno</button>
+                        <button id="boton-solicitar" class="btn btn-blue" (click)="solicitarTurno()" data-bs-toggle="modal" data-bs-target="#solicitarTurno" data-backdrop="static" [disabled]="!active">Solicitar turno</button>
                     </div>
                 </div>                             
             </div>
@@ -79,9 +79,18 @@
 <!--MODAL CONFIRMAR TURNO--->
 <div class="modal fade" id="solicitarTurno" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content modal-agregar">        
+      <div class="modal-content modal-agregar">
+            <div class="modal-header">
+                <div id="logo">
+                    <img src="../../../assets/img/Calendar.png" alt="" id="logo2">
+                    <div>
+                        <span style="color: #0BE3BE;">C</span><span style="color: white;">ita</span>
+                        <span style="color: #0BE3BE;">M</span><span style="color: white;">ed</span>
+                    </div>
+                </div>
+            </div>        
             <div class="modal-body">
-                <div>
+                <div class="titulillo">
                     <h5 class="titulo-modal-borrar">¿Desea confirmar este turno?</h5>
                 </div>
                 <div class="datos-confirm">
@@ -90,13 +99,13 @@
                     <p class="nombre-especialidad">Especialidad : {{especialidad.name}}</p>
                     <p class="nombre-sede">Sede: {{sede.name}}</p>
                     <p class="direccion-sede">Dirección {{sede.address}}</p>
-                    <p class="fecha-confirm">Fecha: {{fechaElegida}}</p>
+                    <p class="fecha-confirm">Fecha: {{fechaMod}}</p>
                     <p class="horario-confirm">Horario: {{horarioMod}}</p>
                 </div>
             </div>
             <div class="modal-footer botones">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button id="boton-confirm" class="btn btn-aceptar" data-bs-dismiss="modal" (click)="confirmarTurno()">Confirmar</button>
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal" (click)="reload()">Cancelar</button>
+                <button id="boton-confirm" class="btn btn-primary" data-bs-dismiss="modal" (click)="confirmarTurno()">Confirmar turno</button>
             </div>        
       </div>
     </div>

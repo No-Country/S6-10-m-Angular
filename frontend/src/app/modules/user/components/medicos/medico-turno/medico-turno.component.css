@@ -108,11 +108,11 @@
     justify-content:center
 }
 .item-horario {
-    margin:7px;
+    margin:5px;
 }
 .item-horario label {
-    padding:3px;
-    font-size:0.8rem
+    padding:2px;
+    font-size:0.7rem
 }
 #boton-solicitar {
     margin-top:25px
@@ -136,6 +136,37 @@
 #advertencia p {
     color:red
 }
+
+/*----------------MODAL------------------*/
+
+.modal-header p{
+    margin:0 auto;
+    font-size:1.5rem;    
+}
+#logo {
+    margin:0 auto;
+    display:flex;
+    justify-content:center
+}
+#logo span {
+    font-size:2rem;
+}
+#logo img {
+    margin-right:10px;
+}
+.titulillo {
+    text-align:center;
+    margin-bottom:25px
+}
+.botones button {
+    margin:5px 10px
+}
+.modal-footer,.modal-header{
+    display:flex;
+    justify-content: space-between;   
+    background:grey
+}
+
 
 
 @media screen and (max-width: 600px) {

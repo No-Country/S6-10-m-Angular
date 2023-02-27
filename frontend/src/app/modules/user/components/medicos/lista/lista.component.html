@@ -15,12 +15,13 @@
                     <div class="medicos-disponibles">
                         <div *ngFor="let item of listaMedicos" class="med-fav medico-favorito">
                             <a class="seleccion" [routerLink]= "[ '/user/dashboard/medico-turno']" (click)="medicoId(item.id)">
-                                <img class="imagen-medico" src="https://storage.googleapis.com/www-saludiario-com/wp-content/uploads/2022/05/77dddaf6-habilidades-me%CC%81dico-general.jpg">
+                                <img class="imagen-medico" [src]="item.role" alt="imagen">
                                 <div class="nombre-puntos">
                                     <p class="nombre">{{item.firstName}} {{item.lastName}}</p>
                                     <p><i class="bi bi-star-fill estrella"></i>(5)</p>
                                 </div>                            
                                 <p class="especialidad">{{item.speciality.name}}</p>
+
                             </a>                            
                         </div>                                                         
                     </div>     

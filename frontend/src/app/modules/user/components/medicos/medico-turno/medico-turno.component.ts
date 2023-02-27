@@ -30,6 +30,8 @@ export class MedicoTurnoComponent implements OnInit {
   nombrePaciente:any;
   fechaMod:any;
   horarioMod:any;
+  inputs:any;
+  active:boolean=false;
 
   constructor(private userService:UserService,private fechaService:FechaService, private router:Router) { }
 
@@ -111,6 +113,7 @@ export class MedicoTurnoComponent implements OnInit {
     })
   }
 
+  // DATA PACIENTE
   dataPaciente(){
     const nombre = sessionStorage.getItem("FirstName");
     const apellido = sessionStorage.getItem("LastName");
@@ -119,14 +122,20 @@ export class MedicoTurnoComponent implements OnInit {
 
   // SOLICITAR TURNO - Abrir Modal de confirmación
   solicitarTurno(){
-    this.userId=sessionStorage.getItem("UserId");
-    console.log(this.userId);/*
-    this.fechaElegida=this.fechaService.fecha(this.fechaElegida)*/
     this.selectRatioHour = document.querySelector('input[name="options"]:checked')as HTMLInputElement;
-    console.log(this.selectRatioHour.id);
+    console.log(this.selectRatioHour);   
+    this.userId=sessionStorage.getItem("UserId");
+    console.log(this.userId);
     this.horarioElegido=this.selectRatioHour.id;
     this.horarioMod=this.selectRatioHour.value;
+    const dia = this.horarioElegido;
+    console.log(typeof dia)
+    this.fechaMod = this.fechaService.fechaTransform(this.fechaElegida)    
   }
+
+  /*-----------------------------------------------------*/
+
+  // CONFIRMAR TURNO
 
   confirmarTurno(){
     console.log("Turno confirmado");
@@ -137,6 +146,7 @@ export class MedicoTurnoComponent implements OnInit {
         console.log(res);        
       },
       error: (error) => {
+        this.mensajeError()
         console.error(error)
       },
       complete: () => {
@@ -144,6 +154,8 @@ export class MedicoTurnoComponent implements OnInit {
       }
     })    
   }
+
+  /*-----------------------------------------------------*/
 
   // MENSAJE CONFIRMACION
   mensajeConfirm(){
@@ -161,11 +173,41 @@ export class MedicoTurnoComponent implements OnInit {
       }
     })
   }
+//
+  /*-----------------------------------------------------*/
+
+  // MENSAJE ERROR : "No se pudo agendar el turno"
+  mensajeError(){
+    Swal.fire({
+      title: 'Error',
+      text: "Por algún motivo no se pudo agendar el turno, intente nuevamente",
+      icon: 'warning',
+      showCancelButton: false,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'OK'
+    }).then((result:any) => {
+      if (result.isConfirmed) {
+        this.router.navigateByUrl('user/dashboard/inicio')
+      }
+    })
+  }
+
+  /*-----------------------------------------------------*/
 
   // MOSTRAR FECHA ACTUAL
   getDiaActual(){
     this.diaActual=this.fechaService.actual();
     console.log(this.diaActual)
   }
+
+  habilitarBoton() {
+    this.active=true
+  }
+  reload(){
+    this.active=false;
+    location.reload();
+  }
+  
 
 }

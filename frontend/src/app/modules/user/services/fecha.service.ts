@@ -30,13 +30,16 @@ export class FechaService {
     }    
     const diaActual = año+"-"+this.mesR+"-"+this.diaR;
     return diaActual
-  }
+  }  
 
-  public fecha(fecha:Date){
-    const date = fecha;
-    const dia = date.getDate();
-    const mes = date.getMonth()+1;
-    const año = date.getFullYear();
+  public fechaTransform(dataFecha:string){
+    const fechita=dataFecha.substring(0,10)
+    console.log(fechita)
+    const diaElegido = new Date(fechita);
+    console.log(diaElegido);
+    const dia = diaElegido.getDate()+1;
+    const mes = diaElegido.getMonth()+1;
+    const año = diaElegido.getFullYear();
     switch (mes){
       case 1: this.mesTexto="Enero";
       break;
@@ -65,7 +68,8 @@ export class FechaService {
       default:
       break
     }
-    const diaActual = dia+" de "+this.mesTexto+" de "+año;
-    return diaActual;
+    const diaTurno = dia+" de "+this.mesTexto+" de "+año;
+    return diaTurno;    
   }
+  
 }
