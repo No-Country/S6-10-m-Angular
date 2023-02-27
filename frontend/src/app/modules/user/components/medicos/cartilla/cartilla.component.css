@@ -93,7 +93,7 @@ hr {
     border-radius:5px
 }
 .galeria {
-    padding:15px;
+    padding:8px;
     display:flex;
     justify-content:space-around
 }

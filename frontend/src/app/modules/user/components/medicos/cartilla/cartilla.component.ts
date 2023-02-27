@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { Sede } from '../../../interfaces/sede';
 import { UserService } from '../../../services/user.service';
 
@@ -14,7 +15,10 @@ export class CartillaComponent implements OnInit {
   sedes:Sede[]=[];
   especialidades:any=[];
   sedeElegida:any;
-  hospitalElegido:string=""
+  hospitalElegido:string="";
+  selectSede:any;
+  selectEspecialidad:any;
+  constSede:string="elegir";
 
   constructor(private router:Router,private userService:UserService) { }
 
@@ -55,12 +59,36 @@ export class CartillaComponent implements OnInit {
     const selectorSede = document.getElementById("sede")as HTMLSelectElement;
     const sede = selectorSede.value;
     console.log(sede);
-    //Guardando en Sesión
-    sessionStorage.setItem("especialidadElegida",especialidad);
-    sessionStorage.setItem("sedeElegida",sede);
-    //Redirigiendo
-    this.router.navigate([ '/user/dashboard/inicio', { outlets: { izq: 'lista' } }])
+    if (sede!="elegir"&&especialidad!="elegir"){
+      //Guardando en Sesión
+      sessionStorage.setItem("especialidadElegida",especialidad);
+      sessionStorage.setItem("sedeElegida",sede);
+      //Redirigiendo
+      this.router.navigate([ '/user/dashboard/inicio', { outlets: { izq: 'lista' } }])
+
+    } else {
+      this.eleccionIncorrecta()
+    }
+    
   }
+
+  eleccionIncorrecta() {
+    Swal.fire({
+      title: 'Atención',
+      text: "Debe elegir la especialidad requerida y el hospital donde desea ser atendido",
+      icon: 'info',
+      showCancelButton: false,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Aceptar'
+    }).then((result:any) => {
+      if (result.isConfirmed) {
+        this.router.navigateByUrl('/user/dashboard/inicio')
+      } 
+    })
+  }
+
+  
     
 }
   

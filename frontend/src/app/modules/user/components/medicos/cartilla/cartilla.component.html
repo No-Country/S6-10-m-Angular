@@ -8,21 +8,21 @@
             <div class="cuadro">
                 <div class="texto">
                     <p class="subtitle">Cartilla de médicos</p>
-                    <p class="descript">Filtra la búsqueda de profesionales según tus preferencias</p>                
+                    <p class="descript">Selecciona los filtros de búsqueda</p>                
                 </div>
                 <div class="filtros">
                     <div class="selectors">
                         <div class="form-group">
                             <label class="title-select" for="">Especialidad</label>                            
                             <select type="text" id="especialidad"  formControlName="speciality" class="form-control">
-                                <option>Todas</option> 
+                                <option value="elegir"></option> 
                                 <option *ngFor="let item of especialidades" [value]="item.id">{{item.name}}</option>
                             </select>                        
                         </div>
                         <div class="form-group">
                             <label class="title-select" for="">Hospital</label>
                             <select type="text" id="sede" class="form-control">
-                                <option>Todos</option>                                
+                                <option value="elegir"></option>                                
                                 <option *ngFor="let item of sedes" [value]="item.id">{{item.name}}</option>
                             </select>                         
                         </div>                    
@@ -41,16 +41,15 @@
                 </div>
                 <div class="galeria">
                     <div class="medico-favorito">
-                        <img class="imagen-medico" src="https://storage.googleapis.com/www-saludiario-com/wp-content/uploads/2022/05/77dddaf6-habilidades-me%CC%81dico-general.jpg">
-                        <p class="nombre">Clara Chia</p>
-                        <p class="especialidad">Endocrinología</p>
+                        <img class="imagen-medico" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa3c4cneKF70QX050d-wIHIGdM080GgvYpCA&usqp=CAU">
+                        <p class="nombre">René Favaloro</p>
+                        <p class="especialidad">Cardiología</p>
                     </div>
                     <div class="medico-favorito">
-                        <img class="imagen-medico" src="https://storage.googleapis.com/www-saludiario-com/wp-content/uploads/2022/05/77dddaf6-habilidades-me%CC%81dico-general.jpg">
-                        <p class="nombre">Clara Chia</p>
-                        <p class="especialidad">Endocrinología</p>
-                    </div>
-                    
+                        <img class="imagen-medico" src="https://www.topdoctors.com.co/files/Image/large/5300fd45331fbccef0c0367e6f212d17.jpg">
+                        <p class="nombre">Laura Breticcelli</p>
+                        <p class="especialidad">Medicina general</p>
+                    </div>                    
                 </div>
             </div>
             <div class="ver-todos">

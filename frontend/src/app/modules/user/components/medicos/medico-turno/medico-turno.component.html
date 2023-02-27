@@ -4,48 +4,35 @@
         <div class="panel panel-left">
             <div class="title">
                 <p>Turno</p>
-                <a [routerLink]= "[ '/user/dashboard/inicio', { outlets: { izq: 'lista' } }]"><i class="bi bi-arrow-left"></i> Volver</a>
+                <a [routerLink]= "[ '/user/dashboard/inicio', { outlets: { izq: 'lista',der:null}}]"><i class="bi bi-arrow-left"></i> Volver</a>
             </div>
             <div class="agendar">
                 <div class="titulo">
                     <p>Solicitar turno</p>
                 </div>
                 <div class="fecha">
-                    <label>Seleccione una fecha para su turno</label><br>
+                    <label>1 - Seleccione una fecha para su turno</label><br>
                     <input type="date" id="fecha" value="2023-03-06" 
                     min="2023-03-06" max="2023-03-17">                     
                 </div>
-                <div class="boton">
-                    <button class="btn btn-blue" (click)="getSchedules()">Elegir fecha</button>
+                <div class="boton-fecha">
+                    <button class="btn btn-blue" (click)="getSchedules()">Horarios disponibles</button>
                 </div>
-                <div *ngIf="notPosibility">
-                    El médico elegido solo atiende de lunes a viernes
+                <div *ngIf="notPosibility" id="advertencia">
+                    <p class="texto-info">El médico elegido solo atiende de lunes a viernes</p>                    
                 </div>
-                <div *ngIf="!notPosibility" class="horario">
-                    <label for="">Seleccione un horario</label>
+                <div *ngIf="!notPosibility && showSchedules" class="horario">
+                    <label for="">2 - Seleccione un horario</label>
                     <div class="from-group horarios">                        
                         <div *ngFor="let item of scheduleList" class="item-horario">
-                            <input type="radio" class="btn-check" name="options" id="{{item.id}}" autocomplete="off">
+                            <input type="radio" class="btn-check" name="options" id="{{item.id}}" autocomplete="off" value="{{item.hour}}">
                             <label class="btn btn-outline-primary" for="{{item.id}}">{{item.hour}}</label>
                         </div>                              
                     </div>
-                </div>
-                <div class="reservar-turno">
-                    <button class="btn btn-blue" (click)="solicitarTurno()" data-bs-toggle="modal" data-bs-target="#solicitarTurno" data-backdrop="static">Solicitar turno</button>
-                </div>
-                
-
-                <div class="footer">
-                    <div class="obra">
-                        <select>
-                            <option value="">¿Obra social?</option>
-                            <option value="">IOMA</option>
-                            <option value="">Saluf-Forte</option>
-                            <option value="">Natural Vibration</option>
-                        </select>
+                    <div class="reservar-turno">
+                        <button id="boton-solicitar" class="btn btn-blue" (click)="solicitarTurno()" data-bs-toggle="modal" data-bs-target="#solicitarTurno" data-backdrop="static">Solicitar turno</button>
                     </div>
-                    
-                </div>                
+                </div>                             
             </div>
         </div>
         <!----PANEL DERECHO---->
@@ -99,11 +86,12 @@
                 </div>
                 <div class="datos-confirm">
                     <p>Paciente: {{nombrePaciente}}</p>
-                    <p class="nombre-medico">Médico: {{medicoElegido}}</p>
-                    <p class="nombre-especialidad">Especialidad : {{specialityId}}</p>
-                    <p class="nombre-sede">Sede: {{sedeId}}</p>
+                    <p class="nombre-medico">Médico: {{doctor.firstName}} {{doctor.lastName}}</p>
+                    <p class="nombre-especialidad">Especialidad : {{especialidad.name}}</p>
+                    <p class="nombre-sede">Sede: {{sede.name}}</p>
+                    <p class="direccion-sede">Dirección {{sede.address}}</p>
                     <p class="fecha-confirm">Fecha: {{fechaElegida}}</p>
-                    <p class="horario-confirm">Horario: {{horarioElegido}}</p>
+                    <p class="horario-confirm">Horario: {{horarioMod}}</p>
                 </div>
             </div>
             <div class="modal-footer botones">

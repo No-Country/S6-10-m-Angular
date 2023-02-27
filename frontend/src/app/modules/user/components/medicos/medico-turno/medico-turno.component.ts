@@ -22,11 +22,14 @@ export class MedicoTurnoComponent implements OnInit {
   diaActual:any;
   scheduleList:any=[];
   notPosibility:boolean=false;
+  showSchedules:boolean=false;
   userId:any;
   horarioElegido:any;
   selectRatioHour:any;
   nuevoTurno?:Appointment;
   nombrePaciente:any;
+  fechaMod:any;
+  horarioMod:any;
 
   constructor(private userService:UserService,private fechaService:FechaService, private router:Router) { }
 
@@ -96,6 +99,8 @@ export class MedicoTurnoComponent implements OnInit {
           console.log("El médico elegiso solo atiende de lunes a viernes");
           this.notPosibility=true;
         } else {
+          this.notPosibility=false;
+          this.showSchedules=true;
           this.scheduleList = res.schedule;
         }       
       },
@@ -115,11 +120,12 @@ export class MedicoTurnoComponent implements OnInit {
   // SOLICITAR TURNO - Abrir Modal de confirmación
   solicitarTurno(){
     this.userId=sessionStorage.getItem("UserId");
-    console.log(this.userId);
+    console.log(this.userId);/*
+    this.fechaElegida=this.fechaService.fecha(this.fechaElegida)*/
     this.selectRatioHour = document.querySelector('input[name="options"]:checked')as HTMLInputElement;
     console.log(this.selectRatioHour.id);
-    this.horarioElegido=this.selectRatioHour.id;    
-
+    this.horarioElegido=this.selectRatioHour.id;
+    this.horarioMod=this.selectRatioHour.value;
   }
 
   confirmarTurno(){

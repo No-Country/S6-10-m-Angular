@@ -90,6 +90,15 @@
 .agendar {
     text-align:center
 }
+.fecha {
+    margin-top:20px
+}
+#fecha {
+    margin-top:10px
+}
+.boton-fecha {
+    margin-top:10px
+}
 .horario {
     margin:20px
 }
@@ -99,11 +108,14 @@
     justify-content:center
 }
 .item-horario {
-    margin:10px;
+    margin:7px;
 }
 .item-horario label {
-    padding:5px;
-    font-size:0.9rem
+    padding:3px;
+    font-size:0.8rem
+}
+#boton-solicitar {
+    margin-top:25px
 }
 .footer {
     display:flex;
@@ -117,6 +129,12 @@
 .btn-blue {
     color:white;
     background:blue
+}
+#advertencia {
+    margin-top:100px
+}
+#advertencia p {
+    color:red
 }
 
 
