@@ -16,7 +16,7 @@
                     min="2023-03-06" max="2023-03-17">                     
                 </div>
                 <div class="boton-fecha">
-                    <button class="btn btn-blue" (click)="getSchedules()">Horarios disponibles</button>
+                    <button class="btn btn-blue" id="horariosDisponibles" (click)="getSchedules()">Buscar horarios</button>
                 </div>
                 <div *ngIf="notPosibility" id="advertencia">
                     <p class="texto-info">El médico elegido solo atiende de lunes a viernes</p>                    
@@ -56,16 +56,22 @@
                         <p>{{sede.name}}</p>
                         <p>Dirección: {{sede.address}}</p>
                     </div>
-                    <div class="data-sector">
-                        <p class="title-data">Obra social/Prepaga</p>
-                        <p>IOMA</p>
-                        <p>SALUD-FORTE</p>
-                        <p>Natural Vibration</p>
-                    </div>
+                    <div class="mobile">
+                        <div class="data-sector">
+                            <p class="title-data">Obra social/Prepaga</p>
+                            <p>IOMA</p>
+                            <p>SALUD-FORTE</p>
+                            <p>Natural Vibration</p>
+                        </div>
+                        <div class="img-doctor-mobile">
+                            <img src="../../../../../../assets/img/Female-doctor.png" alt="">
+                        </div>
+                    </div>                    
                 </div>
                 <div class="img-doctor">
                     <img src="../../../../../../assets/img/Female-doctor.png" alt="">
                 </div>
+                
             </div>
             <div class="opinion">
                 <a routerLink="/user/dashboard/opiniones">Ver opiniones</a>

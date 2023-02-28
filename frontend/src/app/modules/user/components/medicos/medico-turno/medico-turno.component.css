@@ -1,7 +1,6 @@
 #panel-title {
     width: 84px;
-    height: 36px;
-    
+    height: 36px;    
 }
 #medico-turno {
     padding:50px
@@ -19,10 +18,7 @@
     backdrop-filter: blur(5px);
     border-radius: 10px;
     font-family: 'Poppins';
-    font-style: normal;  
-}
-.panel-right {
-    z-index:-1
+    font-style: normal;
 }
 .title p{
     margin:1px 5px;
@@ -44,20 +40,28 @@
     text-align: center;
     font-weight: bolder;
 }
+
+/*--------------------PANEL IZQUIERDO---------------------*/
+
+#horariosDisponibles{
+    margin-top:8px
+}
 .cuadro {
     border:2px solid rgb(110, 199, 228);
     background: white;
     width:90%;
     margin:0 auto;
     border-radius:10px;
-    padding:40px;
+    padding:20px;
     display:flex;
     justify-content:space-between
 }
 .data {
+    width:80%;
     display:flex;
     flex-direction: column;
     justify-content: center;
+    padding:0
 }
 .data-sector {
     margin:10px
@@ -75,6 +79,17 @@
 }
 .img-doctor img {
     height: 350px;
+    margin-right: -25px;
+}
+.img-doctor-mobile img {
+    display:none;
+    height:130px;
+    margin-right: -35px;
+    margin-top:10px
+}
+.mobile {
+    display:flex;
+    justify-content:space-between
 }
 .estrella {
     color:rgb(200, 200, 21)
@@ -82,10 +97,12 @@
 .opinion {
     text-align:center;
     font-size: 0.8rem;
-    padding:10px
+    margin:0 auto;
+    margin:0 auto;
+    padding:25px
 }
 
-/*--------------------PANEL IZQUIERDO-----------------------------------*/
+/*--------------------PANEL DERECHO---------------------*/
 
 .agendar {
     text-align:center
@@ -166,6 +183,7 @@
     justify-content: space-between;   
     background:grey
 }
+/*----------------------------------------------*/
 
 
 
@@ -178,11 +196,44 @@
         padding:0
     }
     .panel{
-        width:90%;
-        height: 80%;
+        width:95%;
+        height: max-content;
         margin:15px 5px;
+        padding:0
     }
     #medico-turno {
-        padding:25px 5px
+        padding:15px 2px
     }
+    .panel-left {
+        margin-top:0;
+        padding-bottom:25px
+    }
+    .opinion{
+        padding-top:25px
+    }
+    
 }
+
+@media screen and (max-width: 1200px) {
+    .img-doctor img {
+        height: 200px;
+        margin-right: -25px;
+    }
+    #medico-turno {
+        padding-bottom:15px
+    }    
+}
+@media screen and (max-width: 997px) {
+    .img-doctor img {
+        display:none
+    }
+    .img-doctor-mobile img{
+        display:block;
+        height:100px
+    }
+    #medico-turno {
+        padding:0
+    }
+    
+}
+

@@ -1,7 +1,8 @@
+
 <div class="container-fluid">
 
 <!-----------NAVBAR DASHBOARD USUARIO--------------->
-<nav id="nav-dashboard-user">
+<nav id="nav-dashboard-user" class="user-dashboard">
     <div id="logo">
         <img src="../../../assets/img/Calendar.png" alt="" id="logo2">
         <div>
@@ -12,10 +13,6 @@
     <div class="saludo-usuario">
         <p>Hola, {{nombreUsuario}}</p>
     </div>   
-    <!----- 
-    <div class="boton-logout">
-        <button class="btn logout" (click)="closeSession()"><i class="bi bi-person-circle"></i></button>
-    </div>--->
     <div id="drop" ngbDropdown class="d-inline">
         <button type="button" class="btn logout" id="dropdownBasic1" ngbDropdownToggle><i class="bi bi-person-circle"></i></button>
         <div id="drop-box" ngbDropdownMenu aria-labelledby="dropdownBasic1">
@@ -36,9 +33,8 @@
     <router-outlet></router-outlet>
 </div>
 
-
-
 <!-----------FOOTER DASHBOARD USUARIO--------------->
+
 <footer class="" id="footer">
     <div class="item-footer" id="copyright">
         <span><i class="bi bi-c-circle"></i> Todos los derechos reservados</span>
@@ -60,8 +56,8 @@
             </div>
         </div>
     </div>
-
 </footer>
-
 </div>
+
+
 

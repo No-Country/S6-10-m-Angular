@@ -1,5 +1,6 @@
 section {
-    min-height: 100vh;
+    min-height: 80vh;
+    height:max-content
 }
 #perfil-notes {
     display:flex;    
@@ -64,7 +65,8 @@ select,input {
 }
 .btn-save {
     color:white;
-    background:#0b48d6
+    background:#0b48d6;
+    margin-top:25px
 }
 .btn-save:hover {
     background:#4b71ca
@@ -72,6 +74,7 @@ select,input {
 @media screen and (max-width: 500px) {
     section {        
     margin:0 auto;
+    padding-top:10px
     }
     #perfil{
       width:80%;
@@ -86,5 +89,8 @@ select,input {
     }
     input,select {
         width:150px
+    }
+    .btn-save {
+        margin-top:10px
     }
 }

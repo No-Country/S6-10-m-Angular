@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Appointment } from '../../../interfaces/appointment';
+import { DataEmail } from '../../../interfaces/dataEmail';
+import { EmailService } from '../../../services/email.service';
 import { FechaService } from '../../../services/fecha.service';
 import { UserService } from '../../../services/user.service';
 
@@ -32,8 +34,9 @@ export class MedicoTurnoComponent implements OnInit {
   horarioMod:any;
   inputs:any;
   active:boolean=false;
+  datosTurno:any;
 
-  constructor(private userService:UserService,private fechaService:FechaService, private router:Router) { }
+  constructor(private userService:UserService,private fechaService:FechaService, private router:Router, private emailService:EmailService) { }
 
   ngOnInit(): void {
     this.getDiaActual();
@@ -194,6 +197,21 @@ export class MedicoTurnoComponent implements OnInit {
   }
 
   /*-----------------------------------------------------*/
+
+  // ENVIA EMAIL
+  sendEmail(datosTurno:DataEmail){
+    this.datosTurno={
+      nombre: "Juan",
+      apellido: "Pérez",
+      email:"",
+      profesional:"Rene Favaloro",
+      especialidad:"Medicina",
+      sede:"Esmeralda",
+      dia:"lunes",
+      horario: "20:30"    
+    }
+    this.emailService.enviaEmail(datosTurno)
+  }
 
   // MOSTRAR FECHA ACTUAL
   getDiaActual(){

@@ -4,8 +4,10 @@
     justify-content: space-between;
     background: rgba(8, 8, 8, 0.542);
     backdrop-filter: blur(5px);
-    width:100%;
-    z-index:100!important
+    width:100%;      
+    position:absolute;
+    top:0;
+    z-index:100;
 }
 #logo {
     font-family: 'Poppins';
@@ -40,12 +42,20 @@
     margin-right:20px;
     border:none
 }
-#drop {
-    z-index:999!important;
+#drop-box {  
+    border:1px solid grey
+}
+#drop-box button {
+    font-weight:bolder
+}
+#drop-box button:hover {
+    background:lightblue
 }
 /*------Section Dashboard------*/
-#user-dashboard {
+
+#seccion-inter {
     min-height: 100vh;
+    padding:50px 5px;
 }
 
 
@@ -122,20 +132,15 @@
     padding: 0px;
     margin: 0px;
 }
-#seccion-inter {
-    z-index:-100!important;
-    min-height: 100vh;
-}
-#drop-box,#drop {
-    z-index:999
 
-}
 
 @media screen and (max-width: 600px) {
     .saludo-usuario {
         display:none
     }
-    
+    #seccion-inter{
+        padding:80px 5px
+    }    
 }
 @media screen and (max-width: 825px) {
     #footer {

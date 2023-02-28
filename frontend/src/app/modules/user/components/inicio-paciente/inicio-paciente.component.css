@@ -4,7 +4,7 @@
 .paneles {
     display:flex;
     flex-wrap:wrap;
-    justify-content:center
+    justify-content:center;
 }
 .panel {
     width:47%;
