@@ -6,10 +6,11 @@ import { RegistroComponent } from './registro/registro.component'
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 
-import { AuthRoutingModule } from './auth-routing.module'
+import { AuthRoutingModule } from './auth-routing.module';
+import { RecoverComponent } from './recover/recover.component'
 
 @NgModule({
-  declarations: [LoginComponent, RegistroComponent],
+  declarations: [LoginComponent, RegistroComponent, RecoverComponent],
   imports: [CommonModule, ReactiveFormsModule, FormsModule, AuthRoutingModule]
 })
 export class AuthModule {}

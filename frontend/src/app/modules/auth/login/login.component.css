@@ -134,6 +134,14 @@ label {
   bottom: 8.33%;
 }
 
+.recover {
+  padding-top:30px
+}
+.recover p {
+  font-size:0.6rem;
+  margin:0
+}
+
 @media screen and (max-width: 600px) {
   .tar{
     margin:0 auto

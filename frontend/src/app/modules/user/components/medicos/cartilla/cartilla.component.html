@@ -12,19 +12,31 @@
                 </div>
                 <div class="filtros">
                     <div class="selectors">
-                        <div class="form-group">
-                            <label class="title-select" for="">Especialidad</label>                            
-                            <select type="text" id="especialidad"  formControlName="speciality" class="form-control">
-                                <option value="elegir"></option> 
-                                <option *ngFor="let item of especialidades" [value]="item.id">{{item.name}}</option>
-                            </select>                        
+                        <div class="form-group">                            
+                            <div ngbDropdown>
+                                <button class="filter" type="button" ngbDropdownToggle>
+                                    {{especialidad}}
+                                </button>
+                                <ul id="especialidad" ngbDropdownMenu>
+                                    <li *ngFor="let item of especialidades" let i=index>
+                                        <div class="dropdown-item" (click)="selectEspecialidad(item.id,item.name)" ngbDropdownItem>{{item.name}}
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>                        
                         </div>
-                        <div class="form-group">
-                            <label class="title-select" for="">Hospital</label>
-                            <select type="text" id="sede" class="form-control">
-                                <option value="elegir"></option>                                
-                                <option *ngFor="let item of sedes" [value]="item.id">{{item.name}}</option>
-                            </select>                         
+                        <div class="form-group">                            
+                            <div ngbDropdown>
+                                <button class="filter" type="button" ngbDropdownToggle>
+                                    {{sede}}
+                                </button>
+                                <ul id="sede" ngbDropdownMenu>
+                                    <li *ngFor="let item of sedes" let i=index>
+                                        <div class="dropdown-item" (click)="selectSede(item.id,item.name)" ngbDropdownItem>{{item.name}}
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>                            
                         </div>                    
                     </div>                       
                 </div>
@@ -59,5 +71,3 @@
     </div>
 </section>
 
-<div *ngIf="sedes==[]" class="spinner-border text-primary" role="status">
-</div>

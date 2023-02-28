@@ -16,9 +16,13 @@ export class CartillaComponent implements OnInit {
   especialidades:any=[];
   sedeElegida:any;
   hospitalElegido:string="";
-  selectSede:any;
-  selectEspecialidad:any;
+  selectedSede:any;
+  selectedEspecialidad:any;
   constSede:string="elegir";
+  sede:string="Clínica/Hospital";
+  idSede:string="";
+  especialidad:string="Especialidad";
+  idEspecialidad:string=""
 
   constructor(private router:Router,private userService:UserService) { }
 
@@ -50,27 +54,35 @@ export class CartillaComponent implements OnInit {
     });   
   }
 
+  // Select Especialidad
+  selectEspecialidad(idEspecialidad:string,especialidadName:string){
+    console.log(idEspecialidad,especialidadName);
+    this.especialidad=especialidadName;
+    this.idEspecialidad=idEspecialidad
+  }
+  // Select Sede
+  selectSede(idSede:string,sedeName:string){
+    console.log(idSede,sedeName);
+    this.sede=sedeName ;
+    this.idSede=idSede
+  }
+
+  // CONFIRM: Elegir sede y especialidad
+
   findDoctors(){ 
-    //Capturando Especialidad     
-    const selectorEspecialidad = document.getElementById("especialidad")as HTMLSelectElement;
-    const especialidad = selectorEspecialidad.value;
-    console.log(especialidad);
-    //Capturando Sede
-    const selectorSede = document.getElementById("sede")as HTMLSelectElement;
-    const sede = selectorSede.value;
-    console.log(sede);
-    if (sede!="elegir"&&especialidad!="elegir"){
+    if (this.idSede!=""&&this.idEspecialidad!=""){
       //Guardando en Sesión
-      sessionStorage.setItem("especialidadElegida",especialidad);
-      sessionStorage.setItem("sedeElegida",sede);
+      sessionStorage.setItem("especialidadElegida",this.idEspecialidad);
+      sessionStorage.setItem("sedeElegida",this.idSede);
       //Redirigiendo
       this.router.navigate([ '/user/dashboard/inicio', { outlets: { izq: 'lista' } }])
 
     } else {
       this.eleccionIncorrecta()
-    }
-    
+    }    
   }
+
+  // ALERT: Falta elegir sede y especialidad
 
   eleccionIncorrecta() {
     Swal.fire({
