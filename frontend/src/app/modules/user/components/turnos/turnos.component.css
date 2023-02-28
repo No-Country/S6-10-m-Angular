@@ -21,7 +21,7 @@
 
 #appointments-panel{
     display: flex;
-    flex-wrap: nowrap;
+    flex-direction: row;
 }
 
 #new-appointment {
@@ -30,10 +30,10 @@
     justify-content: space-between;
     align-items: center;
     margin: 0.5em;
-    margin-left: 1em;
     background: linear-gradient(90deg, rgba(0, 136, 214, 0.3) 0%, rgba(11, 227, 190, 0.3) 103.11%);
     border-radius: 10px;
-    padding: 10px 20px;
+    padding: 15px 20px;
+    height: 92%;
 }
 
 #scheduled-appointments {
@@ -42,35 +42,32 @@
     justify-content: space-between;
     align-items: center;
     margin: 0.5em;
-    margin-right: 1em;
     background: linear-gradient(90deg, rgba(0, 136, 214, 0.3) 0%, rgba(11, 227, 190, 0.3) 103.11%);
     border-radius: 10px;
     padding: 10px 20px;
+    height: 92%;
 }
 
 span {
     font-weight: 500;
     font-size: 15px;
-    line-height: 26px;
+    line-height: 22px;
     color: #000000;
 }
 
 .span-bold {
     font-weight: 600;
     font-size: 16px;
-    line-height: 26px;
+    line-height: 22px;
     color: #000000;
 }
 
 p {
     font-weight: 400;
     font-size: 14px;
-    line-height: 17px;
+    line-height: 22px;
     color: #1F1F1F;
     margin-bottom: 0px;
-}
-.details a {
-    margin:0
 }
 
 img {
@@ -96,10 +93,6 @@ img {
     border-radius: 10px;
     text-align: left;
 }
-.details p {
-    font-size:0.7rem;
-    margin:0
-}
 
 a {
     font-weight: 500;
@@ -107,7 +100,7 @@ a {
     line-height: 23px;
     color: #0B48D6;
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 8px 20px;
     gap: 10px;
     text-align: center;
 }
@@ -124,13 +117,12 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 0.5em;
+    margin-top: 0.1em;
 }
 
 #record {
     display: flex;
     flex-direction: row;
-    gap: 10px;
     text-align: center;
-    margin: 1em;
+    margin: 0.1em;
 }

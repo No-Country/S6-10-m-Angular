@@ -10,6 +10,7 @@ import { MedicosComponent } from './components/medicos/medicos.component'
 import { OpinionesComponent } from './components/opiniones/opiniones.component'
 import { PerfilComponent } from './components/perfil/perfil.component'
 import { PruebaComponent } from './components/prueba/prueba.component'
+import { TurnosListComponent } from './components/turnos/turnos-list/turnos-list.component'
 import { TurnosSearchComponent } from './components/turnos/turnos-search/turnos-search.component'
 import { TurnosComponent } from './components/turnos/turnos.component'
 import { DashboardComponent } from './dashboard/dashboard.component'
@@ -65,11 +66,16 @@ const routes: Routes = [
             path: 'turnossearch',
             component: TurnosSearchComponent,
             outlet: 'der'
-        }
+        },
+        {
+          path: 'turnoslist',
+          component: TurnosListComponent,
+          outlet: 'der'
+      }
       ]},
         { path: 'perfil', component: PerfilComponent},
         { path: 'medico-turno', component: MedicoTurnoComponent },
-        { path: 'hoja', component: MedicoTurnoComponent },
+        { path: 'hoja', component: TurnosListComponent },
         { path: 'opiniones', component: OpinionesComponent }
       ] },
       { path: '**', redirectTo: 'home' }
