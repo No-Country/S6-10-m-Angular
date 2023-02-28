@@ -1,1 +1,51 @@
-<p>opiniones works!</p>
+<div class="opinions">
+
+  <!-- BOTONES SUBIR BAJAR OPINIONES -->
+
+  <button class="opinion-arrow-top"><img src="../../../../../assets/img/Arrow.png" alt="arrow-top" /></button>
+  <button class="opinion-arrow-button"><img src="../../../../../assets/img/Arrow.png" alt="arrow-top" /></button>
+
+  <!-- IMAGEN DEL DOCTOR -->
+
+  <img class="opinion-doctor" src="../../../../../assets/img/doctor-opinions.png" alt="doctor-opinions"/>
+
+  <!-- BOTONES VOLVER Y SOLICITAR TURNO -->
+
+  <button class="opinion-button-back"><img src="../../../../../assets/img/Back-arrow.png" alt="back-arrow" /><span>Volver</span></button>
+  <button class="opinion-button-turno">Solocitar turno</button>
+
+  <!-- TITULOS  -->
+  <div class="opinion-title">
+    <h2>Ines wimbler ❤️</h2>
+  </div>
+  <div class="opinion-subtitle">
+    <h3 class="opinion-subtitle-text">Opiniones</h3>
+  </div>
+
+  <!-- OPINIONES DE USUARIO -->
+  <div class="opinions-container">
+    <div class="opinion" *ngFor="let person of userArr">
+      <div class="opinion-information">
+        <div class="opinion-information-person relative">
+          <div class=" opinion-start">
+            <img src="../../../../../assets/img/start-vector.png" />
+            <span>(5)</span>
+          </div>
+          <img class="information-image" src={{person.image}} />
+          <div class="information-name">
+            <span>{{person.name}}</span>
+            <span class="information-fecha">{{person.fecha}}</span>
+          </div>
+        </div>
+        <h5>{{person.title}}</h5>
+          <div class="opinion-separacion"></div>
+      </div>
+      <div class="opinion-descripcion">
+        <p>{{person.descripccion}}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- INICIO -->
+  <span class="opinion-inicio">inicio</span>
+</div>
