@@ -9,6 +9,7 @@ import { NuevoUsuario } from '../models/nuevo-usuario'
   providedIn: 'root'
 })
 export class AuthService {
+
   constructor(private httpClient: HttpClient) {}
 
   URL = environment.baseUrl + '/auth'
@@ -28,9 +29,7 @@ export class AuthService {
     return this.httpClient.post<any>(this.URL + '/register', nuevoUsuario)
   }
 
-  public login(
-    loginUsuario: LoginUsuario /*_httpHeaders:HttpHeaders*/
-  ): Observable<any> {
+  public login(loginUsuario: LoginUsuario): Observable<any> {
     console.log('El Servicio de Login esta corriendo en la URL')
     console.log(this.URL + '/login')
     return this.httpClient.post<any>(
@@ -42,5 +41,11 @@ export class AuthService {
 
   public logOut(): void{
     window.sessionStorage.clear();
+  }
+
+  public recoverPassword(email:string){
+    console.log('El Servicio de Login esta corriendo en la URL')
+    console.log(this.URL)
+    return this.httpClient.post<any>(this.URL,email,this.httpOptions.headers)    
   }
 }

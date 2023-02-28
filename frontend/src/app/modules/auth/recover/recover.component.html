@@ -1,1 +1,53 @@
-<p>recover works!</p>
+<section class="sesion-background">
+    <div id="header">
+          <div class="point" routerLink="/landing">
+              <div id="logo">
+                  <img src="../../../assets/img/Calendar.png" alt="" id="logo2">
+                  <div>
+                      <span style="color: #0BE3BE;">C</span><span style="color: white;">ita</span>
+                      <span style="color: #0BE3BE;">M</span><span style="color: white;">ed</span>
+                  </div>
+              </div>
+          </div>
+    </div>
+    <div class="center">
+      <div class="tar">
+        <div class="title">
+            <p>Recuperar contraseña</p>
+        </div>
+        <!---RECUPERAR CONTRASEÑA---->
+        <div class="formulario">
+          <form [formGroup]="recoverForm" (ngSubmit)="onRecover($event)" autocomplete="off">          
+            <!----Ingrese su email---->
+            <div class="">
+              <label  for="email">Ingrese su email</label>
+              <input type="email" id="email"  formControlName="email" class="form-control" aria-describedby="emailHelp" placeholder="mariagutierrez@email.com" [ngClass]="{'is-valid':!Email?.errors&& Email?.touched}"/>
+              <div *ngIf="Email?.errors && Email?.touched">
+                <p *ngIf="Email?.hasError('required')" class="text-danger">
+                  Ingrese su email
+                </p>
+                <p *ngIf="Email?.hasError('email')" class="text-danger">
+                  El formato del email es inválido
+                </p>
+              </div>
+            </div>            
+            <!----Footer de registro--->
+            
+            <div class="footer">
+                <!---
+              <div class="descript">
+                  <p>¿No tienes cuenta?</p>
+                  <a routerLink="/auth/registro">Regístrate</a>
+              </div>--->
+              <div class="boton">
+                  <button class="btn btn-blue" type="submit" [disabled]="!recoverForm.valid">Enviar</button>
+              </div>
+            </div>
+          </form>          
+        </div>
+        <div class="volver">
+            <a routerLink="/home">Volver</a>
+        </div>
+      </div>
+    </div>    
+  </section>

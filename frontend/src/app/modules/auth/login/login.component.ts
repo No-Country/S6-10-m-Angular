@@ -37,14 +37,14 @@ export class LoginComponent implements OnInit {
   // OnLogin
   onLogin(event: any) {
     //Usuario Harcodeado
-    this.loginUsuario = this.loginForm.value;/*{email:"usuario@email.com",password:"12E45678"};*/
+    this.loginUsuario = this.loginForm.value;
     console.log("Datos del usuario:");
     console.log(this.loginUsuario);
     console.log("Se llama al Servicio AuthService");
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     })
-    this.authService.login(this.loginUsuario /*,headers*/).subscribe({
+    this.authService.login(this.loginUsuario).subscribe({
       next: (res) => {
         console.log(res)
         this.isLogged = true
@@ -57,7 +57,6 @@ export class LoginComponent implements OnInit {
         this.tokenService.setEmail(res.data.user.email)
         const rol = res.data.user.role
         if (rol == 'patient') {
-          /*this.router.navigate(['/patient-dashboard'])*/
           this.router.navigateByUrl('/user/dashboard/inicio')
         } else if (rol=="doctor") {
           this.router.navigate(['/doctor/dashboard'])

@@ -24,8 +24,9 @@ export class ListaComponent implements OnInit {
     this.sedeId = sessionStorage.getItem("sedeElegida");   
     this.userService.getDoctors(this.especialidadId,this.sedeId).subscribe({
       next: (res) => {
-        console.log(res.doctor);
-        this.listaMedicos=res.doctor;
+        console.log(res)
+        console.log(res.doctors);
+        this.listaMedicos=res.doctors;
       },
       error: (error) => {
         console.error(error)
