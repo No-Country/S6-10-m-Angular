@@ -1,0 +1,160 @@
+<div class="container-fluid" id="appointments">
+    <div class="row">
+        <div class="col">
+            <span id="panel-title">Agendar turno</span>
+        </div>
+    </div>
+
+    <div id="new-appointment">
+    
+        <div class="row g-2" id="filters">
+
+            <!-- <div class="col"> -->
+                <div id="back">
+                <a [routerLink]= "[ '/user/dashboard/inicio',{outlets:{der:'turnossearch'}}]">
+                    <img src="../../../../../../assets/img/Arrow-back.png" class="img-fluid" alt=""> Volver</a>
+                </div>
+            <!-- </div> -->
+
+            <div class="col-12 col-md-auto">
+                <div ngbDropdown>
+                    <button class="filter" type="button" ngbDropdownToggle>
+                        {{specialty}}
+                    </button>
+                    <ul id="drop-box" ngbDropdownMenu>
+                        <li *ngFor="let spec of specialties" let i=index>
+                            <div class="dropdown-item" (click)="this.specialty = spec.name" ngbDropdownItem>{{spec.name}}
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div class="col-12 col-md-auto">
+                <div ngbDropdown>
+                    <button class="filter" type="button" ngbDropdownToggle>
+                        {{location}}
+                    </button>
+                    <ul id="drop-box2" ngbDropdownMenu>
+                        <li *ngFor="let sede of locations" let i=index>
+                            <div class="dropdown-item" (click)="this.location = sede.name" ngbDropdownItem>{{sede.name}}
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div class="col-12 col-md-auto">
+                <div ngbDropdown>
+                    <button class="filter" type="button" ngbDropdownToggle>
+                        {{date}}
+                    </button>
+                    <div class="dropdown-item">
+                        <input type="date" formControlName="fecha" id="drop-box3" ngbDropdownMenu (change)="selectDate()">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row" id="item">
+            
+            <div class="col-3">
+                <div class="doctor">
+                    <span>Ines Wimbler</span>
+                    <p>Cardiología <br>
+                        H. Héroes de Malvinas <br>
+                        <a href="">Ver perfil</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col schedule">
+                <button>15:00</button> <button>15:30</button><button>16:00</button><button>16:30</button>
+            </div>
+
+            <div class="col-1 heart">
+                <div>
+                    <img src="../../../../../../assets/img/Heart-red.png" alt="" class="img-fluid">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row" id="item">
+            
+            <div class="col-3">
+                <div class="doctor">
+                    <span>Ines Wimbler</span>
+                    <p>Cardiología <br>
+                        H. Héroes de Malvinas <br>
+                        <a href="">Ver perfil</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col schedule">
+                <button>15:00</button> <button>15:30</button><button>16:00</button><button>16:30</button>
+            </div>
+
+            <div class="col-1 heart">
+                <div>
+                    <img src="../../../../../../assets/img/Heart-red.png" alt="" class="img-fluid">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row" id="item">
+            
+            <div class="col-3">
+                <div class="doctor">
+                    <span>Ines Wimbler</span>
+                    <p>Cardiología <br>
+                        H. Héroes de Malvinas <br>
+                        <a href="">Ver perfil</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col schedule">
+                <button>15:00</button> <button>15:30</button><button>16:00</button><button>16:30</button>
+            </div>
+
+            <div class="col-1 heart">
+                <div>
+                    <img src="../../../../../../assets/img/Heart-red.png" alt="" class="img-fluid">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row" id="item">
+            
+            <div class="col-3">
+                <div class="doctor">
+                    <span>Ines Wimbler</span>
+                    <p>Cardiología <br>
+                        H. Héroes de Malvinas <br>
+                        <a href="">Ver perfil</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col schedule">
+                <button>15:00</button> <button>15:30</button><button>16:00</button><button>16:30</button>
+            </div>
+
+            <div class="col-1 heart">
+                <div>
+                    <img src="../../../../../../assets/img/Heart-red.png" alt="" class="img-fluid">
+                </div>
+            </div>
+
+        </div>
+
+
+        
+    </div>
+
+</div>

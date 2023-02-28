@@ -17,6 +17,7 @@ import { interceptorProvider } from 'src/app/interceptors/interceptor.service';
 import { CartillaComponent } from './components/medicos/cartilla/cartilla.component';
 import { ListaComponent } from './components/medicos/lista/lista.component';
 import { OpinionesComponent } from './components/opiniones/opiniones.component';
+import { TurnosListComponent } from './components/turnos/turnos-list/turnos-list.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { OpinionesComponent } from './components/opiniones/opiniones.component';
     MedicoPerfilComponent,
     CartillaComponent,
     ListaComponent,
-    OpinionesComponent
+    OpinionesComponent,
+    TurnosListComponent
   ],
   imports: [
     CommonModule,

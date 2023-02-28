@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from '../../../services/user.service';
 
 @Component({
@@ -9,13 +10,19 @@ import { UserService } from '../../../services/user.service';
 export class TurnosSearchComponent implements OnInit {
  specialties: any
  locations: any
- public isCollapsed = true
 
- public specialty = 'Especialidad'
- public location = 'Clínica/Hospital'
+ public specialtyName = 'Especialidad'
+ public locationName = 'Clínica/Hospital'
  public date = 'Fecha'
 
- constructor(private userService: UserService) {}
+ selectedSpecialty: any;
+ selectedLocation: any;
+ selectedDate: any;
+ specialtyId: any;
+ locationId: any;
+
+
+ constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
     this.showSpecialties()
@@ -51,7 +58,47 @@ export class TurnosSearchComponent implements OnInit {
   selectDate() {
     const selectorFecha = document.getElementById('drop-box3') as HTMLSelectElement
     const fecha = selectorFecha.value
-    this.date = fecha
+    if (fecha!=null){
+      this.date = fecha;
+      this.selectedDate = fecha + "T00:00:00.000Z";
+      console.log(this.selectedDate);      
+    } 
+    
+  }
+
+  selectSpecialty(specialtyId: any, specName: any){
+    this.specialtyName = specName;
+    this.userService.getSpecialityById(specialtyId).subscribe({
+      next: (res) => {
+        this.selectedSpecialty = res.speciality;
+        sessionStorage.setItem("selectedSpecialty", JSON.stringify(this.selectedSpecialty));
+        console.log(this.selectedSpecialty);
+      },
+      error: (error) => {
+        console.error('Los datos del servidor no llegan')
+        console.log(error)
+      }
+    });
+  }
+
+  selectLocation(locationId: any, locName: any){
+    this.locationName = locName;
+    this.userService.getSede(locationId).subscribe({
+      next: (res) => {
+        this.selectedLocation = res.sede;
+        sessionStorage.setItem("selectedLocation", JSON.stringify(this.selectedLocation));
+        console.log(this.selectedLocation);
+      },
+      error: (error) => {
+        console.error('Los datos del servidor no llegan')
+        console.log(error)
+      }
+    })
+  }
+
+  searchTurnos(){
+    sessionStorage.setItem("selectedDate", this.selectedDate);
+    this.router.navigate([ '/user/dashboard/inicio', { outlets: { der: 'turnoslist' } }]);
   }
 
 }
