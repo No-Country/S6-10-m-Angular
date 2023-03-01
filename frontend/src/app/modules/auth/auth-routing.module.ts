@@ -13,7 +13,7 @@ const routes: Routes = [
       { path: 'login', component: LoginComponent },
       { path: 'registro', component: RegistroComponent },
       { path: 'recover', component: RecoverComponent },
-      { path: 'newpassword', component: NewPasswordComponent },
+      { path: 'newpassword/:token?', component: NewPasswordComponent },
       { path: '**', redirectTo: 'home' }
     ]
   }

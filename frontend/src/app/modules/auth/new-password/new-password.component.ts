@@ -16,9 +16,10 @@ export class NewPasswordComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    const currentParams= this.route.snapshot.params;
-    this.saveParams(currentParams);
-    this.router.navigateByUrl('/auth/newpassword') 
+    this.route.params.subscribe(params => {
+      // Guardar los parámetros para su uso posterior
+      this.saveParams(params);
+    });
   }  
   saveParams(params:any){      
     sessionStorage.setItem('a',params);
