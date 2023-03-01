@@ -12,14 +12,8 @@ import { AuthService } from '../services/auth.service';
 })
 export class NewPasswordComponent implements OnInit {
   
-  id:any;
-  data:any;
-  user:any;
-  objeto:any;
-
   resetPasswordForm:FormGroup;
   ocultar: boolean = true;
-  isLogged:boolean=false;
   password:string=""
   token: any;
 
@@ -45,20 +39,14 @@ export class NewPasswordComponent implements OnInit {
   
   // RESET PASSWORD
   resetPassword(event: any) {    
-    this.password = this.resetPasswordForm.value;
-    console.log("Datos del usuario:");
-    console.log(this.password);    
-    console.log("Se llama al Servicio AuthService");
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
-    })    
+    this.password = this.resetPasswordForm.value;    
     this.authService.resetPassword(this.password,this.token).subscribe({
       next: (res) => {
         console.log(res);
         this.success();
       },
       error: (error) => {
-        this.isLogged = false;
+        console.log(error)
         this.resetError()
       },
       complete: () => {}
@@ -87,6 +75,7 @@ export class NewPasswordComponent implements OnInit {
     })
   }
 
+  // ALERT: La contraseña fue actualizada correctamente
   success() {
     Swal.fire({
       title: 'Felicidades',

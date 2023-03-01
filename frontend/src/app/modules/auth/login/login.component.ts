@@ -14,14 +14,12 @@ import Swal from 'sweetalert2'
 })
 export class LoginComponent implements OnInit {
 
-
   loginForm:FormGroup;
   ocultar: boolean = true;
   isLogged:boolean=false;
   loginUsuario: LoginUsuario={email:"",password:""};
   emailUsuario: string="";
   password: string="";
-  errMsj:string="";
 
   constructor(private formBuilder:FormBuilder, private router: Router,private authService:AuthService,private tokenService:TokenService) {
     this.loginForm = this.formBuilder.group(
@@ -31,19 +29,11 @@ export class LoginComponent implements OnInit {
       }
   )}
 
-
   ngOnInit(): void {}
 
   // OnLogin
   onLogin(event: any) {
-    //Usuario Harcodeado
     this.loginUsuario = this.loginForm.value;
-    console.log("Datos del usuario:");
-    console.log(this.loginUsuario);
-    console.log("Se llama al Servicio AuthService");
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
     this.authService.login(this.loginUsuario).subscribe({
       next: (res) => {
         console.log(res)
@@ -55,6 +45,7 @@ export class LoginComponent implements OnInit {
         this.tokenService.setDni(res.data.user.dni)
         this.tokenService.setPhone(res.data.user.phone)
         this.tokenService.setEmail(res.data.user.email)
+        this.tokenService.setRole(res.data.user.role)
         const rol = res.data.user.role
         if (rol == 'patient') {
           this.router.navigateByUrl('/user/dashboard/inicio')
@@ -83,7 +74,7 @@ export class LoginComponent implements OnInit {
     return this.loginForm.get('password')
   }
 
-  // Alert Incorrect User
+  // ALERT: Incorrect User
   usuarioIncorrecto() {
     Swal.fire({
       title: 'Usuario NO registrado',
