@@ -1,32 +1,10 @@
-#panel-title {
-    width: 84px;
-    height: 36px;    
-}
 #cartilla {
     width:100%;
     height: 100%;
 }
-.texto {
-    text-align:center
-}
-.subtitle {
-    font-weight:bolder;
-    margin-bottom:0
-}
-.descript {
-    font-size:0.7rem
-}
-.selectors {
-    display:flex;
-    justify-content:center
-}
-.form-group {
-    margin:10px;
-}
-select {    
-    background:rgb(213, 234, 249);
-    font-size:0.8rem;
-    text-align:center
+#contiene {
+    padding:0;
+    margin:0
 }
 .panel {    
     background: rgba(255, 255, 255, 0.55);
@@ -36,6 +14,10 @@ select {
     font-family: 'Poppins';
     font-style: normal;
 }
+.title {
+    display:flex;
+    justify-content: space-between;
+}
 .title p{
     margin:1px 5px;
     font-weight: 600;
@@ -43,78 +25,32 @@ select {
     line-height: 34px;
     color: #002069;
 }
-.title {
-    display:flex;
-    justify-content: space-between;
-}
 .title a{
     text-decoration: none;
-    color:black;
-    margin:7px
-}
-.titulo {
-    text-align: center;
-    font-weight: bolder;
+    font-size:0.9rem;/*
+    color:black;*/
+    margin:8px 20px
 }
 .cuadro {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    margin: 1em;
+    margin: 13px 25px;
     background: linear-gradient(90deg, rgba(0, 136, 214, 0.3) 0%, rgba(11, 227, 190, 0.3) 103.11%);
     border-radius: 10px;
-    padding: 10px 20px;
+    padding: 10px 20px 20px;
 }
-.boton {
-    text-align:center;
-    margin:35px
-}
-.btn-blue {
-    color:white;
-    background:blue
-}
-hr {
-    margin:20px;
-    height:5px
-}
-.subtitle2 {
+.texto {
     text-align:center;
 }
-.subtitle2 p {
-    font-weight: bolder;
-}
-.imagen-medico {
-    width:100px;
-    height: 65px;
-    border-radius:5px
-}
-.galeria {
-    padding:20px;
-    display:flex;
-    justify-content:space-around
-}
-.medico-favorito p{
-    margin:0;
-    font-size:0.6rem
-}
-.seleccion {
-    text-decoration:none
-}
-.nombre {
+.subtitle {
     font-weight:bolder;
-    color:black
+    margin:17px
 }
-.especialidad {
-    color:blue
-}
-.ver-todos {
-    text-align:center;
-}
-.ver-todos a {
-    text-decoration:none;
-    color:blue;
-    font-size:0.9rem
+.descript {
+    font-size:14px;
+    margin-bottom:0
 }
 .medicos-disponibles {
     display:flex;
@@ -122,14 +58,86 @@ hr {
     flex-wrap: wrap;
     padding:0 40px
 }
-.med-fav {
-    margin:20px
+.seleccion {
+    text-decoration:none
+}
+.imagen-medico {
+    width:130px;
+    height: 86px;
+    border-radius:5px;
+    margin-top:15px
+}
+.nombre{
+    font-weight:bolder;
+    color:black;
+    font-size:0.9rem;
+    margin-top:4px;
+    margin-bottom:0px;
+    padding:0;
+}
+.especialidad {
+    margin:0;
+    padding:0
+}
+.especialidad p{
+    color:blue;
+    margin:0;
+    font-size:0.7rem
+}
+.puntos {
+    margin:0
+}
+.estrella {
+    color:rgb(200, 200, 21);
+    margin-left:5px;
+}
+#line {
+    margin-top:5px;
+    position: absolute;
+    width: 90%;
+    height: 0px;
+    border: 1px solid #0B48D6;
+    transform: rotate(0deg);
+}
+#line-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0.5em;
+}
+/*----------------Favoritos------------------------------------*/
+.subtitle2 {
+    text-align:center;
+    margin-top:24px;
+    margin-bottom:0
+}
+.subtitle2 p {
+    font-weight: bolder;
+    margin-bottom:0
+}
+.galeria {
+    padding:10px;
+    display:flex;
+    justify-content:space-around
+}
+.medico-favorito p{
+    margin:0;
+    font-size:0.6rem
+}
+.ver-todos {
+    text-align:center;
+    margin-bottom:10px;
+    padding-bottom:10px
+}
+.ver-todos a {
+    text-decoration:none;
+    color:blue;
+    font-size:0.9rem
 }
 .nombre-puntos {
     display:flex;
-    justify-content: space-between;
+    justify-content: center;
+    padding:0;
+    margin:0
 }
 
-.estrella {
-    color:rgb(200, 200, 21)
-}

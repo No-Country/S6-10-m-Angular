@@ -18,7 +18,10 @@
     line-height: 34px;
     color: #002069;
 }
-
+.twist {
+    display:flex;
+    justify-content: space-between;
+}
 #new-appointment {
     display: flex;
     flex-direction: column;
