@@ -65,22 +65,22 @@
 
         <!-- LISTA DE TURNOS POR ESPECIALIDAD, SEDE Y FECHA -->
 
-        <div class="row" id="item">
+        <div class="row" id="item" *ngFor="let item of schedulesList let i=index">
 
             <div class="col-3">
                 <div class="doctor">
-                    <span>{{schedules[0].doctor.firstName}}</span>
+                    <span>{{schedulesList[i][0].doctor.firstName}} {{schedulesList[i][0].doctor.lastName}}</span>
                     <p>{{specialty}} <br>
                         {{location}} <br>
-                        <a href="">Ver perfil</a>
+                        <a [routerLink]="[ '/user/dashboard/inicio',{outlets:{der:'medicoperfil'}}]">Ver perfil</a>
                     </p>
                 </div>
             </div>
 
             <div class="col schedule">
-                <div *ngFor="let item of schedules" let i=index>
-                    <button>{{item.hour.slice(0,5)}}</button>
-                    <span> {{item.doctor.firstName}}</span>
+                <div *ngFor="let val of schedulesList[i]">
+                    <button>{{val.hour.slice(0,5)}}</button>
+                    <!-- <span> {{val.doctor.firstName}}</span> -->
                 </div>
             </div>
 
