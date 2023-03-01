@@ -64,6 +64,13 @@ export class UserService {
     console.log(this.URL + "/appointment")
     return this.http.post<any>(this.URL + "/appointment",newAppointment)
   }
+  
+  //OBTENER HORARIOS POR ESPECIALIDAD SEDE Y FECHA
+  public getSchedulesByEspSedeDate(sedeId:string,specialityId:string,fecha:string):Observable<any>{
+    console.log("El Servicio de Get schedules espeSedeDate está corriendo en la URL:")
+    console.log(this.URL + "/schedule/"+sedeId+"/"+specialityId+"/"+fecha)
+    return this.http.get<any>(this.URL + "/schedule/"+sedeId+"/"+specialityId+"/"+fecha)    
+  }
 
 
 
