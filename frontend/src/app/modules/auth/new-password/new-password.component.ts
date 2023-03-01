@@ -9,22 +9,29 @@ import { ActivatedRoute, ActivatedRouteSnapshot, Route, Router } from '@angular/
 export class NewPasswordComponent implements OnInit {
   id:any;
   data:any;
-  user:any
+  user:any;
+  objeto:any;
 
   constructor(private route:ActivatedRoute,private router:Router) {
     
    }
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
+    //this.route.params.subscribe(params => {
       // Guardar los parámetros para su uso posterior
-      this.saveParams(params);
-    });
+      //this.saveParams(params);
+    //});
+     // Obtener los parámetros de la ruta actual
+     const currentParams = this.route.snapshot.params;
+
+     // Guardar los parámetros para su uso posterior
+     this.saveParams(currentParams);
   }
 
-  saveParams(params:any){ 
-    const transform = params.toString();     
-    sessionStorage.setItem('a',transform);
+  saveParams(params:any){     
+    sessionStorage.setItem('a',params);
+    this.objeto=params;
+    console.log(this.objeto)
   }
 
   recuperar(){
