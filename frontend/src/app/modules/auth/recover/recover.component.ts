@@ -42,7 +42,8 @@ export class RecoverComponent implements OnInit {
         this.sendEmail();
       },
       error: (error) => {        
-        console.error(error)
+        console.error(error);
+        this.recoverError()
       },
       complete: () => {}
     })
@@ -57,7 +58,7 @@ export class RecoverComponent implements OnInit {
   sendEmail() {
     Swal.fire({
       title: 'Verifique su email',
-      text: 'Hemos enviado un mensaje para recuperar la contraseña a su email',
+      text: 'Hemos enviado a su email un mensaje para recuperar la contraseña',
       icon: 'info',
       showCancelButton: false,
       confirmButtonColor: '#3085d6',
@@ -65,24 +66,26 @@ export class RecoverComponent implements OnInit {
       confirmButtonText: 'OK'
     }).then((result: any) => {
       if (result.isConfirmed) {
-        this.router.navigateByUrl('/auth/login')
+        this.router.navigateByUrl('/home')
       }
     })
   }
 
   // Alert: Incorrect User
-  usuarioIncorrecto() {
+  recoverError() {
     Swal.fire({
-      title: 'Usuario NO registrado',
-      text: 'Datos incorrectos, o bien el usuario no está registrado',
+      title: 'ERROR',
+      text: 'El email introducido no esta registrado',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Quiero registrarme'
+      confirmButtonText: 'Intentar nuevamente'
     }).then((result: any) => {
       if (result.isConfirmed) {
-        this.router.navigateByUrl('/auth/registro')
+        this.router.navigateByUrl('/auth/recover')
+      } else {
+        this.router.navigateByUrl('/home')
       }
     })
   }

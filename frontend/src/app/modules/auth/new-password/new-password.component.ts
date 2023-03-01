@@ -55,11 +55,10 @@ export class NewPasswordComponent implements OnInit {
     this.authService.resetPassword(this.password,this.token).subscribe({
       next: (res) => {
         console.log(res);
-        alert("Todo OK")
+        this.success();
       },
       error: (error) => {
-        this.isLogged = false
-        console.error(error)
+        this.isLogged = false;
         this.resetError()
       },
       complete: () => {}
@@ -71,35 +70,37 @@ export class NewPasswordComponent implements OnInit {
     return this.resetPasswordForm.get('password')
   }
 
-  // Alert Incorrect User
+  // ALERT: Reset Error
   resetError() {
     Swal.fire({
       title: 'ERROR',
       text: 'Por algún motivo no se pudo actualizar su contraseña',
       icon: 'warning',
-      showCancelButton: true,
+      showCancelButton: false,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Quiero registrarme'
+      confirmButtonText: 'Aceptar'
     }).then((result: any) => {
       if (result.isConfirmed) {
-        this.router.navigateByUrl('/auth/registro')
+        this.router.navigateByUrl('/home')
       }
     })
   }
 
   success() {
     Swal.fire({
-      title: 'Restauracion',
-      text: 'La contraseña fue cambiada',
+      title: 'Felicidades',
+      text: 'Has cambiado correctamente tu contraseña',
       icon: 'success',
-      showCancelButton: false,
+      showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'OK'
+      confirmButtonText: 'Inicia sesión'
     }).then((result: any) => {
       if (result.isConfirmed) {
         this.router.navigateByUrl('/auth/login')
+      } else {
+        this.router.navigateByUrl('/home')
       }
     })
   }
