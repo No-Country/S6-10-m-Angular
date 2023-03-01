@@ -39,7 +39,8 @@ export class RecoverComponent implements OnInit {
     })
     this.authService.recoverPassword(this.email).subscribe({
       next: (res) => {
-        console.log(res)        
+        console.log(res);
+
       },
       error: (error) => {
         this.isLogged = false
@@ -55,7 +56,24 @@ export class RecoverComponent implements OnInit {
     return this.recoverForm.get('email')
   }
 
-  // Alert Incorrect User
+  // Alert: se ha enviado un link a su email
+  sendEmail() {
+    Swal.fire({
+      title: 'Verifique su email',
+      text: 'Hemos enviado un mensaje para recuperar la contraseña a su email',
+      icon: 'info',
+      showCancelButton: false,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'OK'
+    }).then((result: any) => {
+      if (result.isConfirmed) {
+        this.router.navigateByUrl('/auth/login')
+      }
+    })
+  }
+
+  // Alert: Incorrect User
   usuarioIncorrecto() {
     Swal.fire({
       title: 'Usuario NO registrado',

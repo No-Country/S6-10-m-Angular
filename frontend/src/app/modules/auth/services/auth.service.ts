@@ -45,7 +45,7 @@ export class AuthService {
 
   public recoverPassword(email:string){
     console.log('El Servicio de Login esta corriendo en la URL')
-    console.log(this.URL + '/password/password/token')
-    return this.httpClient.post<any>(this.URL,email,this.httpOptions.headers)    
+    console.log(this.URL + '/password/password')
+    return this.httpClient.post<any>(this.URL + '/password/password',email,this.httpOptions.headers)    
   }
 }
