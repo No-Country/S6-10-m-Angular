@@ -11,6 +11,7 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./new-password.component.css']
 })
 export class NewPasswordComponent implements OnInit {
+  
   id:any;
   data:any;
   user:any;
@@ -20,7 +21,7 @@ export class NewPasswordComponent implements OnInit {
   ocultar: boolean = true;
   isLogged:boolean=false;
   password:string=""
-  token: string="";
+  token: any;
 
   constructor(private authService:AuthService,private route:ActivatedRoute,private router:Router,private formBuilder:FormBuilder) {
     this.resetPasswordForm = this.formBuilder.group(
@@ -32,38 +33,26 @@ export class NewPasswordComponent implements OnInit {
 
   ngOnInit(): void {    
      const currentParams = this.route.snapshot.params;     
-     this.saveParams(currentParams);
+     this.saveParams(currentParams);     
   }
 
-  saveParams(params:any){     
-    sessionStorage.setItem('a',params);
-    this.objeto=params;
-    console.log(this.objeto)
-    console.log(this.objeto.token)
-    console.log(params.url)
-  }
-  //Token Recuperado
-
-  //0b0b29e1-f19f-4637-a29a-24eb62c0729a 
-  
-  recuperar(){
-    console.log(this.objeto)
-    console.log(this.objeto.token)
+  saveParams(params:any){    
+    const array = Object.entries(params)
+    console.log(array[0][1]);
+    //Token Recuperado
+    this.token = array[0][1];
   }
   
   // RESET PASSWORD
-  resetPassword(event: any) {
-    //Usuario Harcodeado
+  resetPassword(event: any) {    
     this.password = this.resetPasswordForm.value;
     console.log("Datos del usuario:");
-    console.log(this.password);
-    console.log("Hola")
-    console.log(this.objeto.token)
+    console.log(this.password);    
     console.log("Se llama al Servicio AuthService");
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     })    
-    this.authService.resetPassword(this.password,this.objeto.token).subscribe({
+    this.authService.resetPassword(this.password,this.token).subscribe({
       next: (res) => {
         console.log(res);
         alert("Todo OK")
