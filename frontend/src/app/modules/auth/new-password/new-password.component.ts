@@ -87,5 +87,21 @@ export class NewPasswordComponent implements OnInit {
       }
     })
   }
+
+  success() {
+    Swal.fire({
+      title: 'Restauracion',
+      text: 'La contraseña fue cambiada',
+      icon: 'success',
+      showCancelButton: false,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'OK'
+    }).then((result: any) => {
+      if (result.isConfirmed) {
+        this.router.navigateByUrl('/auth/login')
+      }
+    })
+  }
     
 }

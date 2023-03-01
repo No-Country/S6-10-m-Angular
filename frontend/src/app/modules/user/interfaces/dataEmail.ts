@@ -1,21 +1,19 @@
 export class DataEmail {
-    nombre: string;
-    apellido: string;
+    user: string;
     email:string;
     profesional:string;
     especialidad:string;
-    sede:string;
-    dia:string;
-    horario: string;
+    sanatorio:string;
+    diaTurno:string;
+    horarioTurno: string;
   
-    constructor( nombre: string,apellido: string,email:string,profesional:string,especialidad:string,sede:string,dia:string,horario: string) {
-      this.nombre = nombre;
-      this.apellido = apellido;
+    constructor( user:string, email:string,profesional:string,especialidad:string,sanatorio:string,diaTurno:string,horarioTurno: string) {
+      this.user = user;
       this.email = email;
       this.profesional = profesional;
       this.especialidad = especialidad;
-      this.sede = sede;
-      this.dia = dia;
-       this.horario = horario;
+      this.sanatorio = sanatorio;
+      this.diaTurno = diaTurno;
+      this.horarioTurno = horarioTurno;
     }
 }

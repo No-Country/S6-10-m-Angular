@@ -153,6 +153,7 @@ export class MedicoTurnoComponent implements OnInit {
         console.error(error)
       },
       complete: () => {
+        this.sendEmail()
         this.mensajeConfirm()
       }
     })    
@@ -199,18 +200,27 @@ export class MedicoTurnoComponent implements OnInit {
   /*-----------------------------------------------------*/
 
   // ENVIA EMAIL
-  sendEmail(datosTurno:DataEmail){
+  sendEmail(/*datosTurno:DataEmail*/){
+    const email = sessionStorage.getItem("UserEmail");
     this.datosTurno={
-      nombre: "Juan",
-      apellido: "Pérez",
-      email:"",
-      profesional:"Rene Favaloro",
-      especialidad:"Medicina",
-      sede:"Esmeralda",
-      dia:"lunes",
-      horario: "20:30"    
+      user:this.nombrePaciente,
+      email:email,
+      profesional:this.doctor.firstName + " " + this.doctor.lastName,
+      especialidad:this.especialidad.name,
+      sanatorio:this.sede.name,
+      diaTurno:this.fechaMod,
+      horaTurno: this.horarioMod    
     }
-    this.emailService.enviaEmail(datosTurno)
+    console.log(this.datosTurno)
+    this.emailService.enviaEmail(this.datosTurno).subscribe({
+      next: (res) => {
+        console.log(res)        
+      },
+      error: (error) => {
+        console.log(error)
+      },
+      complete:()=>{}
+    })
   }
 
   // MOSTRAR FECHA ACTUAL

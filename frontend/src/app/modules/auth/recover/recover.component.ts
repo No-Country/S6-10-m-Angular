@@ -27,9 +27,8 @@ export class RecoverComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  // OnLogin
-  onRecover(event: any) {
-    //Usuario Harcodeado
+  // OnRecover
+  onRecover(event: any) {    
     this.email = this.recoverForm.value;
     console.log("Datos del usuario:");
     console.log(this.email);
@@ -40,11 +39,10 @@ export class RecoverComponent implements OnInit {
     this.authService.recoverPassword(this.email).subscribe({
       next: (res) => {
         console.log(res);
+        this.sendEmail();
       },
-      error: (error) => {
-        this.isLogged = false
+      error: (error) => {        
         console.error(error)
-        this.usuarioIncorrecto()
       },
       complete: () => {}
     })
