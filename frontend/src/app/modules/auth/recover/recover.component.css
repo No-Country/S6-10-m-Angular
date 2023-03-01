@@ -84,7 +84,8 @@
     margin-top:10px
   }
   .footer {
-    text-align: center;
+    display:flex;
+    justify-content: space-between;
     margin-top:20px
   }
   .descript p{
@@ -133,17 +134,13 @@
     top: 8.33%;
     bottom: 8.33%;
   }
-  
-  .recover {
-    padding-top:30px
-  }
   .recover p {
-    font-size:0.6rem;
-    margin:0
+    font-size:0.6rem;   
   }
   .volver {
     text-align:center;
-    margin-top:10px
+    margin-top:13px;
+    padding-top:5px
   }
   
   @media screen and (max-width: 600px) {

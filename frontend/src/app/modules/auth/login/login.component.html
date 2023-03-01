@@ -13,8 +13,14 @@
   <div class="center">
     <div class="tar">
       <div class="title">
+        <div class="inicia">
           <p>Inicia sesión</p>
-      </div>
+        </div>
+        <div class="descript">
+          <p>¿No tienes cuenta?</p>
+          <a routerLink="/auth/registro">Regístrate</a>
+        </div>          
+      </div>      
       <!---REGISTRO CUENTA USUARIO---->
       <div class="formulario">
         <form [formGroup]="loginForm" (ngSubmit)="onLogin($event)" autocomplete="off">          
@@ -53,20 +59,17 @@
           </div>
           <!----Footer de registro--->
           <div class="footer">
-            <div class="descript">
-                <p>¿No tienes cuenta?</p>
-                <a routerLink="/auth/registro">Regístrate</a>
-            </div>
+            <div class="recover text-center">
+              <p class="olvidaste">¿Olvidaste tu contraseña?</p>
+              <a routerLink="/auth/recover">Recuperar</a>
+            </div>            
             <div class="boton">
                 <button class="btn btn-blue" type="submit" [disabled]="!loginForm.valid">Ingresar</button>
             </div>
           </div>
         </form>          
       </div>
-      <div class="recover text-center">
-        <p class="olvidaste">¿Olvidaste tu contraseña?</p>
-        <a routerLink="/auth/recover">Recuperar</a>
-      </div>
+      
       
 
 

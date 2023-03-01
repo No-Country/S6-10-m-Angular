@@ -44,7 +44,8 @@
   align-items:center
 }
 .title {
-  text-align: center;
+  display:flex;
+  justify-content: space-between;
 }
 .title p {
   font-size:1.5rem;
@@ -134,9 +135,6 @@ label {
   bottom: 8.33%;
 }
 
-.recover {
-  padding-top:30px
-}
 .recover p {
   font-size:0.6rem;
   margin:0

@@ -32,15 +32,16 @@
               </div>
             </div>            
             <!----Footer de registro--->            
-            <div class="footer">              
+            <div class="footer">
+              <div class="volver">
+                <a routerLink="/auth/login">Volver</a>
+              </div>              
               <div class="boton">
                   <button class="btn btn-blue" type="submit" [disabled]="!recoverForm.valid">Enviar</button>
-              </div>              
+              </div>                            
             </div>
           </form>
-          <div class="volver">
-            <a routerLink="/home">Volver</a>
-          </div>          
+                    
         </div>        
       </div>
     </div>    
