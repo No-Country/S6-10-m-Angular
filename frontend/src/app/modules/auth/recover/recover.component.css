@@ -84,8 +84,7 @@
     margin-top:10px
   }
   .footer {
-    display:flex;
-    justify-content: space-between;
+    text-align: center;
     margin-top:20px
   }
   .descript p{
@@ -95,7 +94,8 @@
   }
   .btn-blue {
     color:white;
-    background:#0b48d6
+    background:#0b48d6;
+    margin:15px auto
   }
   #codeId, #password {
     padding:0 10px
@@ -140,6 +140,10 @@
   .recover p {
     font-size:0.6rem;
     margin:0
+  }
+  .volver {
+    text-align:center;
+    margin-top:10px
   }
   
   @media screen and (max-width: 600px) {

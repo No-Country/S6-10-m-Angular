@@ -7,10 +7,11 @@ import { RegistroComponent } from './registro/registro.component'
 import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 
 import { AuthRoutingModule } from './auth-routing.module';
-import { RecoverComponent } from './recover/recover.component'
+import { RecoverComponent } from './recover/recover.component';
+import { NewPasswordComponent } from './new-password/new-password.component'
 
 @NgModule({
-  declarations: [LoginComponent, RegistroComponent, RecoverComponent],
+  declarations: [LoginComponent, RegistroComponent, RecoverComponent, NewPasswordComponent],
   imports: [CommonModule, ReactiveFormsModule, FormsModule, AuthRoutingModule]
 })
 export class AuthModule {}

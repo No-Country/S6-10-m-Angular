@@ -12,7 +12,7 @@ export class AuthService {
 
   constructor(private httpClient: HttpClient) {}
 
-  URL = environment.baseUrl + '/auth'
+  URL = environment.baseUrl
 
   httpOptions: any = {
     headers: new HttpHeaders({
@@ -25,15 +25,15 @@ export class AuthService {
 
   public nuevo(nuevoUsuario: NuevoUsuario): Observable<any> {
     console.log('El Servicio de Registro esta corriendo en la URL:')
-    console.log(this.URL + '/registro')
-    return this.httpClient.post<any>(this.URL + '/register', nuevoUsuario)
+    console.log(this.URL + '/auth/registro')
+    return this.httpClient.post<any>(this.URL + '/auth/register', nuevoUsuario)
   }
 
   public login(loginUsuario: LoginUsuario): Observable<any> {
     console.log('El Servicio de Login esta corriendo en la URL')
-    console.log(this.URL + '/login')
+    console.log(this.URL + '/auth/login')
     return this.httpClient.post<any>(
-      this.URL + '/login',
+      this.URL + '/auth/login',
       loginUsuario,
       this.httpOptions.headers
     )
@@ -45,7 +45,7 @@ export class AuthService {
 
   public recoverPassword(email:string){
     console.log('El Servicio de Login esta corriendo en la URL')
-    console.log(this.URL)
+    console.log(this.URL + '/password/password/token')
     return this.httpClient.post<any>(this.URL,email,this.httpOptions.headers)    
   }
 }
