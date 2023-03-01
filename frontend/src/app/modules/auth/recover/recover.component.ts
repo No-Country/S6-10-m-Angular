@@ -40,7 +40,6 @@ export class RecoverComponent implements OnInit {
     this.authService.recoverPassword(this.email).subscribe({
       next: (res) => {
         console.log(res);
-
       },
       error: (error) => {
         this.isLogged = false

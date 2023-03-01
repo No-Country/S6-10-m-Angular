@@ -48,4 +48,10 @@ export class AuthService {
     console.log(this.URL + '/password/password')
     return this.httpClient.post<any>(this.URL + '/password/password',email,this.httpOptions.headers)    
   }
+
+  public resetPassword(password:string,token:string){
+    console.log('El Servicio de Login esta corriendo en la URL')
+    console.log(this.URL + '/password/password/'+token)
+    return this.httpClient.post<any>(this.URL + '/password/password/'+token,password,this.httpOptions.headers)
+  }
 }
