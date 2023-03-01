@@ -32,12 +32,16 @@ export class NewPasswordComponent implements OnInit {
     sessionStorage.setItem('a',params);
     this.objeto=params;
     console.log(this.objeto)
+    console.log(this.objeto.token)
+    console.log(params.url)
   }
+  //Token Recuperado
 
-  recuperar(){
-    const data = sessionStorage.getItem('a');
-    console.log(data)
-  }
-    
+   //0b0b29e1-f19f-4637-a29a-24eb62c0729a 
+  
+   recuperar(){
+    console.log(this.objeto)
+    console.log(this.objeto.token)
+   }
     
 }
