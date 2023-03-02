@@ -24,8 +24,7 @@
                 <div class="line"></div>
                 <p> Gestiona tus turnos fácilmente</p>
             </div>
-            <!-----
-            <a href="#more" class="btn btn-primary">Conoce más</a>--->
+            
             <a (click)="scrollTo('more')"class="btn btn-primary">Conoce más</a>
         </div>
     </div>
@@ -45,43 +44,136 @@
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <div class="attributes">
-                <img src="../../../assets/img/Device.png" alt="" class="icons">
-                <div class="attribute-description">
-                    <span class="title">Responsive</span>
-                    <p>Utilizala desde cualquier dispositivo ¡la web se adapta a vos!</p>
+            <div id="attr-container">
+                <div class="attributes">
+                    <img src="../../../assets/img/Device.png" alt="" class="icons">
+                    <div class="attribute-description">
+                        <span class="title">Responsive</span>
+                        <p>Utilizala desde cualquier dispositivo ¡la web se adapta a vos!</p>
+                    </div>
                 </div>
-            </div>
-
-            <div class="attributes">
-                <img src="../../../assets/img/Clock.png" alt="" class="icons">
-                <div class="attribute-description">
-                    <span class="title">Simple</span>
-                    <p>Gestiona tus turnos de manera fácil y rápida</p>
+        
+                <div class="attributes">
+                    <img src="../../../assets/img/Clock.png" alt="" class="icons">
+                    <div class="attribute-description">
+                        <span class="title">Simple</span>
+                        <p>Gestiona tus turnos de manera fácil y rápida</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="row" id="info">
+    <div class="row g-4" id="info">
 
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <div class="description">
+            <div class="faq">
                 <span class="title">Preguntas frecuentes</span>
-                <ul>
-                    <li>¿Cómo debo hacer para registrarme?</li>
-                    <li>¿Cómo puedo generar un nuevo turno?</li>
-                    <li>¿Cómo puedo cancelar un turno?</li>
-                    <li>¿Cómo puedo modificar mi contraseña?</li>
-                    <li>Olvidé mi contraseña, ¿Cómo puedo recuperarla?</li>
-                    <li>¿Cómo puedo modificar mis datos personales?</li>
-                    <li>¿Cómo puedo contactar con un profesional?</li>
-                </ul>
+        
+                <div class="question-container">
+                    <img *ngIf="isCollapsed" src="../../../assets/img/Plus.png" alt="" (click)="isCollapsed = false">
+                    <img *ngIf="!isCollapsed" src="../../../assets/img/Minus.png" alt="" (click)="isCollapsed = true">
+                
+                    <div class="question">
+                        <button class="toggle" (click)="isCollapsed = ! isCollapsed" [attr.aria-expanded]="!isCollapsed"
+                            aria-controls="collapseExample" (blur)="isCollapsed = true">
+                            ¿Cómo debo hacer para registrarme?
+                        </button>
+                
+                        <div class="answer" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+                            <p>En la pagina principal te dirigis a la esquina superior derecha y vas a encontrar un boton azul para
+                                registrarte</p>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="question-container">
+                    <img *ngIf="isCollapsed2" src="../../../assets/img/Plus.png" alt="" (click)="isCollapsed2 = false">
+                    <img *ngIf="!isCollapsed2" src="../../../assets/img/Minus.png" alt="" (click)="isCollapsed2 = true">
+                
+                    <div class="question">
+                        <button class="toggle" (click)="isCollapsed2 = ! isCollapsed2" [attr.aria-expanded]="!isCollapsed2"
+                            aria-controls="collapseExample2" (blur)="isCollapsed2 = true">
+                            ¿Cómo puedo generar un nuevo turno?
+                        </button>
+                
+                        <div class="answer" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed2">
+                            <p>Una vez que hayas ingresado con tu usuario vas a encontrar a la derecha de la pantalla un recuadro
+                                que dice "Agendar nuevo turno"</p>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="question-container">
+                    <img *ngIf="isCollapsed3" src="../../../assets/img/Plus.png" alt="" (click)="isCollapsed3 = false">
+                    <img *ngIf="!isCollapsed3" src="../../../assets/img/Minus.png" alt="" (click)="isCollapsed3 = true">
+                
+                    <div class="question">
+                        <button class="toggle" (click)="isCollapsed3 = ! isCollapsed3" [attr.aria-expanded]="!isCollapsed3"
+                            aria-controls="collapseExample3" (blur)="isCollapsed3 = true">
+                            ¿Cómo puedo cancelar un turno?
+                        </button>
+                
+                        <div class="answer" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed3">
+                            <p>Una vez que hayas ingresado con tu usuario vas a poder ver tus turnos agendados en la parte derecha
+                                de la pantalla y desde ahi podes cancelarlos</p>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="question-container">
+                    <img *ngIf="isCollapsed4" src="../../../assets/img/Plus.png" alt="" (click)="isCollapsed4 = false">
+                    <img *ngIf="!isCollapsed4" src="../../../assets/img/Minus.png" alt="" (click)="isCollapsed4 = true">
+                
+                    <div class="question">
+                        <button class="toggle" (click)="isCollapsed4 = ! isCollapsed4" [attr.aria-expanded]="!isCollapsed4"
+                            aria-controls="collapseExample4" (blur)="isCollapsed4 = true">
+                            ¿Cómo puedo modificar mi contraseña?
+                        </button>
+                
+                        <div class="answer" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed4">
+                            <p>Con el boton "Recuperar contraseña" en la pantalla de inicio de sesion</p>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="question-container">
+                    <img *ngIf="isCollapsed5" src="../../../assets/img/Plus.png" alt="" (click)="isCollapsed5 = false">
+                    <img *ngIf="!isCollapsed5" src="../../../assets/img/Minus.png" alt="" (click)="isCollapsed5 = true">
+                
+                    <div class="question">
+                        <button class="toggle" (click)="isCollapsed5 = ! isCollapsed5" [attr.aria-expanded]="!isCollapsed5"
+                            aria-controls="collapseExample5" (blur)="isCollapsed5 = true">
+                            Olvidé mi contraseña, ¿Cómo puedo recuperarla?
+                        </button>
+                
+                        <div class="answer" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed5">
+                            <p>En la pantalla de inicio de sesion encontraras un boton que dice "Recuperar contraseña"</p>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="question-container">
+                    <img *ngIf="isCollapsed6" src="../../../assets/img/Plus.png" alt="" (click)="isCollapsed6 = false">
+                    <img *ngIf="!isCollapsed6" src="../../../assets/img/Minus.png" alt="" (click)="isCollapsed6 = true">
+                
+                    <div class="question">
+                        <button class="toggle" (click)="isCollapsed6 = ! isCollapsed6" [attr.aria-expanded]="!isCollapsed6"
+                            aria-controls="collapseExample6" (blur)="isCollapsed6 = true">
+                            ¿Cómo puedo modificar mis datos personales?
+                        </button>
+                
+                        <div class="answer" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed6">
+                            <p>En la seccion "Perfil" podes modificar tus datos</p>
+                        </div>
+                    </div>
+                </div>
+        
             </div>
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <div class="description">
+            <div class="faq">
                 <form class="row g-2">
                     <div class="col-md-6">
                         <span class="title">¡Escribinos!</span>
@@ -104,7 +196,7 @@
                         <textarea class="form-control" id="inputMessage" rows="1"></textarea>
                     </div>
                     <div class="col-12">
-                        <button type="submit" class="btn btn-primary float-end">Enviar</button>
+                        <button type="submit" class="btn float-end">Enviar</button>
                     </div>
                 </form>
             </div>
