@@ -207,8 +207,9 @@ p {
 
 #info {
   padding-top: 2em;
+  padding-bottom: 1em;
 }
-
+/*
 #footer {
   display: flex;
   flex-direction: row;
@@ -276,7 +277,83 @@ p {
   background: #0b48d6;
   border-radius: 50px;
 }
+*/
 
+
+/*------Footer------*/
+#footer {
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: space-between;
+  padding: 10px 30px;
+  gap: 10px;
+  min-height: 12vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+}  
+.item-footer {
+  text-align: center;
+}
+#copyright {
+  padding-top: 24px;
+  gap: 5px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #ffffff;
+}  
+#team {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding:22px
+}  
+#social {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #ffffff;
+}  
+#social-icons {
+  display: flex;
+  justify-content: center;
+  gap:15px;
+  margin-top:10px
+}  
+.social-icon {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 10px;
+  gap: 10px;
+  /*background: #0b48d6;*/
+  background: rgba(0, 0, 0,0.3);
+  border-radius: 50px;
+}
+.social-icon img {
+  width:20px;
+}
+#link-equipo {
+  text-decoration:none;
+  color:white
+}
+
+@media screen and (max-width: 825px) {
+  #footer {
+      justify-content:center
+  }    
+}
 #attr-container {
   height: 100%;
   display: flex;

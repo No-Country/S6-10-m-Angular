@@ -12,14 +12,8 @@ import { AuthService } from '../services/auth.service';
 })
 export class NewPasswordComponent implements OnInit {
   
-  id:any;
-  data:any;
-  user:any;
-  objeto:any;
-
   resetPasswordForm:FormGroup;
   ocultar: boolean = true;
-  isLogged:boolean=false;
   password:string=""
   token: any;
 
@@ -45,21 +39,14 @@ export class NewPasswordComponent implements OnInit {
   
   // RESET PASSWORD
   resetPassword(event: any) {    
-    this.password = this.resetPasswordForm.value;
-    console.log("Datos del usuario:");
-    console.log(this.password);    
-    console.log("Se llama al Servicio AuthService");
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
-    })    
+    this.password = this.resetPasswordForm.value;    
     this.authService.resetPassword(this.password,this.token).subscribe({
       next: (res) => {
         console.log(res);
-        alert("Todo OK")
+        this.success();
       },
       error: (error) => {
-        this.isLogged = false
-        console.error(error)
+        console.log(error)
         this.resetError()
       },
       complete: () => {}
@@ -71,35 +58,38 @@ export class NewPasswordComponent implements OnInit {
     return this.resetPasswordForm.get('password')
   }
 
-  // Alert Incorrect User
+  // ALERT: Reset Error
   resetError() {
     Swal.fire({
       title: 'ERROR',
       text: 'Por algún motivo no se pudo actualizar su contraseña',
       icon: 'warning',
-      showCancelButton: true,
+      showCancelButton: false,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Quiero registrarme'
+      confirmButtonText: 'Aceptar'
     }).then((result: any) => {
       if (result.isConfirmed) {
-        this.router.navigateByUrl('/auth/registro')
+        this.router.navigateByUrl('/home')
       }
     })
   }
 
+  // ALERT: La contraseña fue actualizada correctamente
   success() {
     Swal.fire({
-      title: 'Restauracion',
-      text: 'La contraseña fue cambiada',
+      title: 'Felicidades',
+      text: 'Has cambiado correctamente tu contraseña',
       icon: 'success',
-      showCancelButton: false,
+      showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'OK'
+      confirmButtonText: 'Inicia sesión'
     }).then((result: any) => {
       if (result.isConfirmed) {
         this.router.navigateByUrl('/auth/login')
+      } else {
+        this.router.navigateByUrl('/home')
       }
     })
   }

@@ -16,11 +16,11 @@ import { AuthService } from '../services/auth.service'
 export class RegistroComponent {
 
   patient_view:boolean=true;
+  listCodes:any;
+  registroForm: FormGroup;
+  ocultar: boolean = true;
+  nuevoUsuario!: NuevoUsuario;
 
-  listCodes:any;  
-
-  registroForm: FormGroup
-  ocultar: boolean = true
   constructor(
     private authService: AuthService,
     private codeService:CodeService,
@@ -37,12 +37,13 @@ export class RegistroComponent {
         phone:['',[Validators.required]],
         codeId:['',[Validators.required]]
       }
-  )}
+    )
+  }
 
   ngOnInit(): void {
     this.showCodes()
   }
-
+  /*
   user: NuevoUsuario = {
     firstName: '',
     lastName: '',
@@ -58,13 +59,11 @@ export class RegistroComponent {
     this.authService
       .nuevo(this.user)
       .subscribe((data) => console.log('data:', data))
-  }
+  }*/
 
-  nuevoUsuario: any
-
+  // REGISTER
   onRegister() {
-    this.nuevoUsuario = this.registroForm.value
-    console.log(this.nuevoUsuario)
+    this.nuevoUsuario = this.registroForm.value;
     this.authService.nuevo(this.nuevoUsuario).subscribe({
       next: (data) => {
         console.log(data)
@@ -78,42 +77,43 @@ export class RegistroComponent {
     })
   }
 
-    usuarioRegistrado() {
-      Swal.fire({
-        title: 'Usuario Registrado',
-        text: "Hemos enviado un correo a tu email, para que verifiques tu cuenta y comiences a usar CitaMed",
-        icon: 'success',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Iniciar Sesión'
-      }).then((result:any) => {
-        if (result.isConfirmed) {
-          this.router.navigateByUrl('/auth/login')
-        } else {
-          this.router.navigateByUrl('/home')
-        }
-      })
-    }
+  // ALERT: Usuario registrado 
+  usuarioRegistrado() {
+    Swal.fire({
+      title: 'Usuario Registrado',
+      text: "Hemos enviado un correo a tu email, para que verifiques tu cuenta y comiences a usar CitaMed",
+      icon: 'success',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Iniciar Sesión'
+    }).then((result:any) => {
+      if (result.isConfirmed) {
+        this.router.navigateByUrl('/auth/login')
+      } else {
+        this.router.navigateByUrl('/home')
+      }
+    })
+  }
 
-    registroIncorrecto() {
-      Swal.fire({
-        title: 'Error en el registro',
-        text: "Por algún motivo relacionado con unos y ceros, no podemos registrarte",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Intentar nuevamente'
-      }).then((result:any) => {
-        if (result.isConfirmed) {
-          this.router.navigateByUrl('/auth/registro')
-        } else {
-          this.router.navigateByUrl('/home')
-        }
-      })
-    }
-  
+  // ALERT: Registro Incorrecto
+  registroIncorrecto() {
+    Swal.fire({
+      title: 'Error en el registro',
+      text: "Por algún motivo relacionado con unos y ceros, no podemos registrarte",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Intentar nuevamente'
+    }).then((result:any) => {
+      if (result.isConfirmed) {
+        this.router.navigateByUrl('/auth/registro')
+      } else {
+        this.router.navigateByUrl('/home')
+      }
+    })
+  } 
 
   /*=================================================*/
 
@@ -140,20 +140,19 @@ export class RegistroComponent {
     return this.registroForm.get('phone')
   }
 
+  /*=================================================*/
+
   // GetCodes
   showCodes(){
     this.codeService.getCode().subscribe({
       next: (res)=>{       
-        console.log(res.code);
+        console.log(res);
         this.listCodes=res.code
       },    
       error: (error)=> {
-        console.error("Los datos del servidor no llegan");
         console.log(error);  
       },
-      complete: ()=>{
-        console.log("Complete")
-      }
+      complete: ()=>{}
   })
 
   }

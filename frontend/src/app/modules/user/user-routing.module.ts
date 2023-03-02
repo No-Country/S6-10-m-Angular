@@ -14,26 +14,7 @@ import { TurnosListComponent } from './components/turnos/turnos-list/turnos-list
 import { TurnosSearchComponent } from './components/turnos/turnos-search/turnos-search.component'
 import { TurnosComponent } from './components/turnos/turnos.component'
 import { DashboardComponent } from './dashboard/dashboard.component'
-/*
-const routes: Routes = [
-  {
-    path: '',
-    children: [
-      { path: 'dashboard', component: DashboardComponent,
-      children: [
-        { path: 'prueba', component: PruebaComponent },
-        { path: 'perfil', component: PerfilComponent },
-        { path: 'inicio', component: InicioPacienteComponent },
-        { path: 'medico-turno', component: MedicoTurnoComponent },
-        { path: 'hoja', component: HojaComponent },
-        { path: 'medico-perfil', component: MedicoPerfilComponent },
-        { path: 'hoja', component: HojaComponent },
-        { path: '**', redirectTo: 'inicio'}
-      ] },
-      { path: '**', redirectTo: 'home' }
-    ]
-  }
-]*/
+
 const routes: Routes = [  
   {
     path: '',

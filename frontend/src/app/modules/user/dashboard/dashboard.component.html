@@ -2,6 +2,7 @@
 <div class="container-fluid">
 
 <!-----------NAVBAR DASHBOARD USUARIO--------------->
+
 <nav id="nav-dashboard-user" class="user-dashboard">
     <div id="logo">
         <img src="../../../assets/img/Calendar.png" alt="" id="logo2">
@@ -20,7 +21,7 @@
             <hr>
             <button ngbDropdownItem (click)="navigateDashboard()">Dashboard</button>
             <hr>
-            <button ngbDropdownItem (click)="navigateNotes()">Notificaciones</button>
+            <button ngbDropdownItem (click)="navigateNotes()" disabled>Notificaciones</button>
             <hr>
             <button ngbDropdownItem (click)="closeSession()">Cerrar sesión</button>
         </div>
@@ -58,6 +59,3 @@
     </div>
 </footer>
 </div>
-
-
-

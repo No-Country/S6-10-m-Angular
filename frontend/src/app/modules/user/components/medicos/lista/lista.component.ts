@@ -19,13 +19,12 @@ export class ListaComponent implements OnInit {
     this.medicosDisponibles()
   }
   
+  // GET Medicos By IdSede and IdEspecialidad
   medicosDisponibles(){
     this.especialidadId = sessionStorage.getItem("especialidadElegida");
     this.sedeId = sessionStorage.getItem("sedeElegida");   
     this.userService.getDoctors(this.especialidadId,this.sedeId).subscribe({
-      next: (res) => {
-        console.log(res)
-        console.log(res.doctors);
+      next: (res) => {        
         this.listaMedicos=res.doctors;
       },
       error: (error) => {
@@ -34,9 +33,10 @@ export class ListaComponent implements OnInit {
       complete: () => {}
     })
   }
+
+  // Seleccion del médico
   medicoId(doctorId:any){
     this.medicoElegido = doctorId;
-    console.log(this.medicoElegido);
     sessionStorage.setItem("MedicoElegido",this.medicoElegido)
   }
 }

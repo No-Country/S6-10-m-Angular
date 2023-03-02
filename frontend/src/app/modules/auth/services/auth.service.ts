@@ -23,12 +23,14 @@ export class AuthService {
     })
   }
 
+  // REGISTRARSE
   public nuevo(nuevoUsuario: NuevoUsuario): Observable<any> {
     console.log('El Servicio de Registro esta corriendo en la URL:')
     console.log(this.URL + '/auth/registro')
     return this.httpClient.post<any>(this.URL + '/auth/register', nuevoUsuario)
   }
 
+  // LOGIN
   public login(loginUsuario: LoginUsuario): Observable<any> {
     console.log('El Servicio de Login esta corriendo en la URL')
     console.log(this.URL + '/auth/login')
@@ -39,16 +41,19 @@ export class AuthService {
     )
   }
 
+  // LOGOUT
   public logOut(): void{
     window.sessionStorage.clear();
   }
 
+  // RECUPERAR CONTRASEÑA
   public recoverPassword(email:string){
     console.log('El Servicio de Login esta corriendo en la URL')
     console.log(this.URL + '/password/password')
     return this.httpClient.post<any>(this.URL + '/password/password',email,this.httpOptions.headers)    
   }
 
+  // RESETEAR CONTRASEÑA
   public resetPassword(password:string,token:string){
     console.log('El Servicio de Login esta corriendo en la URL')
     console.log(this.URL + '/password/password/'+token)

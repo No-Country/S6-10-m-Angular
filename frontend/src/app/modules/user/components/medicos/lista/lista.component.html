@@ -1,5 +1,5 @@
 <section id="cartilla">
-    <div>
+    <div id="contiene">
         <div class="panel">
             <div class="title">
                 <p>Médicos</p>
@@ -13,23 +13,26 @@
                 </div>
                 <div class="busqueda">
                     <div class="medicos-disponibles">
-                        <div *ngFor="let item of listaMedicos" class="med-fav medico-favorito">
+                        <div *ngFor="let item of listaMedicos" class="med-fav">
                             <a class="seleccion" [routerLink]= "[ '/user/dashboard/medico-turno']" (click)="medicoId(item.id)">
                                 <img class="imagen-medico" [src]="item.role" alt="imagen">
                                 <div class="nombre-puntos">
                                     <p class="nombre">{{item.firstName}} {{item.lastName}}</p>
-                                    <p><i class="bi bi-star-fill estrella"></i>(5)</p>
-                                </div>                            
-                                <p class="especialidad">{{item.speciality.name}}</p>
-
+                                    <p class="puntos"><i class="bi bi-star-fill estrella"></i>(5)</p>
+                                </div>
+                                <div class="especialidad">
+                                    <p>{{item.speciality.name}}</p>                                
+                                </div>                              
                             </a>                            
                         </div>                                                         
                     </div>     
                 </div>
             </div>
-            <hr>
-            <!------Favoritos------>
-            
+            <div class="row" id="line-container">
+                <div class="col" id="line">
+                </div>
+            </div>
+            <!------Favoritos------>            
             <div class="favoritos">
                 <div class="subtitle2">
                     <p>Médicos favoritos</p>
@@ -48,7 +51,7 @@
                 </div>
             </div>
             <div class="ver-todos">
-                <a routerLink="/user/dashboard/perfil">Ver todos</a>
+                <a>Ver todos</a>
             </div>
         </div>
     </div>

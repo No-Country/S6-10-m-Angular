@@ -9,6 +9,7 @@ const LASTNAME_KEY = 'LastName'
 const DNI_KEY = 'Dni'
 const PHONE_KEY = 'Phone'
 const USERID_KEY = 'UserId'
+const ROL = 'Role'
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +36,7 @@ export class TokenService {
   public getUserId(): string {
     return sessionStorage.getItem(USERID_KEY)!
   }
+
   // userName / FirstName
   public setUserName(userName: string): void {
     return sessionStorage.setItem(USERNAME_KEY, userName)
@@ -42,6 +44,7 @@ export class TokenService {
   public getUserName(): string {
     return sessionStorage.getItem(USERNAME_KEY)!
   }
+
   // LastName
   public setLastName(lastName: string): void {
     return sessionStorage.setItem(LASTNAME_KEY, lastName)
@@ -49,6 +52,7 @@ export class TokenService {
   public getLastName(): string {
     return sessionStorage.getItem(LASTNAME_KEY)!
   }
+
   // DNI
   public setDni(dni: string): void {
     return sessionStorage.setItem(DNI_KEY, dni)
@@ -56,19 +60,30 @@ export class TokenService {
   public getDni(): string {
     return sessionStorage.getItem(DNI_KEY)!
   }
+
   // EMAIL
   public setEmail(email: string): void {
     return sessionStorage.setItem(EMAIL_KEY, email)
   }
+
   public getEmail(): string {
     return sessionStorage.getItem(EMAIL_KEY)!
   }
+  
   // TELEFONO
   public setPhone(phone: string): void {
     return sessionStorage.setItem(PHONE_KEY, phone)
   }
   public getPhone(): string {
     return sessionStorage.getItem(PHONE_KEY)!
+  }
+
+  // ROL
+  public setRole(rol: string): void {
+    return sessionStorage.setItem(ROL, rol)
+  }
+  public getRole(): string {
+    return sessionStorage.getItem(ROL)!
   }
 
   // Authorithies
