@@ -42,36 +42,17 @@ export class RegistroComponent {
 
   ngOnInit(): void {
     this.showCodes()
-  }
-  /*
-  user: NuevoUsuario = {
-    firstName: '',
-    lastName: '',
-    password: '',
-    email: '',
-    dni:0,
-    codeId:0,
-    phone:0
-
-  }
-
-  createUser() {
-    this.authService
-      .nuevo(this.user)
-      .subscribe((data) => console.log('data:', data))
-  }*/
+  }  
 
   // REGISTER
   onRegister() {
     this.nuevoUsuario = this.registroForm.value;
     this.authService.nuevo(this.nuevoUsuario).subscribe({
       next: (data) => {
-        console.log(data)
         this.usuarioRegistrado()
       },
       error: (error) => {
         this.registroIncorrecto()
-        console.log(error)
       },
       complete:()=>{}
     })
@@ -145,8 +126,7 @@ export class RegistroComponent {
   // GetCodes
   showCodes(){
     this.codeService.getCode().subscribe({
-      next: (res)=>{       
-        console.log(res);
+      next: (res)=>{ 
         this.listCodes=res.code
       },    
       error: (error)=> {

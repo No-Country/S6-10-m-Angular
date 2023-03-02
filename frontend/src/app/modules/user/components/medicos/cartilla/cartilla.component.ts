@@ -61,13 +61,11 @@ export class CartillaComponent implements OnInit {
 
   // Select Especialidad
   selectEspecialidad(idEspecialidad:string,especialidadName:string){
-    console.log(idEspecialidad,especialidadName);
     this.especialidad=especialidadName;
     this.idEspecialidad=idEspecialidad
   }
   // Select Sede
   selectSede(idSede:string,sedeName:string){
-    console.log(idSede,sedeName);
     this.sede=sedeName ;
     this.idSede=idSede
   }

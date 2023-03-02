@@ -43,11 +43,9 @@ export class TurnosListComponent implements OnInit {
     this.userService.getSchedulesByEspSedeDate(this.locationId, this.specialtyId, this.date).subscribe({
       next: (res) => {
         this.schedules = res.schedules;
-        console.log(res.schedules);
         this.schedulesList = this.divideArr(this.schedules,8);
       },
       error: (error) => {
-        console.error('Los datos del servidor no llegan')
         console.log(error)
       }
     })

@@ -33,10 +33,8 @@ export class TurnosSearchComponent implements OnInit {
     this.userService.getSpeciality().subscribe({
       next: (res) => {
         this.specialties = res.specialities
-        console.log(this.specialties)
       },
       error: (error) => {
-        console.error('Los datos del servidor no llegan')
         console.log(error)
       }
     })
@@ -46,10 +44,8 @@ export class TurnosSearchComponent implements OnInit {
     this.userService.getSedes().subscribe({
       next: (res) => {
         this.locations = res.sedes
-        console.log(this.locations)
       },
       error: (error) => {
-        console.error('Los datos del servidor no llegan')
         console.log(error)
       }
     })
@@ -61,7 +57,6 @@ export class TurnosSearchComponent implements OnInit {
     if (fecha!=null){
       this.date = fecha;
       this.selectedDate = fecha + "T00:00:00.000Z";
-      console.log(this.selectedDate);      
     } 
     
   }
@@ -71,11 +66,9 @@ export class TurnosSearchComponent implements OnInit {
     this.userService.getSpecialityById(specialtyId).subscribe({
       next: (res) => {
         this.selectedSpecialty = res.speciality;
-        sessionStorage.setItem("selectedSpecialty", JSON.stringify(this.selectedSpecialty));
-        console.log(this.selectedSpecialty);
+        sessionStorage.setItem("selectedSpecialty", JSON.stringify(this.selectedSpecialty));        
       },
       error: (error) => {
-        console.error('Los datos del servidor no llegan')
         console.log(error)
       }
     });
@@ -86,11 +79,9 @@ export class TurnosSearchComponent implements OnInit {
     this.userService.getSede(locationId).subscribe({
       next: (res) => {
         this.selectedLocation = res.sede;
-        sessionStorage.setItem("selectedLocation", JSON.stringify(this.selectedLocation));
-        console.log(this.selectedLocation);
+        sessionStorage.setItem("selectedLocation", JSON.stringify(this.selectedLocation));        
       },
       error: (error) => {
-        console.error('Los datos del servidor no llegan')
         console.log(error)
       }
     })

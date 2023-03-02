@@ -34,9 +34,7 @@ export class FechaService {
 
   public fechaTransform(dataFecha:string){
     const fechita=dataFecha.substring(0,10)
-    console.log(fechita)
     const diaElegido = new Date(fechita);
-    console.log(diaElegido);
     const dia = diaElegido.getDate()+1;
     const mes = diaElegido.getMonth()+1;
     const año = diaElegido.getFullYear();

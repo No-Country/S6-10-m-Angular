@@ -28,11 +28,9 @@ export class RecoverComponent implements OnInit {
     this.email = this.recoverForm.value;
     this.authService.recoverPassword(this.email).subscribe({
       next: (res) => {
-        console.log(res);
         this.sendEmail();
       },
-      error: (error) => {
-        console.log(error); 
+      error: (error) => { 
         this.recoverError()
       },
       complete: () => {}

@@ -136,8 +136,7 @@ export class MedicoTurnoComponent implements OnInit {
   confirmarTurno(){
     this.nuevoTurno={userId:this.userId,scheduleId:this.horarioElegido};
     this.userService.createCita(this.nuevoTurno).subscribe({
-      next: (res) => {
-        console.log(res);        
+      next: (res) => {        
       },
       error: (error) => {
         this.mensajeError()
@@ -203,8 +202,7 @@ export class MedicoTurnoComponent implements OnInit {
       horaTurno: this.horarioMod    
     }
     this.emailService.enviaEmail(this.datosTurno).subscribe({
-      next: (res) => {
-        console.log(res)        
+      next: (res) => {        
       },
       error: (error) => {
         console.log(error)

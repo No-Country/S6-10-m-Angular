@@ -32,7 +32,6 @@ export class NewPasswordComponent implements OnInit {
 
   saveParams(params:any){    
     const array = Object.entries(params)
-    console.log(array[0][1]);
     //Token Recuperado
     this.token = array[0][1];
   }
@@ -42,11 +41,9 @@ export class NewPasswordComponent implements OnInit {
     this.password = this.resetPasswordForm.value;    
     this.authService.resetPassword(this.password,this.token).subscribe({
       next: (res) => {
-        console.log(res);
         this.success();
       },
       error: (error) => {
-        console.log(error)
         this.resetError()
       },
       complete: () => {}
