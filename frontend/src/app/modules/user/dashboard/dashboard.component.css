@@ -38,7 +38,7 @@
 }
 .logout {
     font-size: 35px;
-    color:#0b48d6;
+    color:#a3baef;
     margin-right:20px;
     border:none
 }
@@ -116,11 +116,12 @@
     align-items: flex-start;
     padding: 10px;
     gap: 10px;
-    background: #0b48d6;
+    /*background: #0b48d6;*/
+    background: rgba(0, 0, 0,0.3);
     border-radius: 50px;
 }
 .social-icon img {
-    width:15px;
+    width:20px;
 }
 
 .container-fluid{
