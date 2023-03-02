@@ -221,9 +221,8 @@ export class MedicoTurnoComponent implements OnInit {
   habilitarBoton() {
     this.active=true
   }
-  reload(){
-    this.active=false;
-    location.reload();
-  } 
+  resetSchedules(){
+    this.showSchedules=false;
+  }
 
 }

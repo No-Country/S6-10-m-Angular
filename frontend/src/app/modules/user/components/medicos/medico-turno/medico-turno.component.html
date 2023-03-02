@@ -13,7 +13,7 @@
                 <div class="fecha">
                     <label>1 - Seleccione una fecha para su turno</label><br>
                     <input type="date" id="fecha" value="2023-03-06" 
-                    min="2023-03-06" max="2023-03-17">                     
+                    min="2023-03-06" max="2023-03-17" (click)="resetSchedules()">                     
                 </div>
                 <div class="boton-fecha">
                     <button class="btn btn-blue" id="horariosDisponibles" (click)="getSchedules()">Buscar horarios</button>
@@ -110,7 +110,7 @@
                 </div>
             </div>
             <div class="modal-footer botones">
-                <button type="button" class="btn btn-dark" data-bs-dismiss="modal" (click)="reload()">Cancelar</button>
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cancelar</button>
                 <button id="boton-confirm" class="btn btn-primary" data-bs-dismiss="modal" (click)="confirmarTurno()">Confirmar turno</button>
             </div>        
       </div>
