@@ -20,4 +20,4 @@
                                    QA:           Daniela Gerlo
 
 
-**Link del Deploy**------------->  TBD
+**Link del Deploy**------------->  https://citamed.vercel.app/home
