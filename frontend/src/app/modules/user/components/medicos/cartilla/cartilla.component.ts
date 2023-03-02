@@ -31,6 +31,7 @@ export class CartillaComponent implements OnInit {
     this.obtenerSedes()
   }
 
+  // OBTENER SEDES
   obtenerSedes(){
     this.userService.getSedes().subscribe({
       next: (res) => {
@@ -42,6 +43,8 @@ export class CartillaComponent implements OnInit {
       complete: () => {}
     });   
   }
+
+  // OBTENER ESPECIALIDADES
   obtenerEspecialidad(){
     this.userService.getSpeciality().subscribe({
       next: (res) => {        
@@ -53,6 +56,8 @@ export class CartillaComponent implements OnInit {
       complete: () => {}
     });   
   }
+
+  // SELECTORES
 
   // Select Especialidad
   selectEspecialidad(idEspecialidad:string,especialidadName:string){
@@ -76,13 +81,12 @@ export class CartillaComponent implements OnInit {
       sessionStorage.setItem("sedeElegida",this.idSede);
       //Redirigiendo
       this.router.navigate([ '/user/dashboard/inicio', { outlets: { izq: 'lista' } }])
-
     } else {
       this.eleccionIncorrecta()
     }    
   }
 
-  // ALERT: Falta elegir sede y especialidad
+  // ALERT: Required Sede y Especialidad
 
   eleccionIncorrecta() {
     Swal.fire({
@@ -98,9 +102,7 @@ export class CartillaComponent implements OnInit {
         this.router.navigateByUrl('/user/dashboard/inicio')
       } 
     })
-  }
-
-  
+  }  
     
 }
   

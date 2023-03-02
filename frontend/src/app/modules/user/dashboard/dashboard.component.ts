@@ -22,7 +22,8 @@ export class DashboardComponent implements OnInit {
       this.nombreUsuario="Usuario"
     }
   }
-
+  
+  // CERRAR SESION
   closeSession() {
     Swal.fire({
       title: '¿Estas seguro?',
@@ -39,6 +40,8 @@ export class DashboardComponent implements OnInit {
       }
     })
   }
+
+  // Navegación
   navigatePerfil(){
     this.router.navigateByUrl('/user/dashboard/perfil')
   }

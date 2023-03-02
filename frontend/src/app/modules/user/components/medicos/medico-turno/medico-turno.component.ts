@@ -45,14 +45,13 @@ export class MedicoTurnoComponent implements OnInit {
     this.getDataEspecialidad();
     this.dataPaciente()
   }
+
   //Data del médico
   getMedico(){
     this.medicoElegido = sessionStorage.getItem("MedicoElegido");
     this.userService.getDoctor(this.medicoElegido).subscribe({
       next: (res) => {
-        console.log(res.doctor);
         this.doctor=res.doctor;
-        console.log(this.sedeId)
       },
       error: (error) => {
         console.error(error)
@@ -60,12 +59,12 @@ export class MedicoTurnoComponent implements OnInit {
       complete: () => {}
     })
   }
+
   //Data de la sede
   getDataSede(){
     this.sedeId=sessionStorage.getItem("sedeElegida");
     this.userService.getSede(this.sedeId).subscribe({
       next: (res) => {
-        console.log(res.sede);
         this.sede=res.sede;       
       },
       error: (error) => {
@@ -74,12 +73,12 @@ export class MedicoTurnoComponent implements OnInit {
       complete: () => {}
     })
   }
+
   //Data de la especialidad
   getDataEspecialidad(){
     this.specialityId=sessionStorage.getItem("especialidadElegida");
     this.userService.getSpecialityById(this.specialityId).subscribe({
-      next: (res) => {
-        console.log(res.speciality); 
+      next: (res) => { 
         this.especialidad=res.speciality;      
       },
       error: (error) => {
@@ -89,19 +88,16 @@ export class MedicoTurnoComponent implements OnInit {
     })
 
   }
+
   //Data de horarios
   getSchedules(){
     const dateControl = document.querySelector('input[type="date"]') as HTMLSelectElement;
     if (dateControl!=null){
       this.fechaElegida = dateControl.value + "T00:00:00.000Z";
-      console.log(this.fechaElegida);
     }   
     this.userService.getSchedules(this.medicoElegido,this.fechaElegida).subscribe({
       next: (res) => {
-        console.log(res);
-        console.log(res.schedule)
         if (Array.from(res.schedule).length==0){
-          console.log("El médico elegiso solo atiende de lunes a viernes");
           this.notPosibility=true;
         } else {
           this.notPosibility=false;
@@ -126,13 +122,10 @@ export class MedicoTurnoComponent implements OnInit {
   // SOLICITAR TURNO - Abrir Modal de confirmación
   solicitarTurno(){
     this.selectRatioHour = document.querySelector('input[name="options"]:checked')as HTMLInputElement;
-    console.log(this.selectRatioHour);   
     this.userId=sessionStorage.getItem("UserId");
-    console.log(this.userId);
     this.horarioElegido=this.selectRatioHour.id;
     this.horarioMod=this.selectRatioHour.value;
     const dia = this.horarioElegido;
-    console.log(typeof dia)
     this.fechaMod = this.fechaService.fechaTransform(this.fechaElegida)    
   }
 
@@ -141,9 +134,7 @@ export class MedicoTurnoComponent implements OnInit {
   // CONFIRMAR TURNO
 
   confirmarTurno(){
-    console.log("Turno confirmado");
     this.nuevoTurno={userId:this.userId,scheduleId:this.horarioElegido};
-    console.log(this.nuevoTurno)
     this.userService.createCita(this.nuevoTurno).subscribe({
       next: (res) => {
         console.log(res);        
@@ -161,7 +152,7 @@ export class MedicoTurnoComponent implements OnInit {
 
   /*-----------------------------------------------------*/
 
-  // MENSAJE CONFIRMACION
+  // ALERT: Turno Confirmado
   mensajeConfirm(){
     Swal.fire({
       title: 'Turno Confirmado',
@@ -177,10 +168,10 @@ export class MedicoTurnoComponent implements OnInit {
       }
     })
   }
-//
+
   /*-----------------------------------------------------*/
 
-  // MENSAJE ERROR : "No se pudo agendar el turno"
+  // ALERT: Error:"No se pudo agendar el turno"
   mensajeError(){
     Swal.fire({
       title: 'Error',
@@ -211,7 +202,6 @@ export class MedicoTurnoComponent implements OnInit {
       diaTurno:this.fechaMod,
       horaTurno: this.horarioMod    
     }
-    console.log(this.datosTurno)
     this.emailService.enviaEmail(this.datosTurno).subscribe({
       next: (res) => {
         console.log(res)        
@@ -226,16 +216,16 @@ export class MedicoTurnoComponent implements OnInit {
   // MOSTRAR FECHA ACTUAL
   getDiaActual(){
     this.diaActual=this.fechaService.actual();
-    console.log(this.diaActual)
   }
-
+  
+  /*------------------------------*/
+  
   habilitarBoton() {
     this.active=true
   }
   reload(){
     this.active=false;
     location.reload();
-  }
-  
+  } 
 
 }
