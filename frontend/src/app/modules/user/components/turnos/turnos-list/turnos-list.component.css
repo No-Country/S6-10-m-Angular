@@ -34,7 +34,7 @@
     margin: 1em;
     font-family: 'Poppins';
     font-style: normal;
-    height: 66.4vh;
+    height: 67.6vh;
     overflow-y: scroll;
 }
 
@@ -58,7 +58,7 @@
     color: #1F1F1F;
     width: fit-content;
     border-color: transparent;
-    padding: 1.5em 1em;
+    padding: 0.9em;
 }
 
 #back a{

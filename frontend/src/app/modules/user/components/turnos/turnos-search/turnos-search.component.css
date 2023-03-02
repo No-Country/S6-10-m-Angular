@@ -33,7 +33,7 @@
     margin: 1em;
     font-family: 'Poppins';
     font-style: normal;
-    height: 92%;
+    height: 100%;
 }
 
 span {
@@ -142,14 +142,14 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 0.5em;
+    padding: 0.6em;
 }
 
 #record {
     display: flex;
     flex-direction: row;
     text-align: center;
-    margin: 0.1em;
+    padding: 0.1em;
 }
 
 .dropdown-item, input{
