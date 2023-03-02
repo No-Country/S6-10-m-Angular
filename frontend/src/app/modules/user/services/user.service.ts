@@ -56,9 +56,5 @@ export class UserService {
   //OBTENER HORARIOS POR ESPECIALIDAD SEDE Y FECHA
   public getSchedulesByEspSedeDate(sedeId:string,specialityId:string,fecha:string):Observable<any>{
     return this.http.get<any>(this.URL + "/schedule/"+sedeId+"/"+specialityId+"/"+fecha)    
-  }
-
-
-
-  
+  }  
 }
