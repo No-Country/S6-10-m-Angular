@@ -1,10 +1,10 @@
 <div class="container" id="profile">
     <div class="row" id="panel-header">
         <div class="col">
-            <span><img src="../../../../../../assets/img/Back-arrow.png" alt=""> Volver</span>
+            <a [routerLink]= "[ '/user/dashboard/inicio', { outlets: { der:'turnoslist'}}]"><i class="bi bi-arrow-left"></i> Volver</a>
         </div>
         <div class="col" id="panel-title">
-            <span>Ines Wimbler <img src="../../../../../../assets/img/Heart.png" alt=""></span>
+            <span>Ines Wimbler <img src="../../../../../../assets/img/Heart.png" alt=""></span>           
         </div>
         <div class="col">
             <div id="button">Solicitar turno</div>

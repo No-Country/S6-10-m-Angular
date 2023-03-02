@@ -97,7 +97,7 @@ export class CartillaComponent implements OnInit {
       confirmButtonText: 'Aceptar'
     }).then((result:any) => {
       if (result.isConfirmed) {
-        this.router.navigateByUrl('/user/dashboard/inicio')
+        this.router.navigate([ '/user/dashboard/inicio', { outlets: { izq: null } }])
       } 
     })
   }  

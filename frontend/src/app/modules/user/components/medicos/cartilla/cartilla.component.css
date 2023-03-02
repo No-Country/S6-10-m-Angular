@@ -163,3 +163,6 @@ hr {
     line-height: 22px;
     color: #1F1F1F
 }
+#especialidad li,#sede li {
+    cursor:pointer
+}
