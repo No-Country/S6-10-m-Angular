@@ -7,6 +7,7 @@ const {
     deleteSede,
     updateSede,
     getAllSede,
+    getSedeById,
 } = require('../controllers/sede.controller');
 
 const {
@@ -26,6 +27,7 @@ const {
 router.use(protectToken);
 
 router.get('/', getAllSede);
+router.get('/:id', sedeExists, getSedeById);
 router.post('/', validateSedeFields, protectAdmin, createSede);
 router.delete('/:id', sedeExists, protectAdmin, deleteSede);
 router.patch('/:id', validateSedeFields, sedeExists, protectAdmin, updateSede);

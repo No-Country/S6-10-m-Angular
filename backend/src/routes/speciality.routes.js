@@ -7,6 +7,7 @@ const {
     deleteSpeciality,
     updateSpeciality,
     getAllSpeciality,
+    getSpecialityById,
 } = require('../controllers/speciality.controller');
 
 const {
@@ -26,6 +27,7 @@ const {
 router.use(protectToken);
 
 router.get('/', getAllSpeciality);
+router.get('/:id', specialityExists, getSpecialityById);
 router.post('/', validateSpecialityFields, protectAdmin, createSpeciality);
 router.delete('/:id', specialityExists, protectAdmin, deleteSpeciality);
 router.patch('/:id', validateSpecialityFields, specialityExists, protectAdmin, updateSpeciality);

@@ -28,8 +28,8 @@ const initModels = () => {
     Favorite.belongsTo(Doctor);
 
     // one appointment <---> one schedule
-    Appointment.hasOne(Schedule);
-    Schedule.belongsTo(Appointment);
+    Schedule.hasOne(Appointment);
+    Appointment.belongsTo(Schedule);
 
     // one Doctor <---> many Schedule
     Doctor.hasMany(Schedule);

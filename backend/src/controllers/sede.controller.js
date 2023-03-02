@@ -49,6 +49,13 @@ const updateSede = catchAsync(async (req, res, next) => {
     res.status(200).json({ status: 'success', message: 'sede has been updated' });
   });
 
+  const getSedeById = catchAsync(async (req, res, next) => {
+    const { sede } = req;
+    res.status(200).json({
+      sede,
+    });
+  });
+  
 
 
 module.exports = {
@@ -56,4 +63,5 @@ module.exports = {
     deleteSede,
     updateSede,
     getAllSede,
+    getSedeById,
 };

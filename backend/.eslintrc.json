@@ -22,6 +22,7 @@
         "no-dupe-keys": "off",
         "consistent-return": "off",
         "no-use-before-define": "off",
-        "prefer-destructuring": "off"
+        "prefer-destructuring": "off",
+        "no-param-reassign": "off",
     }
 }

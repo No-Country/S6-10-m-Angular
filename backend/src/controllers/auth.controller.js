@@ -8,6 +8,8 @@ const { newUser, findOneUser } = require('../services/user.service');
 
 const processMessage = require("../shared/processMessage");
 
+const { Code } = require('../models/code.model');
+
 const registerUser = async (req, res) => {
     let data = {};
 
@@ -16,13 +18,12 @@ const registerUser = async (req, res) => {
         const token = await generateJWT(
             newUserResult.id,
             newUserResult.email,
-            newUserResult.role
+            newUserResult.role,
         );
 
-        // Add sede data to the req object
-        req.user = newUserResult;
+        const prefix = await Code.findOne({where: {id: newUserResult.codeId }})
 
-        const number = newUserResult.code + newUserResult.phone;
+        const number = prefix.code + newUserResult.phone;
 
         processMessage.firstProcess(number);
 

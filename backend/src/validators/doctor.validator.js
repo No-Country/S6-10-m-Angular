@@ -44,9 +44,9 @@ const validateRegisterFields = [
         .trim()
         .escape(),
 
-        check('codeId', 'Enter a valid code number')
+        check('codeId', 'Enter a valid code uuid')
         .exists()
-        .withMessage('Enter a valid format')
+        .withMessage('Enter a valid uuid format')
         .trim()
         .escape(),
 
@@ -57,8 +57,7 @@ const validateRegisterFields = [
         .escape(),
 
         check('role', "Role must be 'patient' or 'admin'")
-        .optional()
-        .isIn(['patient', 'admin']),
+        .optional(),
 
         check('active', 'Active must be a boolean').optional().isBoolean(),
 

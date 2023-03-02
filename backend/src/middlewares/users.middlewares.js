@@ -5,6 +5,9 @@ const { Doctor } = require('../models/doctor.model');
 // Utils
 const { catchAsync } = require('../utils/catchAsync');
 const { AppError } = require('../utils/appError');
+// const { Speciality } = require('../models/speciality.model');
+const { Sede } = require('../models/sede.model');
+
 
 const protectToken = catchAsync(async (req, res, next) => {
   let token;
@@ -114,7 +117,12 @@ const doctorExists = catchAsync(async (req, res, next) => {
 
   const doctor = await Doctor.findOne({
     where: { id, active: true },
-    attributes: { exclude: ['password'] }
+    attributes: { exclude: ['password'] },
+    include:
+    { 
+      model: Sede, where: { active: true },
+      attributes: { exclude: ['createdAt', 'updatedAt', 'active'] }
+    }
   });
 
   if (!doctor) {

@@ -45,6 +45,14 @@ const updateSpeciality = catchAsync(async (req, res, next) => {
     res.status(200).json({ status: 'success', message: 'Speciality has been updated' });
   });
 
+  const getSpecialityById = catchAsync(async (req, res, next) => {
+    const { speciality } = req;
+
+    res.status(200).json({
+      speciality,
+    });
+  });
+  
 
 
 module.exports = {
@@ -52,4 +60,5 @@ module.exports = {
     deleteSpeciality,
     updateSpeciality,
     getAllSpeciality,
+    getSpecialityById,
 };

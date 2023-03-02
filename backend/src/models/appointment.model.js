@@ -12,8 +12,9 @@ const Appointment = db.define('appointment', {
         allowNull: false,
     },
     type: {
-        type: DataTypes.STRING,
-        defaultValue: 'sede',
+        type: DataTypes.ENUM,
+        values: ['face-to-face', 'virtual'],
+        defaultValue: 'face-to-face',
         allowNull: false,
     },
     active: {

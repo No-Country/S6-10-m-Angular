@@ -15,9 +15,9 @@ const newUser = async ({
     firstName,
     lastName,
     email,
-    codeId,
     password,
     dni,
+    codeId,
     phone,
     role,
 }) => {
