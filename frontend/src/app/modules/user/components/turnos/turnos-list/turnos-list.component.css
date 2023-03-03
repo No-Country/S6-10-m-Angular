@@ -204,3 +204,31 @@ a {
     display:flex;
     justify-content:space-between
 }
+#repart {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width:80%;
+}
+#chix {
+    display:flex;
+    justify-content:space-between
+}
+#horarios {
+    display:flex; 
+    flex-wrap:wrap;
+    justify-content: center;
+}
+
+.buttone {/*
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;*/
+    width: 66px;
+    height: 24px;
+    border-color: #0be3be;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    /* border-color: linear-gradient(90deg, #0088d6, #0be3be); */
+}

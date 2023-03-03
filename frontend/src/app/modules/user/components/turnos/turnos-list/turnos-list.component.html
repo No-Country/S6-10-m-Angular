@@ -14,10 +14,11 @@
         <div class="row g-2" id="filters">
 
             <!-- <div class="col"> -->
+                <!----
             <div id="back">
                 <a [routerLink]="[ '/user/dashboard/inicio',{outlets:{der:'turnossearch'}}]">
                     <img src="../../../../../../assets/img/Arrow-back.png" class="img-fluid" alt=""> Volver</a>
-            </div>
+            </div>--->
             <!-- </div> -->
 
             <div class="col-12 col-md-auto">
@@ -67,9 +68,8 @@
         -->
 
         <!-- LISTA DE TURNOS POR ESPECIALIDAD, SEDE Y FECHA -->
-
-        <div class="row" id="item" *ngFor="let item of schedulesList let i=index">
-
+        
+        <div class="row" id="item" *ngFor="let item of schedulesList let i=index">            
             <div class="col-3">
                 <div class="doctor">
                     <span>{{schedulesList[i][0].doctor.firstName}} {{schedulesList[i][0].doctor.lastName}}</span>
@@ -83,20 +83,16 @@
             <div class="col schedule">
                 <div *ngFor="let val of schedulesList[i]">
                     <button class="buttone" (click)="reserve(val.id,schedulesList[i][0].doctor.firstName + '' + schedulesList[i][0].doctor.lastName,val.hour.slice(0,5))" data-bs-toggle="modal" data-bs-target="#solicitarTurno" data-backdrop="static">{{val.hour.slice(0,5)}}</button>
-                    <!-- <span> {{val.doctor.firstName}}</span> -->
+                    
                 </div>
             </div>
-
             <div class="col-1 heart">
                 <div>
                     <img src="../../../../../../assets/img/Heart-red.png" alt="" class="img-fluid">
                 </div>
             </div>
-
         </div>
-
     </div>
-
 </div>
 
 <!---------------Modal de confirmación de turno--------------------->
