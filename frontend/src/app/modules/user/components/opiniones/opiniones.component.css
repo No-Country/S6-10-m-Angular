@@ -174,10 +174,16 @@
   .opinion-button-turno  {
     padding: 5px;
     font-size: 15px;
-    top: 10px;
+    top: 50px;
   }
   .opinion-title {
-    margin-right: 40px;
-    background-color: aquamarine;
+    margin-right: 10px;
+    margin-bottom: 40px;
+  }
+  .opinion-button-back {
+    top: 50px
+  }
+  .opinion {
+    width: 300px;
   }
 }
